@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Portfolio</title>
+    <style>
+        /* Stili base */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        nav {
+            background: #34495e;
+            padding: 1rem;
+        }
+        
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        
+        section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nome Cognome</h1>
+        <p>Sviluppatore Web | Designer | Fotografo</p>
+    </header>
+    
+    <nav>
+        <a href="#about">Chi Sono</a>
+        <a href="#projects">Progetti</a>
+        <a href="#contact">Contatti</a>
+    </nav>
+    
+    <section id="about">
+        <h2>Chi Sono</h2>
+        <p>Ciao! Sono [Nome], un [professione] appassionato di [interessi]. Qui trovi una selezione dei miei lavori migliori.</p>
+    </section>
+    
+    <section id="projects">
+        <h2>I Miei Lavori</h2>
+        
+        <div class="project">
+            <h3>Progetto 1</h3>
+            <p>Descrizione breve del progetto. Cosa hai realizzato e con quali tecnologie.</p>
+            <a href="#">Vedi progetto</a>
+        </div>
+        
+        <div class="project">
+            <h3>Progetto 2</h3>
+            <p>Descrizione breve del progetto. Cosa hai realizzato e con quali tecnologie.</p>
+            <a href="#">Vedi progetto</a>
+        </div>
+        
+        <!-- Aggiungi altri progetti qui -->
+    </section>
+    
+    <section id="contact">
+        <h2>Contattami</h2>
+        <form>
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="message">Messaggio:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Invia</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Il Mio Portfolio. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
