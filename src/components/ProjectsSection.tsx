@@ -93,18 +93,29 @@ const ProjectsSection: React.FC = () => {
     {
       title: "EatsNeed",
       description: "App mobile Flutter per la gestione dei prodotti in dispensa, con notifiche per le scadenze e suggerimenti di ricette personalizzate.",
-      image: "https://placehold.co/600x400/262626/424242?text=EatsNeed+App&font=montserrat",
+      image: "/images/EatsNeed_splash.jpg",
       technologies: [
         { name: "Flutter" },
         { name: "Firebase" },
         { name: "Barcode API" },
         { name: "Notifications" }
       ],
-      liveLink: "#",
-      githubLink: "#",
+      liveLink: "https://play.google.com/store/apps/details?id=com.miscorex.eatsneed",
+      //githubLink: "#",
       featured: true
     },
     {
+      title: "PianoMap",
+      description: "PianoMap è l'app dedicata agli amanti del pianoforte e della musica che vogliono scoprire, suonare e condividere pianoforti accessibili al pubblico in ogni angolo del mondo.",
+      image: "/images/pianoMaps_splash.png",
+      technologies: [
+        { name: "Flutter" },
+        { name: "Firebase" }
+      ],
+      //liveLink: "#",
+      featured: true
+    },
+    /*{
       title: "Torchmaze",
       description: "Videogioco mobile survival in prima persona realizzato con Unity. Sfida i giocatori a trovare l'uscita prima che la torcia si spenga.",
       image: "https://placehold.co/600x400/262626/424242?text=Torchmaze+Game&font=montserrat",
@@ -116,7 +127,7 @@ const ProjectsSection: React.FC = () => {
       ],
       liveLink: "#",
       featured: true
-    }
+    }*/
   ];
 
   return (

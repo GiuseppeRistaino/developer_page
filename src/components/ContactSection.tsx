@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
+import emailjs from '@emailjs/browser';
 
 const SocialLink: React.FC<{ href: string; icon: React.ReactNode; label: string }> = ({ href, icon, label }) => {
   return (
@@ -20,26 +21,50 @@ const SocialLink: React.FC<{ href: string; icon: React.ReactNode; label: string 
   );
 };
 
+
+/*
+Per modifiche al template
+https://dashboard.emailjs.com/
+User: vrexas1@gmail.com
+PW: la solita con più sicurezza
+*/
 const ContactSection: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success("Message sent successfully! I will get back to you soon.", {
+
+    try {
+      const result = await emailjs.send(
+        'service_la0afdc',
+        'template_47c7ltn',
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        'YGlLkitCYTHPBrccp'
+      );
+
+      toast.success("Messaggio inviato con successo! Ti risponderò presto.", {
         position: "bottom-right",
       });
+
       setName('');
       setEmail('');
       setMessage('');
+    } catch (error) {
+      console.error(error);
+      toast.error("Errore durante l'invio. Riprova più tardi.", {
+        position: "bottom-right",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -58,27 +83,27 @@ const ContactSection: React.FC = () => {
             
             <div className="space-y-4 mb-8">
               <SocialLink 
-                href="mailto:example@example.com" 
+                href="mailto:vrexas.developer@gmail.com" 
                 icon={<Mail size={20} className="text-highlight" />}
-                label="example@example.com" 
+                label="vrexas.developer@gmail.com" 
               />
               <SocialLink 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://www.linkedin.com/in/giuseppe-ristaino-0b435b157/" 
                 icon={<Linkedin size={20} className="text-highlight" />}
                 label="LinkedIn" 
               />
               <SocialLink 
-                href="https://github.com/yourusername" 
+                href="https://github.com/GiuseppeRistaino" 
                 icon={<Github size={20} className="text-highlight" />}
                 label="GitHub" 
               />
               <SocialLink 
-                href="https://instagram.com/yourusername" 
+                href="https://www.instagram.com/vre.xas/" 
                 icon={<Instagram size={20} className="text-highlight" />}
                 label="Instagram" 
               />
             </div>
-            
+            {/* CV CURRICULUM
             <div className="bg-dark-card p-6 rounded-lg border border-dark-surface">
               <h4 className="font-bold mb-3">CV Download</h4>
               <p className="text-text-secondary text-sm mb-4">
@@ -91,6 +116,7 @@ const ContactSection: React.FC = () => {
                 Download CV
               </Button>
             </div>
+            */}
           </div>
           
           <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>

@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center gap-6">
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/GiuseppeRistaino" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-text-secondary hover:text-highlight transition-colors"
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com/in/yourusername" 
+              href="https://www.linkedin.com/in/giuseppe-ristaino-0b435b157/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-text-secondary hover:text-highlight transition-colors"
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="https://instagram.com/yourusername" 
+              href="https://www.instagram.com/vre.xas/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-text-secondary hover:text-highlight transition-colors"

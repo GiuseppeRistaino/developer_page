@@ -33,17 +33,20 @@ const AboutSection: React.FC = () => {
           <div className="animate-slide-in" style={{ animationDelay: '0.2s' }}>
             <h3 className="text-2xl font-display font-bold mb-6">Background Professionale</h3>
             <p className="text-text-secondary mb-6 leading-relaxed">
-              Sono uno sviluppatore con passione per l'innovazione e il design funzionale.
-              Il mio percorso professionale mi ha permesso di acquisire competenze
-              sia nello sviluppo di applicazioni mobile con Flutter che nella creazione
-              di videogiochi con Unity.
+             Sono uno sviluppatore backend con una forte passione per la logica, 
+             la progettazione di sistemi scalabili e l'efficienza del codice. 
+             Ho maturato esperienza professionale lavorando con SAP Commerce (Hybris), 
+             approfondendo aspetti complessi dell’architettura software e dell’integrazione tra sistemi.
+
             </p>
             <p className="text-text-secondary mb-6 leading-relaxed">
-              La mia filosofia di lavoro si concentra sulla creazione di esperienze
-              digitali intuitive e piacevoli, dove la funzionalità incontra l'estetica.
-              Credo fermamente che un buon design debba essere tanto bello quanto utile.
+              Nel tempo libero mi dedico alla creazione di applicazioni funzionali per dispositivi mobili e 
+              allo sviluppo di videogiochi, con particolare affetto per le avventure grafiche. 
+              Da sempre appassionato di videogiochi, sono cresciuto con titoli come Monkey Island, 
+              e sogno un giorno di realizzare una mia avventura grafica.
             </p>
             
+            {/*
             <h3 className="text-2xl font-display font-bold mt-10 mb-6">Approccio al design</h3>
             <p className="text-text-secondary leading-relaxed">
               Il mio approccio alla progettazione è centrato sull'utente. Inizio ogni progetto
@@ -52,6 +55,7 @@ const AboutSection: React.FC = () => {
               che non solo soddisfano i requisiti tecnici, ma offrono anche un'esperienza
               utente eccellente.
             </p>
+            */}
           </div>
           
           <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>

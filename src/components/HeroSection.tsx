@@ -21,12 +21,13 @@ const HeroSection: React.FC = () => {
           <div className="flex-1 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <p className="text-highlight font-medium mb-4">Sviluppatore & Designer</p>
             <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
-              Ciao, sono <span className="highlight-gradient">Nome</span>, <br />
-              creo esperienze digitali
+              Ciao, sono <span className="highlight-gradient">Giuseppe</span>, <br />
+              in arte <span className="highlight-gradient">Vrexas</span><br />
+              un umile sognatore
             </h1>
             <p className="text-text-secondary text-lg md:text-xl mb-8 max-w-xl">
               Sviluppatore e designer specializzato nella creazione di applicazioni 
-              mobile e giochi con un focus su interfacce intuitive e user experience eccellente.
+              mobile e giochi.
             </p>
             <div className="flex flex-wrap gap-4">
               <button onClick={scrollToProjects} className="btn-primary flex items-center gap-2">
@@ -52,9 +53,9 @@ const HeroSection: React.FC = () => {
                   <code className="text-sm font-mono text-text-primary block p-4">
                     <span className="text-blue-400">const</span> <span className="text-green-400">developer</span> = {'{'}
                     <br />
-                    &nbsp;&nbsp;<span className="text-yellow-400">name</span>: <span className="text-orange-400">'Nome'</span>,
+                    &nbsp;&nbsp;<span className="text-yellow-400">name</span>: <span className="text-orange-400">'Vrexas'</span>,
                     <br />
-                    &nbsp;&nbsp;<span className="text-yellow-400">skills</span>: [<span className="text-orange-400">'Flutter'</span>, <span className="text-orange-400">'Unity'</span>, <span className="text-orange-400">'UI/UX'</span>],
+                    &nbsp;&nbsp;<span className="text-yellow-400">skills</span>: [<span className="text-orange-400">'Flutter'</span>, <span className="text-orange-400">'Unity'</span>, <span className="text-orange-400">'Java'</span>, <span className="text-orange-400">'UI/UX'</span>],
                     <br />
                     &nbsp;&nbsp;<span className="text-yellow-400">passion</span>: <span className="text-orange-400">'Building intuitive experiences'</span>
                     <br />
