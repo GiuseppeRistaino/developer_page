@@ -10,6 +10,12 @@ const blogModules = import.meta.glob("../content/blogs/*.md", {
   as: "raw",
 });
 
+const docModules = import.meta.glob("../content/documentazione/**/*.md", {
+  eager: true,
+  as: "raw",
+});
+
+
 // ==============================
 // Import immagini
 // ==============================
@@ -37,6 +43,25 @@ export interface BlogArticle {
   content: string;
   coverImage: string;
 }
+
+export interface DocCategory {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  articles: DocArticle[];
+}
+
+export interface DocArticle {
+  slug: string;
+  category: string;
+  title: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
+  content: string;
+}
+
 
 // ==============================
 // Parser frontmatter
@@ -97,4 +122,54 @@ export const loadBlogs = (): BlogArticle[] => {
       coverImage,
     };
   });
+};
+
+// ==============================
+// Load Docs
+// ==============================
+export const loadDocs = (): DocCategory[] => {
+  const categoriesMap: Record<string, DocCategory> = {};
+
+  Object.entries(docModules).forEach(([path, raw]) => {
+    const { data, content } = parseFrontmatter(raw as string);
+
+    const parts = path.split("/");
+    const categoryFolder = parts[parts.length - 2];
+
+    // slug dal frontmatter (fallback al nome file)
+    const fileSlug = parts[parts.length - 1].replace(".md", "");
+    const slug = data.slug || fileSlug;
+
+    if (!categoriesMap[categoryFolder]) {
+      categoriesMap[categoryFolder] = {
+        id: categoryFolder.toLowerCase(),
+        title: categoryFolder,
+        description: "",
+        icon: "",
+        articles: [],
+      };
+    }
+
+    const contentWithResolvedImages = content.replace(
+      /!\[([^\]]*)\]\(([^)]+)\)/g,
+      (_, alt, src) => {
+        const resolved = resolveImage(src);
+        return `![${alt}](${resolved})`;
+      }
+    );
+
+    const article: DocArticle = {
+      slug,
+      category: categoryFolder,
+      title: data.title || "",
+      date: data.date || "",
+      readTime: data.readTime || "",
+      excerpt: data.excerpt || "",
+      content: contentWithResolvedImages,
+    };
+
+    categoriesMap[categoryFolder].articles.push(article);
+  });
+
+  return Object.values(categoriesMap);
 };
