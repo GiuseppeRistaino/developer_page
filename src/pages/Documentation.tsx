@@ -8,16 +8,14 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 
 // ==============================
-// DOCUMENTATION PAGE (Lista categorie con accordion)
+// DOCUMENTATION PAGE (Accordion singolo, articoli con excerpt)
 // ==============================
 const Documentation = () => {
   const docCategories = loadDocs();
-  const [openCategoryIds, setOpenCategoryIds] = useState<string[]>([]);
+  const [openCategoryId, setOpenCategoryId] = useState<string | null>(null);
 
   const toggleCategory = (id: string) => {
-    setOpenCategoryIds((prev) =>
-      prev.includes(id) ? prev.filter((cid) => cid !== id) : [...prev, id]
-    );
+    setOpenCategoryId((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -35,58 +33,67 @@ const Documentation = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-8">
           {docCategories.map((cat) => {
-            const isOpen = openCategoryIds.includes(cat.id);
+            const isOpen = openCategoryId === cat.id;
             return (
               <div
                 key={cat.id}
-                className="rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-gold"
+                onClick={() => toggleCategory(cat.id)}
+                className={`
+                  cursor-pointer rounded-xl border bg-card p-6 transition-all duration-300
+                  ${isOpen ? "border-orange-500 shadow-gold" : "border-border"}
+                  hover:border-primary/30
+                `}
               >
                 {/* Header categoria */}
-                <button
-                  className="flex items-center justify-between w-full mb-4"
-                  onClick={() => toggleCategory(cat.id)}
-                >
+                <div className="flex items-center justify-between w-full mb-4">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{cat.icon}</span>
+                    {/* Icona piccola accanto al titolo */}
+                    {cat.icon && <span className="text-2xl">{cat.icon}</span>}
                     <h2 className="font-heading text-xl font-bold">{cat.title}</h2>
                   </div>
                   <span
-                    className={`transition-transform text-primary ${isOpen ? "rotate-90" : "rotate-0"}`}
+                    className={`transition-all duration-300 ${
+                      isOpen
+                        ? "rotate-90 text-orange-500"
+                        : "rotate-0 text-muted-foreground"
+                    }`}
                   >
                     ▶
                   </span>
-                </button>
+                </div>
 
                 <p className="text-sm text-muted-foreground mb-4">{cat.description}</p>
 
-                {/* Lista articoli con scroll e max-height */}
+                {/* Lista articoli */}
                 {isOpen && (
-                  <div className="space-y-3 max-h-64 overflow-y-auto">
+                  <div className="space-y-3 max-h-64 overflow-y-auto custom-scrollbar">
                     {cat.articles.map((article) => (
                       <Link
                         key={article.slug}
                         to={`/documentazione/${cat.id}/${article.slug}`}
-                        className="
-                          group flex items-center justify-between
-                          rounded-lg border border-border bg-secondary/50
-                          px-4 py-3 transition-all
-                          hover:bg-secondary hover:border-primary/30 hover:shadow-gold
-                        "
+                        onClick={(e) => e.stopPropagation()}
+                        className="group flex flex-col border border-border rounded-lg
+                                  bg-secondary/50 px-4 py-3 transition-all
+                                  hover:bg-secondary hover:border-primary/30 hover:shadow-gold"
                       >
-                        <div>
+                        <div className="flex items-center justify-between">
                           <h3 className="text-sm font-medium group-hover:text-primary transition-colors">
                             {article.title}
                           </h3>
-                          <p className="text-xs text-muted-foreground mt-0.5">
-                            {article.readTime}
-                          </p>
+                          <ArrowRight
+                            size={16}
+                            className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1"
+                          />
                         </div>
-                        <ArrowRight
-                          size={16}
-                          className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1"
-                        />
+                        <p className="text-xs text-muted-foreground mt-1">{article.readTime}</p>
+                        {/* Aggiunta dell'excerpt */}
+                        {article.excerpt && (
+                          <p className="text-xs text-muted-foreground mt-1 line-clamp-3">
+                            {article.excerpt}
+                          </p>
+                        )}
                       </Link>
                     ))}
                   </div>

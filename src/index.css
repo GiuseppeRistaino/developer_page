@@ -99,3 +99,28 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-gold);
   }
 }
+
+
+/* Scrollbar personalizzata solo per le liste documentazione */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #f97316 transparent; /* thumb arancione, track trasparente */
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f97316; /* arancione */
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #ea580c; /* arancione più scuro hover */
+}
