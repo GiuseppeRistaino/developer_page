@@ -49,9 +49,15 @@ const Documentation = () => {
                 {/* Header categoria */}
                 <div className="flex items-center justify-between w-full mb-4">
                   <div className="flex items-center gap-3">
-                    {/* Icona piccola accanto al titolo */}
-                    {cat.icon && <span className="text-2xl">{cat.icon}</span>}
                     <h2 className="font-heading text-xl font-bold">{cat.title}</h2>
+                    {/* Icona piccola accanto al titolo */}
+                    {cat.icon && (
+                      <img
+                        src={cat.icon}
+                        alt={cat.title}
+                        className="w-6 h-6 object-contain"
+                      />
+                    )}
                   </div>
                   <span
                     className={`transition-all duration-300 ${

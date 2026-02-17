@@ -15,6 +15,12 @@ const docModules = import.meta.glob("../content/documentazione/**/*.md", {
   as: "raw",
 });
 
+const iconModules = import.meta.glob("../assets/icons/*.png", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+
 
 // ==============================
 // Import immagini
@@ -141,11 +147,20 @@ export const loadDocs = (): DocCategory[] => {
     const slug = data.slug || fileSlug;
 
     if (!categoriesMap[categoryFolder]) {
+      const categoryId = categoryFolder.toLowerCase();
+
+      // Cerca icona con stesso nome dell'id
+      const iconEntry = Object.entries(iconModules).find(([path]) =>
+        path.toLowerCase().includes(`${categoryId}.png`)
+      );
+
+      const iconPath = iconEntry ? iconEntry[1] : "";
+
       categoriesMap[categoryFolder] = {
-        id: categoryFolder.toLowerCase(),
+        id: categoryId,
         title: categoryFolder,
         description: "",
-        icon: "",
+        icon: iconPath,
         articles: [],
       };
     }
