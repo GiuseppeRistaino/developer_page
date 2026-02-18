@@ -21,7 +21,9 @@ const Documentation = () => {
   return (
     <div className="min-h-screen py-24">
       <div className="container mx-auto px-6">
-        <div className="mb-12">
+        
+        {/* Header */}
+        <div className="mb-12 animate-fade-up">
           <p className="text-sm font-medium uppercase tracking-widest text-primary mb-2">
             Knowledge Base
           </p>
@@ -154,7 +156,6 @@ export const DocArticlePage = () => {
 
         <article>
           <div className="flex items-center gap-2 text-xs text-primary font-medium mb-4">
-            <span>{category.icon}</span>
             <span>{category.title}</span>
           </div>
 

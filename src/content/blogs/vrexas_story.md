@@ -21,7 +21,7 @@ Non vi preoccupate non ho sbagliato.
 Questa è la storia di Henry e di come fosse finito nella lista nera della maggior parte delle persone che ha conosciuto.
 
 
-![Henry](images/vrexas_story.png)
+![Henry](vrexas_story.png)
 
 Era un periodo della mia vita abbastanza triste. Mi ero appena lasciato con la ragazza e mi ero messo in testa di non voler vedere più nessuno per il resto della mia vita. Mi rintanavo in casa e cercavo di uscire raramente.
 Perdevo il mio tempo a cercare giochi sul PC dove potermi distrarre. Ma tutti i giochi che trovavo erano fini a se stessi oppure erano core viste e riviste che mi annoiavano. Finchè un giorno mi imbattei su un gioco dove la pagina principale prometteva qualcosa che non avevo mai visto e non pensavo potesse mai esistere. La possibilità di perdersi nella propria fantasia, e dove i limiti potevano essere posti solo dalla propia immaginazione.

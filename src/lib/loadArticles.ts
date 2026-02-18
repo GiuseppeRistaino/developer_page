@@ -26,7 +26,7 @@ const iconModules = import.meta.glob("../assets/icons/*.png", {
 // Import immagini
 // ==============================
 const imageModules = import.meta.glob(
-  "../content/blogs/**/*.{png,jpg,jpeg,webp}",
+  "../assets/images/*.{png,jpg,jpeg,webp}",
   {
     eager: true,
     import: "default",
