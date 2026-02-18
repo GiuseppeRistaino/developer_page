@@ -23,7 +23,7 @@ const Blog = () => {
       <div className="container mx-auto px-6 max-w-6xl">
         
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-16 animate-fade-up">
           <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
             La mia vita
           </p>
