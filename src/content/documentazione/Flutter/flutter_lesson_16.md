@@ -8,7 +8,7 @@ excerpt: "ListView"
 
 # ListView
 
-n questa lezione viene introdotto il widget ListView, uno dei componenti più importanti per creare interfacce moderne. Viene spiegato come questo widget rappresenti una "scorciatoia" efficiente rispetto alla combinazione manuale di più widget.
+In questa lezione viene introdotto il widget ListView, uno dei componenti più importanti per creare interfacce moderne. Viene spiegato come questo widget rappresenti una "scorciatoia" efficiente rispetto alla combinazione manuale di più widget.
 
 ---
 
