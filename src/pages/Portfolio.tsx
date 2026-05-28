@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import scantrakIcon from "../../PORTFOLIO/Scantrak/icon_scantrak.png";
 
 interface Project {
   id: string;
@@ -8,9 +9,20 @@ interface Project {
   description: string;
   tags: string[];
   image?: string;
+  imageAlt?: string;
+  status?: string;
 }
 
 const projects: Project[] = [
+  {
+    id: "scantrak",
+    title: "ScanTrak",
+    description: "App mobile offline-first per scansionare scontrini, normalizzare gli acquisti con AI e trasformare la spesa quotidiana in statistiche leggibili.",
+    tags: ["Flutter", "Firebase", "Gemini AI", "SQLite", "AdMob"],
+    image: scantrakIcon,
+    imageAlt: "Icona ScanTrak",
+    status: "In sviluppo",
+  },
   {
     id: "ecommerce-platform",
     title: "Piattaforma E-Commerce Enterprise",
@@ -49,7 +61,7 @@ const Portfolio = () => {
           </p>
           <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">Portfolio</h1>
           <p className="text-muted-foreground max-w-2xl">
-            Una selezione dei progetti più significativi su cui ho lavorato. Clicca su un progetto per leggere i dettagli nel blog dedicato.
+            Una selezione dei progetti più significativi su cui ho lavorato e delle applicazioni che sto costruendo. Clicca su un progetto per leggere i dettagli.
           </p>
         </div>
 
@@ -89,9 +101,25 @@ const Portfolio = () => {
               className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-gold"
             >
               <div className="flex items-start justify-between mb-4">
-                <h3 className="font-heading text-lg font-semibold group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
+                <div className="flex items-center gap-3">
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt ?? project.title}
+                      className="h-12 w-12 rounded-xl object-cover shadow-gold"
+                    />
+                  )}
+                  <div>
+                    <h3 className="font-heading text-lg font-semibold group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    {project.status && (
+                      <span className="mt-1 inline-flex rounded-md bg-emerald-500/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-300">
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
+                </div>
                 <ArrowRight
                   size={18}
                   className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1 flex-shrink-0 mt-1"

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vrexas</title>
+    <script>
+      (function (location) {
+        var pathSegmentsToKeep = location.pathname.split("/")[1] === "developer_page" ? 1 : 0;
+        var basePath = location.pathname
+          .split("/")
+          .slice(0, 1 + pathSegmentsToKeep)
+          .join("/");
+        var routePath = location.pathname
+          .slice(1)
+          .split("/")
+          .slice(pathSegmentsToKeep)
+          .join("/");
+
+        location.replace(
+          location.protocol +
+            "//" +
+            location.hostname +
+            (location.port ? ":" + location.port : "") +
+            basePath +
+            "/?/" +
+            routePath.replace(/&/g, "~and~") +
+            (location.search ? "&" + location.search.slice(1).replace(/&/g, "~and~") : "") +
+            location.hash,
+        );
+      })(window.location);
+    </script>
+  </head>
+  <body></body>
+</html>
