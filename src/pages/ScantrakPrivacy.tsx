@@ -8,6 +8,8 @@ const controller = {
   country: "Italia",
 };
 
+const accountDeletionUrl = `${import.meta.env.BASE_URL}scantrak/account-deletion.html`;
+
 const sections = [
   {
     title: "Dati trattati",
@@ -141,6 +143,19 @@ const ScantrakPrivacy = () => {
                   </ul>
                 </section>
               ))}
+
+              <section className="rounded-lg border border-[#b7ded0] bg-[#e8f8f2] p-6">
+                <h2 className="font-heading text-2xl font-bold text-[#003826]">Eliminazione account e dati</h2>
+                <p className="mt-3 text-sm leading-6 text-[#52645f]">
+                  Per il modulo Sicurezza dei dati di Google Play è disponibile una pagina dedicata con istruzioni, dati eliminati e tempi di gestione della richiesta.
+                </p>
+                <a
+                  href={accountDeletionUrl}
+                  className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#10b981] px-4 py-2.5 text-sm font-bold text-white transition-transform hover:scale-[1.02]"
+                >
+                  Apri eliminazione account
+                </a>
+              </section>
 
               <section className="rounded-lg border border-[#b7ded0] bg-[#e8f8f2] p-6">
                 <h2 className="font-heading text-2xl font-bold text-[#003826]">Contatti privacy</h2>

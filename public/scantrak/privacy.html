@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informativa Privacy - ScanTrak</title>
+    <meta
+      name="description"
+      content="Informativa Privacy di ScanTrak: dati raccolti, finalita, servizi cloud, pubblicita, backup ed eliminazione account."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #07131f;
+        --muted: #52645f;
+        --brand: #10b981;
+        --brand-dark: #00543c;
+        --bg: #f5faf8;
+        --panel: #ffffff;
+        --line: #dbe9e4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+
+      header {
+        background: #eef8f4;
+        border-bottom: 1px solid var(--line);
+        padding: 56px 20px;
+      }
+
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 36px 20px 64px;
+      }
+
+      .hero {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--brand);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        line-height: 1.15;
+      }
+
+      h1 {
+        color: var(--brand-dark);
+        font-size: clamp(34px, 7vw, 64px);
+        letter-spacing: 0;
+      }
+
+      h2 {
+        color: var(--brand-dark);
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        margin: 0 0 14px;
+      }
+
+      a {
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin-top: 22px;
+        color: #30443e;
+        font-size: 18px;
+      }
+
+      .meta {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      section,
+      .summary {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        border-radius: 8px;
+        background: var(--brand);
+        color: white;
+        padding: 11px 16px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <p class="eyebrow">ScanTrak</p>
+        <h1>Informativa Privacy</h1>
+        <p class="lead">
+          ScanTrak è progettata con un approccio locale: scontrini, immagini e statistiche sono salvati prima di tutto sul dispositivo. Questa pagina descrive quali dati possono essere trattati e come l'utente mantiene il controllo.
+        </p>
+        <p class="meta">Ultimo aggiornamento: 29 maggio 2026</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="summary">
+        <h2>Titolare del trattamento</h2>
+        <p><strong>Giuseppe Ristaino</strong></p>
+        <p>Paese: Italia</p>
+        <p>Contatto privacy: <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a></p>
+      </div>
+
+      <section>
+        <h2>Dati trattati</h2>
+        <ul>
+          <li><strong>Account:</strong> email, nome visualizzato, identificativo utente Firebase, piano attuale e stato Premium.</li>
+          <li><strong>Scontrini:</strong> negozio, data, totale, metodo di pagamento, articoli, categorie e immagini dello scontrino.</li>
+          <li><strong>Uso AI:</strong> conteggio giornaliero delle scansioni e immagini inviate temporaneamente per l'analisi.</li>
+          <li><strong>Backup cloud:</strong> dati e immagini caricati su Firebase solo se l'utente Premium attiva la funzione.</li>
+          <li><strong>Pubblicità:</strong> per gli utenti Free possono essere usati Google AdMob e Google UMP per annunci rewarded e consenso pubblicitario.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Finalità</h2>
+        <ul>
+          <li>Creare e gestire l'account utente.</li>
+          <li>Estrarre automaticamente i dati dagli scontrini tramite AI.</li>
+          <li>Mostrare archivio, dashboard e statistiche personali di spesa.</li>
+          <li>Applicare limiti giornalieri e funzionalità del piano Free o Premium.</li>
+          <li>Eseguire backup cloud se attivato dall'utente Premium.</li>
+          <li>Mostrare annunci rewarded agli utenti Free prima della scansione AI.</li>
+          <li>Gestire esportazione, cancellazione dati ed eliminazione account.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cloud, AI e fornitori</h2>
+        <p>
+          Quando usi la scansione AI, le immagini selezionate vengono inviate alle Cloud Functions di ScanTrak per l'analisi e l'estrazione dei dati. Il risultato viene restituito all'app e salvato principalmente sul dispositivo.
+        </p>
+        <p>
+          ScanTrak può usare servizi Google Firebase, Google Gemini AI, Google AdMob e Google UMP. Il backup cloud è separato dalla scansione AI: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
+        </p>
+      </section>
+
+      <section>
+        <h2>Conservazione e controllo</h2>
+        <ul>
+          <li>I dati locali restano sul dispositivo finché l'utente non li elimina.</li>
+          <li>I dati presenti nel backup cloud possono essere rimossi usando le funzioni di pulizia cloud disponibili nell'app.</li>
+          <li>Gli utenti Premium possono esportare i dati locali in CSV, JSON o ZIP con immagini.</li>
+          <li>Il contatore giornaliero delle scansioni AI viene usato per applicare le quote previste dal piano utente.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Eliminazione account e dati</h2>
+        <p>
+          L'utente può eliminare l'account dall'app oppure richiedere la cancellazione tramite la pagina dedicata. La procedura rimuove profilo Firebase, account Firebase Auth, dati cloud associati, immagini presenti nel backup cloud e contatori AI collegati all'utente. I dati locali sul dispositivo possono essere eliminati dall'app o cancellando i dati dell'app dal dispositivo.
+        </p>
+        <a class="cta" href="account-deletion.html">Apri la pagina di eliminazione account</a>
+      </section>
+
+      <section>
+        <h2>Diritti dell'utente</h2>
+        <p>
+          Puoi gestire consensi, backup cloud, esportazione, cancellazione dati ed eliminazione account dalla sezione Dati e Privacy e dalla pagina Config dell'app. Per richieste privacy puoi scrivere a <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

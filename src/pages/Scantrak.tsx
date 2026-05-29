@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Smartphone,
   Sparkles,
+  UserX,
   WifiOff,
 } from "lucide-react";
 import scantrakIcon from "../../PORTFOLIO/Scantrak/icon_scantrak.png";
@@ -127,6 +128,9 @@ const dataModel = [
   "Relazione uno-a-molti pronta per grafici, filtri e insight",
 ];
 
+const playStorePrivacyUrl = `${import.meta.env.BASE_URL}scantrak/privacy.html`;
+const accountDeletionUrl = `${import.meta.env.BASE_URL}scantrak/account-deletion.html`;
+
 const Scantrak = () => {
   return (
     <div className="min-h-screen overflow-hidden bg-background">
@@ -171,13 +175,13 @@ const Scantrak = () => {
                   <Smartphone size={18} />
                   Vedi schermate
                 </a>
-                <Link
-                  to="/portfolio/scantrak/privacy"
+                <a
+                  href={playStorePrivacyUrl}
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#aac4ba] bg-white px-5 py-3 text-sm font-bold text-[#00543c] transition-colors hover:border-[#10b981] hover:text-[#10b981]"
                 >
                   <ShieldCheck size={18} />
                   Privacy Play Store
-                </Link>
+                </a>
               </div>
 
               <div className="mt-10 grid gap-3 sm:grid-cols-3">
@@ -349,13 +353,22 @@ const Scantrak = () => {
                 Include titolare, dati trattati, uso AI, backup cloud opzionale, annunci rewarded, conservazione, cancellazione account e contatti privacy.
               </p>
             </div>
-            <Link
-              to="/portfolio/scantrak/privacy"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]"
-            >
-              Apri informativa
-              <ArrowRight size={18} />
-            </Link>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href={playStorePrivacyUrl}
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]"
+              >
+                Apri informativa
+                <ArrowRight size={18} />
+              </a>
+              <a
+                href={accountDeletionUrl}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <UserX size={18} />
+                Eliminazione account
+              </a>
+            </div>
           </div>
         </div>
       </section>
