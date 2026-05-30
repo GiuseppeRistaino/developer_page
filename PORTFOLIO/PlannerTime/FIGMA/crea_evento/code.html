@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary-fixed": "#001b3c",
+                  "surface-container-highest": "#e3e2e6",
+                  "error-container": "#ffdad6",
+                  "on-secondary-container": "#5c6478",
+                  "on-secondary-fixed": "#131b2c",
+                  "error": "#ba1a1a",
+                  "surface": "#faf9fd",
+                  "on-primary": "#ffffff",
+                  "primary": "#00478c",
+                  "on-error-container": "#93000a",
+                  "surface-container": "#eeedf1",
+                  "tertiary-fixed-dim": "#e3bada",
+                  "on-surface": "#1a1c1f",
+                  "secondary-fixed": "#dae2f9",
+                  "surface-container-high": "#e9e7ec",
+                  "on-secondary-fixed-variant": "#3f4759",
+                  "on-primary-fixed-variant": "#00468a",
+                  "background": "#faf9fd",
+                  "primary-container": "#005fb7",
+                  "primary-fixed": "#d6e3ff",
+                  "inverse-on-surface": "#f1f0f4",
+                  "surface-tint": "#005eb4",
+                  "tertiary-fixed": "#ffd7f5",
+                  "secondary": "#565e71",
+                  "outline-variant": "#c1c6d4",
+                  "on-tertiary-container": "#f8ceee",
+                  "surface-dim": "#dad9de",
+                  "on-error": "#ffffff",
+                  "primary-fixed-dim": "#a8c8ff",
+                  "surface-variant": "#e3e2e6",
+                  "on-tertiary": "#ffffff",
+                  "secondary-fixed-dim": "#bec6dc",
+                  "outline": "#727783",
+                  "surface-bright": "#faf9fd",
+                  "surface-container-low": "#f4f3f7",
+                  "inverse-surface": "#2f3034",
+                  "on-tertiary-fixed": "#2c1229",
+                  "tertiary-container": "#765570",
+                  "secondary-container": "#dae2f9",
+                  "on-surface-variant": "#414752",
+                  "on-secondary": "#ffffff",
+                  "tertiary": "#5d3e58",
+                  "on-tertiary-fixed-variant": "#5b3d56",
+                  "inverse-primary": "#a8c8ff",
+                  "on-primary-container": "#c9dbff",
+                  "surface-container-lowest": "#ffffff",
+                  "on-background": "#1a1c1f"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "container-padding": "16px",
+                  "margin-mobile": "16px",
+                  "gutter-kanban": "12px",
+                  "base": "4px",
+                  "stack-md": "16px",
+                  "stack-sm": "8px",
+                  "stack-lg": "24px"
+          },
+          "fontFamily": {
+                  "title-md": ["Inter"],
+                  "display-lg": ["Inter"],
+                  "body-md": ["Inter"],
+                  "label-sm": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "headline-md": ["Inter"],
+                  "title-lg": ["Inter"],
+                  "label-lg": ["Inter"]
+          },
+          "fontSize": {
+                  "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                  "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                  "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                  "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                  "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "0", "fontWeight": "600"}],
+                  "title-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "500"}],
+                  "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="bg-slate-50 border-b border-slate-200 docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-3">
+<button class="p-2 text-slate-500 hover:bg-slate-100 transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="text-lg font-bold text-slate-900 font-title-lg">PlannerTime</h1>
+</div>
+<button class="text-blue-700 font-semibold font-inter text-sm tracking-tight px-4 py-2 hover:bg-slate-100 transition-colors duration-200 rounded-lg">
+        Salva
+      </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-2xl mx-auto px-margin-mobile py-stack-lg">
+<div class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-base">Nuovo Evento</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pianifica le tue attività e organizzale per progetto.</p>
+</div>
+<!-- Create Event Form -->
+<form class="space-y-stack-lg">
+<!-- Event Title Input -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-background text-label-sm font-label-sm text-primary" for="event_title">Titolo Evento</label>
+<input class="w-full h-14 px-4 bg-transparent border-2 border-primary rounded-lg focus:ring-0 focus:outline-none font-body-lg text-body-lg text-on-surface placeholder-slate-400" id="event_title" placeholder="Es. Riunione di Team" type="text"/>
+</div>
+<!-- Project Selection -->
+<div class="space-y-stack-sm">
+<label class="text-label-lg font-label-lg text-on-surface-variant ml-1">Progetto</label>
+<div class="grid grid-cols-1 gap-base">
+<div class="relative">
+<select class="w-full h-12 px-4 bg-surface-container-low border border-outline rounded-lg appearance-none focus:border-primary focus:ring-0 font-body-md text-body-md text-on-surface transition-all">
+<option value="marketing">Marketing Strategico</option>
+<option value="sviluppo">Sviluppo Web App</option>
+<option value="design">Design System UI/UX</option>
+<option value="personale">Obiettivi Personali</option>
+</select>
+<div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+<!-- Color Indicator (Visual Prompt of Selection) -->
+<div class="flex gap-2 px-1 py-1">
+<button class="w-6 h-6 rounded-full bg-blue-500 border-2 border-white ring-2 ring-blue-500" type="button"></button>
+<button class="w-6 h-6 rounded-full bg-emerald-500 border-2 border-white" type="button"></button>
+<button class="w-6 h-6 rounded-full bg-amber-500 border-2 border-white" type="button"></button>
+<button class="w-6 h-6 rounded-full bg-rose-500 border-2 border-white" type="button"></button>
+<button class="w-6 h-6 rounded-full bg-purple-500 border-2 border-white" type="button"></button>
+</div>
+</div>
+</div>
+<!-- Time Pickers -->
+<div class="grid grid-cols-2 gap-stack-md">
+<div class="space-y-stack-sm">
+<label class="text-label-lg font-label-lg text-on-surface-variant ml-1" for="start_time">Inizio</label>
+<div class="relative">
+<input class="w-full h-12 px-4 bg-surface-container-low border border-outline rounded-lg focus:border-primary focus:ring-0 font-body-md text-body-md text-on-surface" id="start_time" type="time" value="09:00"/>
+<div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+</div>
+</div>
+<div class="space-y-stack-sm">
+<label class="text-label-lg font-label-lg text-on-surface-variant ml-1" for="end_time">Fine</label>
+<div class="relative">
+<input class="w-full h-12 px-4 bg-surface-container-low border border-outline rounded-lg focus:border-primary focus:ring-0 font-body-md text-body-md text-on-surface" id="end_time" type="time" value="10:30"/>
+<div class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Task Link (Optional) -->
+<div class="space-y-stack-sm">
+<label class="text-label-lg font-label-lg text-on-surface-variant ml-1" for="task_link">Link Task Correlata (Opzionale)</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">link</span>
+</div>
+<input class="w-full h-12 pl-10 pr-4 bg-surface-container-low border border-outline rounded-lg focus:border-primary focus:ring-0 font-body-md text-body-md text-on-surface" id="task_link" placeholder="https://plannertime.app/task/123" type="url"/>
+</div>
+</div>
+<!-- Optional Image/Illustration for Context -->
+<div class="pt-stack-lg">
+<div class="w-full h-48 rounded-xl overflow-hidden shadow-sm border border-outline-variant">
+<img alt="Productive workspace" class="w-full h-full object-cover" data-alt="A clean and minimalist office workspace with a focused mood, featuring a high-end designer desk with a single planner and a sleek pen. The lighting is soft morning sunlight creating gentle shadows across a pristine white surface, echoing a professional corporate light-mode aesthetic. The color palette is dominated by neutral greys and crisp whites with a single deep blue accent from the planner cover. The atmosphere is serene, organized, and highly productive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFWDlxUN_rzlZ9EpDS0NTEib2l3XwHRvvuPAqAnk4l7ySs2enCnvvcB6OWKD6aSVq8-5J__FuEOni_NdABPpo_Mqio_j8bk9TNcZUHroSlf7EEyrbJgcz0ilzxTyoBQgGs4MTjL0oMD8nqykzkBIy1hSTTgJK9hYrbtoK2jlgls7rWevcFi299THZ2PXfdfq7biFTt1dlbrNbDLp4yWAZ4mca2G69Cfw1L-A4Hr7Kk9ZxAzbDai1M4ZXJxsrL1t_pHR4ayRTy7JqZT"/>
+</div>
+</div>
+</form>
+</main>
+<!-- Note: BottomNavBar is suppressed as per the "Task-Focused" rule for form pages -->
+</body></html>

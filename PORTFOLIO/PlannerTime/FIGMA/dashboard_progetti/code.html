@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#001b3c",
+                    "surface-container-highest": "#e3e2e6",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#5c6478",
+                    "on-secondary-fixed": "#131b2c",
+                    "error": "#ba1a1a",
+                    "surface": "#faf9fd",
+                    "on-primary": "#ffffff",
+                    "primary": "#00478c",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eeedf1",
+                    "tertiary-fixed-dim": "#e3bada",
+                    "on-surface": "#1a1c1f",
+                    "secondary-fixed": "#dae2f9",
+                    "surface-container-high": "#e9e7ec",
+                    "on-secondary-fixed-variant": "#3f4759",
+                    "on-primary-fixed-variant": "#00468a",
+                    "background": "#faf9fd",
+                    "primary-container": "#005fb7",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-on-surface": "#f1f0f4",
+                    "surface-tint": "#005eb4",
+                    "tertiary-fixed": "#ffd7f5",
+                    "secondary": "#565e71",
+                    "outline-variant": "#c1c6d4",
+                    "on-tertiary-container": "#f8ceee",
+                    "surface-dim": "#dad9de",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a8c8ff",
+                    "surface-variant": "#e3e2e6",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#bec6dc",
+                    "outline": "#727783",
+                    "surface-bright": "#faf9fd",
+                    "surface-container-low": "#f4f3f7",
+                    "inverse-surface": "#2f3034",
+                    "on-tertiary-fixed": "#2c1229",
+                    "tertiary-container": "#765570",
+                    "secondary-container": "#dae2f9",
+                    "on-surface-variant": "#414752",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#5d3e58",
+                    "on-tertiary-fixed-variant": "#5b3d56",
+                    "inverse-primary": "#a8c8ff",
+                    "on-primary-container": "#c9dbff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "16px",
+                    "margin-mobile": "16px",
+                    "gutter-kanban": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "0", "fontWeight": "600"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kanban-column {
+            min-width: 300px;
+            max-width: 300px;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-slate-50 border-b border-slate-200 docked full-width top-0 z-40 sticky">
+<div class="flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 transition-colors duration-200 ease-in-out rounded-full">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-lg font-bold text-slate-900 font-inter tracking-tight">PlannerTime</h1>
+</div>
+<div class="flex items-center gap-4">
+<nav class="hidden md:flex items-center gap-6 mr-4">
+<a class="text-slate-500 hover:bg-slate-100 transition-colors duration-200 ease-in-out font-inter text-sm font-medium tracking-tight px-3 py-2 rounded-lg" href="#">Calendario</a>
+<a class="text-blue-700 font-semibold font-inter text-sm font-medium tracking-tight px-3 py-2 rounded-lg" href="#">Progetti</a>
+</nav>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant">
+<img alt="User" data-alt="A clean, professional headshot of a diverse user profile against a soft, neutral-toned studio background. The lighting is bright and high-key, aligning with the modern corporate interface. The color palette is composed of soft whites and cool greys, emphasizing a clean and accessible user experience typical of a high-end productivity application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIuLRUbGw5GBsv2tHgL8ZrDWA0maMxsXj5VsntODHVHmiP60PqCPXkpjoFQZK3rWkXdhjKsCmObD8rKcn9UejvBaW5fXZ9Ewv9CZV6zpBw6kl9O4FiTlj1fv5bXeaVHuNEASS1IoTkr7eAoZIZjgasrmWqFhUGIYL9GyErfgM9_AsqgGi69_haeL1lO5T2nH_a3NW55H-4stuvX0xY7ejq6GIBpPmbzv4Iv4AhRxCN98M-mDWktmGEdkhhuahKUU9HWpNFhW_r5PJW"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pb-24 pt-4 px-4 overflow-x-auto scrollbar-hide">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">Progetto: Redesign App</h2>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary-container flex items-center justify-center text-[10px] text-white font-bold">JD</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-tertiary-container flex items-center justify-center text-[10px] text-white font-bold">AS</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-secondary-container flex items-center justify-center text-[10px] text-on-secondary-container font-bold">MK</div>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="flex gap-gutter-kanban overflow-x-auto pb-4 scrollbar-hide">
+<!-- Column: Da Fare -->
+<div class="kanban-column flex flex-col gap-stack-sm">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg text-on-surface-variant uppercase tracking-wider">Da Fare</span>
+<span class="bg-surface-container-high px-2 py-0.5 rounded-full text-label-sm font-label-sm">3</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border-t-2 border-primary-container flex flex-col gap-3 group hover:shadow-md transition-shadow duration-200">
+<div class="flex justify-between items-start">
+<span class="bg-error-container text-on-error-container text-label-sm font-label-sm px-2 py-1 rounded-lg">High</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined text-[18px] text-outline" data-icon="edit">edit</span></button>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-tight">Analisi requisiti utente</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Definire i flussi principali per la navigazione mobile e desktop.</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm">12 Ott</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-[8px] font-bold">JD</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border-t-2 border-tertiary-container flex flex-col gap-3 group hover:shadow-md transition-shadow duration-200">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-2 py-1 rounded-lg">Medium</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined text-[18px] text-outline" data-icon="edit">edit</span></button>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-tight">Moodboard visuale</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Ricerca di ispirazioni per la nuova palette colori aziendale.</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm">15 Ott</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-[8px] font-bold">AS</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border-t-2 border-primary-container flex flex-col gap-3 group hover:shadow-md transition-shadow duration-200">
+<div class="flex justify-between items-start">
+<span class="bg-surface-container text-on-surface-variant text-label-sm font-label-sm px-2 py-1 rounded-lg">Low</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined text-[18px] text-outline" data-icon="edit">edit</span></button>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-tight">Update icone Material</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Sostituire le vecchie icone con il set Outline M3.</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm">18 Ott</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-[8px] font-bold">MK</div>
+</div>
+</div>
+</div>
+<!-- Column: In Corso -->
+<div class="kanban-column flex flex-col gap-stack-sm">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg text-on-surface-variant uppercase tracking-wider">In Corso</span>
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-label-sm font-label-sm">2</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border-t-2 border-primary-container flex flex-col gap-3 group hover:shadow-md transition-shadow duration-200">
+<div class="flex justify-between items-start">
+<span class="bg-error-container text-on-error-container text-label-sm font-label-sm px-2 py-1 rounded-lg">High</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined text-[18px] text-outline" data-icon="edit">edit</span></button>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-tight">Prototipazione Dashboard</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Costruzione dei componenti interattivi per la vista Kanban board principale.</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span>
+<span class="text-label-sm font-label-sm">In lavorazione</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-[8px] font-bold">JD</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border-t-2 border-secondary-container flex flex-col gap-3 group hover:shadow-md transition-shadow duration-200">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-2 py-1 rounded-lg">Medium</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined text-[18px] text-outline" data-icon="edit">edit</span></button>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-tight">Test usabilità Alpha</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sessioni di test con il team interno per feedback preliminari.</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span>
+<span class="text-label-sm font-label-sm">In lavorazione</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-[8px] font-bold">MK</div>
+</div>
+</div>
+</div>
+<!-- Column: Fatto -->
+<div class="kanban-column flex flex-col gap-stack-sm">
+<div class="flex items-center justify-between px-2 mb-2">
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg text-on-surface-variant uppercase tracking-wider">Fatto</span>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-label-sm font-label-sm">1</span>
+</div>
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-lowest opacity-75 rounded-xl p-4 shadow-sm border-t-2 border-outline-variant flex flex-col gap-3 group">
+<div class="flex justify-between items-start">
+<span class="bg-surface-container text-on-surface-variant text-label-sm font-label-sm px-2 py-1 rounded-lg">Low</span>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="check_circle">check_circle</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface leading-tight line-through decoration-on-surface-variant">Set-up repository Git</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Inizializzazione del progetto e configurazione degli ambienti CI/CD.</p>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="event_available">event_available</span>
+<span class="text-label-sm font-label-sm">Completato</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-[8px] font-bold">AS</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary-container text-white rounded-2xl shadow-lg flex items-center justify-center active:scale-95 transition-transform duration-150 z-50">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-1 hover:text-blue-600 dark:hover:text-blue-300 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-inter text-[12px] font-medium">Calendario</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl px-5 py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="view_kanban" style="font-variation-settings: 'FILL' 1;">view_kanban</span>
+<span class="font-inter text-[12px] font-medium">Progetti</span>
+</a>
+</nav>
+</body></html>

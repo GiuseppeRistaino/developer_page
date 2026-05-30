@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import scantrakIcon from "../../PORTFOLIO/Scantrak/icon_scantrak.png";
 import fableHearthIcon from "../../PORTFOLIO/FableHearth/FableHearth_Icon.png";
+import plannerTimeIcon from "../../PORTFOLIO/PlannerTime/icon.png";
 
 interface Project {
   id: string;
@@ -24,6 +25,15 @@ const projects: Project[] = [
     image: scantrakIcon,
     imageAlt: "Icona ScanTrak",
     status: "In sviluppo",
+  },
+  {
+    id: "plannertime",
+    title: "Planner Time",
+    description: "App mobile Flutter per organizzare progetti, task e calendario in un unico flusso collaborativo con Kanban, allegati e notifiche.",
+    tags: ["Flutter", "Firebase", "Firestore", "Riverpod", "FCM"],
+    image: plannerTimeIcon,
+    imageAlt: "Icona Planner Time",
+    status: "BETA",
   },
   {
     id: "fablehearth",

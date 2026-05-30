@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#dae2f9",
+                    "on-secondary-fixed": "#131b2c",
+                    "inverse-on-surface": "#f1f0f4",
+                    "surface-bright": "#faf9fd",
+                    "on-surface-variant": "#414752",
+                    "on-primary-container": "#c9dbff",
+                    "on-secondary-container": "#5c6478",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#5b3d56",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ffd7f5",
+                    "surface-dim": "#dad9de",
+                    "primary-fixed-dim": "#a8c8ff",
+                    "on-primary-fixed-variant": "#00468a",
+                    "surface-container": "#eeedf1",
+                    "primary-fixed": "#d6e3ff",
+                    "secondary": "#565e71",
+                    "inverse-surface": "#2f3034",
+                    "inverse-primary": "#a8c8ff",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "outline": "#727783",
+                    "secondary-fixed-dim": "#bec6dc",
+                    "primary": "#00478c",
+                    "surface-container-high": "#e9e7ec",
+                    "primary-container": "#005fb7",
+                    "surface-tint": "#005eb4",
+                    "surface-container-low": "#f4f3f7",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#001b3c",
+                    "secondary-fixed": "#dae2f9",
+                    "background": "#faf9fd",
+                    "on-surface": "#1a1c1f",
+                    "surface-container-highest": "#e3e2e6",
+                    "outline-variant": "#c1c6d4",
+                    "on-secondary-fixed-variant": "#3f4759",
+                    "tertiary-container": "#765570",
+                    "on-tertiary-container": "#f8ceee",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#2c1229",
+                    "tertiary-fixed-dim": "#e3bada",
+                    "surface": "#faf9fd",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e3e2e6",
+                    "tertiary": "#5d3e58",
+                    "on-background": "#1a1c1f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "16px",
+                    "base": "4px",
+                    "gutter-kanban": "12px",
+                    "stack-sm": "8px",
+                    "stack-md": "16px",
+                    "stack-lg": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "title-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "500"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "0", "fontWeight": "600"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                    "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #faf9fd;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background min-h-screen flex items-center justify-center p-container-padding">
+<div class="w-full max-w-md flex flex-col items-center">
+<!-- Logo/Header Branding -->
+<div class="mb-stack-lg text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-primary-container rounded-xl mb-stack-md shadow-sm">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="schedule">schedule</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-base">Bentornato</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Accedi per gestire i tuoi progetti</p>
+</div>
+<!-- Login Form Container -->
+<div class="w-full bg-surface-container-lowest p-stack-lg rounded-xl shadow-sm border border-outline-variant">
+<form class="space-y-stack-md">
+<!-- Email Input -->
+<div class="space-y-base">
+<label class="block font-label-lg text-label-lg text-on-surface-variant ml-base" for="email">Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="mail">mail</span>
+<input class="w-full h-12 pl-10 pr-4 bg-surface-bright border border-outline-variant rounded-lg font-body-md text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline/50" id="email" placeholder="nome@esempio.it" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-base">
+<div class="flex justify-between items-center px-base">
+<label class="font-label-lg text-label-lg text-on-surface-variant" for="password">Password</label>
+<a class="font-label-lg text-label-lg text-primary hover:underline transition-all" href="#">Dimenticato la password?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="lock">lock</span>
+<input class="w-full h-12 pl-10 pr-12 bg-surface-bright border border-outline-variant rounded-lg font-body-md text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full h-12 bg-primary text-on-primary font-title-md text-title-md rounded-lg hover:bg-primary-container transition-all active:scale-[0.98] mt-stack-md flex items-center justify-center gap-base shadow-sm" type="submit">
+                    Accedi
+                    <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-stack-lg flex items-center">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 font-label-sm text-label-sm text-outline uppercase tracking-wider">Oppure continua con</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-stack-md">
+<button class="flex items-center justify-center gap-stack-sm h-12 bg-surface-container-low border border-outline-variant rounded-lg hover:bg-surface-container-high transition-all font-label-lg text-label-lg text-on-surface">
+<img alt="Google" class="w-5 h-5" data-alt="A clean, minimalist close-up of a high-tech crystal orb reflecting a vibrant spectrum of colors including corporate blue and clean white. The lighting is bright and ethereal, suggesting a high-end digital workspace environment. The composition is centered and symmetrical, radiating a sense of professional organization and modern technological efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7QJyIz9nfiBeMOvU6CriwUtpbDADzwfRlYrYJXwUsqv4HJtiHLBeCk8OF8fhjYFJEqI_WXqUaC3ldhBVxjCJVrYNUBbWjMNb9lZAAGgLGOYzaxUTN-CkxFHdi2-PAcxvJu0GhYayvqNC4v5La-J27Jm6tVk49heT2vCBo2NIEGBhOoIw1fgl1bE0La5djN_kWgVEnQFsEFOEAdi3OV7dee5aMNpoDArZTRvgIKG_O5TKzn7g4W7_jue1T1O-xODbUYMyJI9oTPbiI"/>
+                    Google
+                </button>
+<button class="flex items-center justify-center gap-stack-sm h-12 bg-surface-container-low border border-outline-variant rounded-lg hover:bg-surface-container-high transition-all font-label-lg text-label-lg text-on-surface">
+<span class="material-symbols-outlined" data-icon="apple" data-weight="fill" style="font-variation-settings: 'FILL' 1;">ios</span>
+                    Apple
+                </button>
+</div>
+</div>
+<!-- Footer Link -->
+<p class="mt-stack-lg font-body-md text-body-md text-on-surface-variant">
+            Non hai un account? 
+            <a class="font-title-md text-primary font-semibold hover:underline" href="#">Registrati ora</a>
+</p>
+<!-- Decorative Element (Asymmetric Blur) -->
+<div class="fixed -z-10 top-[-10%] right-[-5%] w-[400px] h-[400px] bg-primary-container/10 rounded-full blur-[100px]"></div>
+<div class="fixed -z-10 bottom-[-10%] left-[-5%] w-[300px] h-[300px] bg-secondary-container/20 rounded-full blur-[80px]"></div>
+</div>
+</body></html>

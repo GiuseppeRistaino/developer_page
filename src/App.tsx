@@ -10,6 +10,7 @@ import Blog from "./pages/Blog";
 import {ArticlePage} from "./pages/Article";
 import Portfolio from "./pages/Portfolio";
 import ProjectBlog from "./pages/ProjectBlog";
+import PlannerTime from "./pages/PlannerTime";
 import Scantrak from "./pages/Scantrak";
 import ScantrakPrivacy from "./pages/ScantrakPrivacy";
 import Documentation, { DocArticlePage } from "./pages/Documentation";
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<ArticlePage />} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio/plannertime" element={<PlannerTime />} />
             <Route path="/portfolio/scantrak" element={<Scantrak />} />
             <Route path="/portfolio/scantrak/privacy" element={<ScantrakPrivacy />} />
             <Route path="/portfolio/:projectId" element={<ProjectBlog />} />

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#001b3c",
+                    "surface-container-highest": "#e3e2e6",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#5c6478",
+                    "on-secondary-fixed": "#131b2c",
+                    "error": "#ba1a1a",
+                    "surface": "#faf9fd",
+                    "on-primary": "#ffffff",
+                    "primary": "#00478c",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eeedf1",
+                    "tertiary-fixed-dim": "#e3bada",
+                    "on-surface": "#1a1c1f",
+                    "secondary-fixed": "#dae2f9",
+                    "surface-container-high": "#e9e7ec",
+                    "on-secondary-fixed-variant": "#3f4759",
+                    "on-primary-fixed-variant": "#00468a",
+                    "background": "#faf9fd",
+                    "primary-container": "#005fb7",
+                    "primary-fixed": "#d6e3ff",
+                    "inverse-on-surface": "#f1f0f4",
+                    "surface-tint": "#005eb4",
+                    "tertiary-fixed": "#ffd7f5",
+                    "secondary": "#565e71",
+                    "outline-variant": "#c1c6d4",
+                    "on-tertiary-container": "#f8ceee",
+                    "surface-dim": "#dad9de",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a8c8ff",
+                    "surface-variant": "#e3e2e6",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#bec6dc",
+                    "outline": "#727783",
+                    "surface-bright": "#faf9fd",
+                    "surface-container-low": "#f4f3f7",
+                    "inverse-surface": "#2f3034",
+                    "on-tertiary-fixed": "#2c1229",
+                    "tertiary-container": "#765570",
+                    "secondary-container": "#dae2f9",
+                    "on-surface-variant": "#414752",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#5d3e58",
+                    "on-tertiary-fixed-variant": "#5b3d56",
+                    "inverse-primary": "#a8c8ff",
+                    "on-primary-container": "#c9dbff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "16px",
+                    "margin-mobile": "16px",
+                    "gutter-kanban": "12px",
+                    "base": "4px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "title-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "letterSpacing": "0", "fontWeight": "600"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "letterSpacing": "0", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 docked full-width top-0 z-50 sticky shadow-none">
+<div class="flex justify-between items-center w-full px-4 h-16">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors duration-200 ease-in-out">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-slate-900 dark:text-slate-100 font-inter tracking-tight">PlannerTime</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors duration-200 ease-in-out">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-secondary-container">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling young male professional in a corporate setting, with soft natural lighting illuminating his face. The background is a blurred modern office environment with hints of cool blues and greys. He has a friendly and approachable expression, wearing a clean, minimalist shirt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPcwHEqX9PcN3xSIZbCjgyEKG2vy2-GnJXmBtqHWoFgwbvzgrA7u50pOSImH2-mPXq95djRBL2L6JjqsQpDW-l0d9Y8_QTv3YnyFOohEM4-CSL946t6EclJQ0D9zolygtu_XiF2aJ7-KQhCNfZbOkCLOFxWWetOf0K_sHfGbPO-1E1dznCcqNG2Ud9hTTC52O9ODdpPfRkiZ4a6-cC2dholLqEYDJzEssjAXRXsn4jWH7yQW2O24uzMvkdtMG8BdS7qJD7at4ZXSHi"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-margin-mobile py-stack-lg space-y-stack-lg pb-32">
+<!-- Task Header Section -->
+<section class="space-y-stack-sm">
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 bg-primary-container/10 text-primary-container text-label-sm font-label-sm rounded-lg uppercase tracking-wider">Progetto Alpha</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">TASK-482</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Restyling Interfaccia Dashboard</h2>
+</section>
+<!-- Bento Grid Layout for Task Info -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-kanban">
+<!-- Main Content Area -->
+<div class="md:col-span-2 space-y-gutter-kanban">
+<!-- Description Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-stack-md text-on-surface">
+<span class="material-symbols-outlined">description</span>
+<h3 class="font-title-md text-title-md">Descrizione</h3>
+</div>
+<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+                        Il team richiede un aggiornamento completo della visualizzazione dati nella dashboard principale. L'obiettivo è migliorare la leggibilità dei grafici a torta e integrare il nuovo sistema di colori Material You. È fondamentale mantenere l'accessibilità per gli utenti con ipovisione, garantendo un contrasto minimo di 4.5:1.
+                    </p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-lg font-label-lg">UI/UX</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-lg font-label-lg">Material Design</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-label-lg font-label-lg">Accessibility</span>
+</div>
+</div>
+<!-- Attachments Section -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-stack-md">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined">attachment</span>
+<h3 class="font-title-md text-title-md">Allegati</h3>
+</div>
+<button class="text-primary font-label-lg text-label-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                            Carica
+                        </button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-base">
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container border border-outline-variant relative group cursor-pointer">
+<img alt="UI Mockup 1" class="w-full h-full object-cover" data-alt="A high-fidelity digital user interface mockup of a dashboard shown on a sleek monitor. The design features sophisticated data visualizations with clean lines and a modern color palette of blues and soft greys. The environment is a professional, well-lit design studio with minimal distractions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5HpH68GTwjIiQ3YzlXZuBd_StcjuO7IRazcZzB2tNg2u25lFt5LO4bUpKFHAPzFZppP06LInpoZl1HW_fsAnIl-QpmmDqvBdGqJAP6MB8X7E2l4PlT-pLuusUoDZwPZ6kNp_2PCdhetEYvhg_z7XnTln7rWvVJPM70IYQll87NTFNO6UI1J5hk_8xO4zf7gHsH164kfOW0YE83THR_pTR_6ilDkGRAj9XX_15TQtLCNVv6XGeyt11qeca8H4ZtEVt1IblmB5fwCQx"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">visibility</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container border border-outline-variant relative group cursor-pointer">
+<img alt="UI Mockup 2" class="w-full h-full object-cover" data-alt="A vibrant digital data dashboard displayed on a high-resolution screen, showcasing various interactive charts and financial metrics. The lighting is focused and clean, highlighting the crisp typography and the polished Corporate Modern aesthetic. The overall mood is organized and analytical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOz9DALu0b6FqX6IZu0pQXXZ02jM7fr5plKT_r_tajnwBRRDbd0gxPVoF1HbSy9l_iszpgJnzzpcJVPLSknfAEF90f7d0Qp7olRNYo0YV695iWk360d-izaytoA8tNHPXYobC5jH5rrKMScURAZnB26MffdVX3l4B4MI6PypPw0iuIZk7Ic8cePS7GhU2__dyxMUk0qRD3D5vBcBiY4jtoup5AQkIyMLTFP9a75wPfJBTLDX63pYtrJvpvN63vEhogR1YeTKKvZORU"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">visibility</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">upload_file</span>
+<span class="text-label-sm mt-1">Sfoglia</span>
+</div>
+</div>
+</div>
+<!-- Comments Section -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-stack-lg text-on-surface">
+<span class="material-symbols-outlined">forum</span>
+<h3 class="font-title-md text-title-md">Commenti (2)</h3>
+</div>
+<div class="space-y-stack-lg">
+<!-- Comment 1 -->
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-secondary-container">
+<img alt="Marco Rossi" class="w-full h-full object-cover" data-alt="A close-up portrait of a male designer with a focused and creative expression, wearing modern glasses. The image has a warm, professional lighting setup against a neutral, minimalist wall. The aesthetic is clean and corporate, reflecting a high-quality professional atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOf47BfTsyF1oOSsF2G-0Bop1_m5b0uMo4-DGPyLVqeXFldOp_sp049rAdVZC0n2uwo7hft2U0RWGX_CF6rplc4l-Q-XHMMyZhX_EJ72KGw4OIaklqioi-X0AKAL5_Fp1FyRYgi_Edgk5sSt_M3GAHMR2_jEYcC3U0-SU_ma96Sp_NAZsXD7nl3ZA27SMLijbpG9n3EeWSdYnBxyD5ozc_nzvH0V8IVS0QY39kI2_Un5q1tiUB1RtHBOK-RXkrv4ovlTCv-mkFFHv_"/>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Marco Rossi</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Oggi, 10:45</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Ho caricato i nuovi mockup per la sezione grafici. Date un'occhiata alla versione B, credo sia più pulita.</p>
+<button class="text-primary text-label-sm font-label-sm mt-1">Rispondi</button>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-tertiary-container">
+<img alt="Giulia Bianchi" class="w-full h-full object-cover" data-alt="A professional portrait of a woman in a bright, modern creative studio. She is smiling naturally, with soft lighting that accentuates a clean, light-mode design environment in the background. Her style is professional yet casual, fitting for a modern corporate designer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_rKwVDGloeLLfGjGmeNL3Qq9yEdIIJMGIkBVBdaus_YPEUDM0N8Ij0VELgJeHBuEWi_vcN0hn1QUrIPjNrmEhqJb2XVEoRMVKr1OiiyiK3_9zbyF7AVVdV2VlVa9d3ot0lHIf34n6lClCwxiiucJeK4dICmWANRRJ2duLDgivBmXrnlmPvmZ_xlI_TC9D-ak_EWxBNd_lvpwDFRvv1DEwONF-oOhrN1x_tKCkzUvePlPbXpxEtx4hQyygTBj1xTPoA5ZaYYBC8pAO"/>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Giulia Bianchi</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Ieri, 16:20</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Assicuriamoci che i colori rispettino le linee guida del brand per il dark mode.</p>
+<button class="text-primary text-label-sm font-label-sm mt-1">Rispondi</button>
+</div>
+</div>
+</div>
+<!-- New Comment Input -->
+<div class="mt-stack-lg flex gap-4 pt-stack-md border-t border-outline-variant/20">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary text-label-sm">ME</div>
+<div class="flex-1 relative">
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full px-4 py-2 text-body-md focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Scrivi un commento..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-primary">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Info -->
+<div class="space-y-gutter-kanban">
+<!-- Status & Priority Card -->
+<div class="bg-surface-container-highest/50 border border-outline-variant/30 rounded-xl p-6 space-y-stack-lg">
+<!-- Status -->
+<div class="space-y-base">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">Stato</span>
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/20 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-primary ring-4 ring-primary/10"></span>
+<span class="font-title-md text-title-md text-on-surface">In Corso</span>
+<span class="material-symbols-outlined ml-auto text-outline text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Priority -->
+<div class="space-y-base">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">Priorità</span>
+<div class="flex items-center gap-3 p-3 bg-error-container/20 rounded-lg border border-error/10">
+<span class="material-symbols-outlined text-error text-[20px]">priority_high</span>
+<span class="font-title-md text-title-md text-error">Alta</span>
+</div>
+</div>
+<!-- Due Date -->
+<div class="space-y-base">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">Scadenza</span>
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_today</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">24 Ott 2023</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Tra 3 giorni</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Assignees Card -->
+<div class="bg-surface-container-highest/50 border border-outline-variant/30 rounded-xl p-6">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase block mb-stack-md">Assegnatari</span>
+<div class="space-y-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-secondary-container">
+<img alt="Marco Rossi" class="w-full h-full object-cover" data-alt="A professional male profile portrait against a neutral office background. The lighting is diffused and professional, showcasing a modern, corporate aesthetic. He has a confident expression, perfectly suited for a task management application user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7UkUdFUZfzj_UX-lnipX9MNtc7h-TBMlBV6MQj8uYxQwvpwGBLiQI4UsG-FRVYc4Bxwe144wCDUMUmLXoVgKt87eg2QemdtrA6Z0yZAzMSDUHjwUMqsaaXWL45Fa8fPUTNsgG-uNZBQIsZre1Q4fz3BBwv9rXt9PHXmKkVW-YHqy_rDGaiINOx-K8vQb8PyPclE3BT3TasTsCX5MvgVrvJbYzXqp7QmoF5MYDkq_f4-Qw_XZJwLclH6vRLYTSUTCMGIL0gC6uSGPu"/>
+</div>
+<span class="text-body-md font-body-md text-on-surface">Marco Rossi</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-tertiary-container">
+<img alt="Giulia Bianchi" class="w-full h-full object-cover" data-alt="A friendly professional woman smiling in a clean, brightly lit corporate office space. Her portrait exudes competence and approachability. The color palette is composed of soft whites and professional tones, aligning with a high-end UI design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2XGs_C8d9H04PR_7sE2MuXrONFEovi-dwLDN-Md-Sum0KF1QB26d99ZIyV5Y9iL8Wiii1Gaez-cCRbLzuZYxJm5-Dh1e7npYOp1fpAKyB51xLcKoYFHDHAbxPyJJegpkkZgYa2TY_mM8jD9Lei92WuEntNfFc2CbuZ6L36PDzi86dalQQbq6-ZV0NKvCkK5-YsTCjjMpKOUB1sHsKgs0EFINHSjVE83INkIvc3oOCmVcdycI675Z-atLgV0v7SbT_vJD6grifTQy6"/>
+</div>
+<span class="text-body-md font-body-md text-on-surface">Giulia Bianchi</span>
+</div>
+<button class="w-full mt-stack-sm flex items-center justify-center gap-2 py-2 border border-outline border-dashed rounded-lg text-outline text-label-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+                            Aggiungi
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Shell Placeholder (Not visible on task detail per rule, but following JSON structure for global items) -->
+<!-- Rule check: Navigation shell suppressed as this is a focused Task Detail screen (sub-page) -->
+<!-- Floating Action Button - Action specific to Detail screen (e.g., Mark as Complete) -->
+<button class="fixed bottom-8 right-8 bg-primary text-on-primary shadow-xl rounded-2xl px-6 h-14 flex items-center gap-3 active:scale-95 transition-transform duration-150 z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-lg text-label-lg">Completa Task</span>
+</button>
+</body></html>

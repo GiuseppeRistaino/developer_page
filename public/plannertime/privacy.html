@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informativa Privacy - Planner Time</title>
+    <meta
+      name="description"
+      content="Informativa Privacy di Planner Time: dati account, progetti, task, calendario, allegati, notifiche e servizi Firebase."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111827;
+        --muted: #5c6478;
+        --brand: #005fb7;
+        --brand-dark: #00478c;
+        --bg: #faf9fd;
+        --panel: #ffffff;
+        --line: #dfe4ee;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+
+      header {
+        background: #f4f7fb;
+        border-bottom: 1px solid var(--line);
+        padding: 56px 20px;
+      }
+
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 36px 20px 64px;
+      }
+
+      .hero {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--brand);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        line-height: 1.15;
+      }
+
+      h1 {
+        color: var(--brand-dark);
+        font-size: clamp(34px, 7vw, 64px);
+        letter-spacing: 0;
+      }
+
+      h2 {
+        color: var(--brand-dark);
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        margin: 0 0 14px;
+      }
+
+      a {
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin-top: 22px;
+        color: #2f3b4d;
+        font-size: 18px;
+      }
+
+      .meta {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      section,
+      .summary {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        border-radius: 8px;
+        background: var(--brand);
+        color: white;
+        padding: 11px 16px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <p class="eyebrow">Planner Time</p>
+        <h1>Informativa Privacy</h1>
+        <p class="lead">
+          Planner Time è un'app mobile per organizzare progetti, task, calendario, allegati e collaborazione. Questa pagina descrive quali dati possono essere trattati e come l'utente mantiene il controllo.
+        </p>
+        <p class="meta">Ultimo aggiornamento: 30 maggio 2026</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="summary">
+        <h2>Titolare del trattamento</h2>
+        <p><strong>Giuseppe Ristaino</strong></p>
+        <p>Paese: Italia</p>
+        <p>Contatto privacy: <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a></p>
+      </div>
+
+      <section>
+        <h2>Dati trattati</h2>
+        <ul>
+          <li><strong>Account:</strong> email, nome visualizzato, identificativo utente Firebase, foto profilo o iniziali, stato verifica email e metodo di accesso.</li>
+          <li><strong>Progetti e membri:</strong> nome progetto, descrizione, colore, proprietario, membri, ruoli e dati minimi dei collaboratori necessari alla condivisione.</li>
+          <li><strong>Task e calendario:</strong> titoli, descrizioni, colonne, priorità, scadenze, eventi, orari, promemoria, assegnatari e collegamenti tra task ed eventi.</li>
+          <li><strong>Commenti e allegati:</strong> testo dei commenti, autore, data/ora, file caricati dall'utente e URL tecnici degli allegati su Firebase Storage.</li>
+          <li><strong>Notifiche:</strong> token Firebase Cloud Messaging, piattaforma dispositivo e preferenze/permessi necessari per notifiche locali e collaborative.</li>
+          <li><strong>Sicurezza e diagnostica:</strong> dati tecnici trattati da Firebase App Check e Firebase Crashlytics per protezione dell'app, crash report e stabilità.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Finalità</h2>
+        <ul>
+          <li>Creare, autenticare e proteggere l'account utente.</li>
+          <li>Sincronizzare progetti, colonne, task, commenti, eventi e allegati tra dispositivi e membri autorizzati.</li>
+          <li>Gestire collaborazione, assegnazioni, commenti e visibilità dei progetti condivisi.</li>
+          <li>Mostrare calendario, promemoria e notifiche legate a eventi, task e attività collaborative.</li>
+          <li>Applicare limiti del piano beta gratuito su progetti, membri, task, commenti e allegati.</li>
+          <li>Migliorare sicurezza, affidabilità e diagnostica tramite App Check, regole Firebase e Crashlytics.</li>
+          <li>Gestire richieste di cancellazione dati ed eliminazione account.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Servizi cloud e fornitori</h2>
+        <p>
+          Planner Time usa servizi Google Firebase, inclusi Firebase Authentication, Cloud Firestore, Firebase Storage, Firebase Cloud Messaging, Cloud Functions, Firebase App Check e Firebase Crashlytics. Il login Google può essere usato come metodo di autenticazione opzionale.
+        </p>
+        <p>
+          I dati dei progetti condivisi sono accessibili solo ai membri del progetto secondo le regole Firestore e Storage configurate. Gli allegati sono salvati su Firebase Storage e collegati ai task tramite URL tecnici.
+        </p>
+      </section>
+
+      <section>
+        <h2>Conservazione e controllo</h2>
+        <ul>
+          <li>I dati cloud restano disponibili finché l'account, il progetto, il task, l'evento, il commento o l'allegato non vengono eliminati dall'utente o dal proprietario autorizzato.</li>
+          <li>I token di notifica possono essere rimossi al logout o quando il dispositivo non è più associato all'account.</li>
+          <li>Gli allegati rimossi dall'app vengono eliminati da Firebase Storage quando tecnicamente possibile.</li>
+          <li>Eventuali dati diagnostici o log tecnici possono essere conservati per il tempo necessario a sicurezza, debugging, prevenzione abusi e obblighi legali.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Eliminazione account e dati</h2>
+        <p>
+          L'utente può richiedere l'eliminazione dell'account dalla schermata Profilo dell'app o scrivendo al contatto privacy. La cancellazione può includere profilo Firebase, dati personali associati, token di notifica e dati cloud di cui l'utente è proprietario. Nei progetti condivisi, alcuni dati possono restare disponibili agli altri membri se necessari alla continuità del progetto o se creati in un contesto collaborativo, salvo richiesta specifica e compatibilmente con i diritti degli altri utenti.
+        </p>
+        <a class="cta" href="mailto:vrexas.developer@gmail.com?subject=Eliminazione%20account%20Planner%20Time">Richiedi eliminazione via email</a>
+      </section>
+
+      <section>
+        <h2>Diritti dell'utente</h2>
+        <p>
+          Puoi chiedere accesso, rettifica, cancellazione, limitazione o informazioni sul trattamento dei tuoi dati scrivendo a <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a>. Puoi inoltre gestire notifiche e permessi dalle impostazioni del dispositivo.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
