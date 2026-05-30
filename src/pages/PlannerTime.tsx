@@ -10,6 +10,7 @@ import {
   Cloud,
   Columns3,
   Database,
+  FileText,
   LockKeyhole,
   Paperclip,
   ShieldCheck,
@@ -36,6 +37,7 @@ interface TechPoint {
 }
 
 const playStorePrivacyUrl = `${import.meta.env.BASE_URL}plannertime/privacy.html`;
+const termsUrl = `${import.meta.env.BASE_URL}plannertime/terms.html`;
 
 const screenshots = [
   {
@@ -186,6 +188,13 @@ const PlannerTime = () => {
                 >
                   <ShieldCheck size={18} />
                   Privacy Play Store
+                </a>
+                <a
+                  href={termsUrl}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#b9c7dc] bg-white px-5 py-3 text-sm font-bold text-[#00478c] transition-colors hover:border-[#005fb7] hover:text-[#005fb7]"
+                >
+                  <FileText size={18} />
+                  Termini
                 </a>
               </div>
 
@@ -354,19 +363,28 @@ const PlannerTime = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col gap-6 rounded-lg border border-border bg-gradient-card p-8 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Privacy</p>
-              <h2 className="font-heading text-2xl font-bold">Pagina HTML pronta da collegare nella Play Console.</h2>
+              <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Privacy e termini</p>
+              <h2 className="font-heading text-2xl font-bold">Pagine HTML pronte da collegare nell'app e negli store.</h2>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Include titolare, dati account, progetti, task, eventi, allegati, notifiche, Crashlytics, App Check, conservazione ed eliminazione account.
+                Privacy e Termini includono titolare, dati account, basi giuridiche, progetti condivisi, beta gratuita, notifiche, Crashlytics, App Check, conservazione ed eliminazione account.
               </p>
             </div>
-            <a
-              href={playStorePrivacyUrl}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]"
-            >
-              Apri informativa
-              <ArrowRight size={18} />
-            </a>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href={playStorePrivacyUrl}
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-transform hover:scale-[1.02]"
+              >
+                Apri informativa
+                <ArrowRight size={18} />
+              </a>
+              <a
+                href={termsUrl}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <FileText size={18} />
+                Termini
+              </a>
+            </div>
           </div>
         </div>
       </section>
