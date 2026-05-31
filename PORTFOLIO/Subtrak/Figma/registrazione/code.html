@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registrazione - SubTrak</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#8083ff",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "on-surface": "#dae2fd",
+                    "on-tertiary": "#67001b",
+                    "secondary-fixed-dim": "#4edea3",
+                    "error-container": "#93000a",
+                    "on-primary-container": "#0d0096",
+                    "on-primary": "#1000a9",
+                    "on-secondary-container": "#00311f",
+                    "on-tertiary-container": "#5b0017",
+                    "on-primary-fixed": "#07006c",
+                    "surface-tint": "#c0c1ff",
+                    "text-dim": "#94A3B8",
+                    "surface-container-high": "#222a3d",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "surface-bright": "#31394d",
+                    "tertiary-container": "#ff516a",
+                    "tertiary": "#ffb2b7",
+                    "on-tertiary-fixed": "#40000d",
+                    "tertiary-fixed": "#ffdadb",
+                    "primary": "#c0c1ff",
+                    "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                    "surface-container-low": "#131b2e",
+                    "outline": "#908fa0",
+                    "secondary-container": "#00a572",
+                    "vampire-warning": "#F59E0B",
+                    "surface-container-highest": "#2d3449",
+                    "primary-fixed": "#e1e0ff",
+                    "inverse-primary": "#494bd6",
+                    "surface-variant": "#2d3449",
+                    "on-background": "#dae2fd",
+                    "on-secondary-fixed-variant": "#005236",
+                    "inverse-surface": "#dae2fd",
+                    "outline-variant": "#464554",
+                    "secondary": "#4edea3",
+                    "surface-dim": "#0b1326",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-secondary-fixed": "#002113",
+                    "surface-container-lowest": "#060e20",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "background": "#0b1326",
+                    "on-secondary": "#003824",
+                    "surface": "#0b1326",
+                    "on-surface-variant": "#c7c4d7",
+                    "surface-card": "rgba(30, 41, 59, 0.7)",
+                    "inverse-on-surface": "#283044",
+                    "surface-container": "#171f33",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "safe-area-bottom": "80px",
+                    "gutter": "16px",
+                    "container-margin": "24px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "mono-data": ["JetBrains Mono"],
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-xl-mobile": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .vibrant-glow {
+            box-shadow: 0 0 20px rgba(192, 193, 255, 0.15);
+        }
+        .auth-input:focus {
+            box-shadow: 0 0 0 2px rgba(192, 193, 255, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col font-body-lg text-body-lg overflow-x-hidden">
+<!-- Top Navigation Anchor (Suppressed Shell for focused task) -->
+<header class="w-full top-0 sticky z-50 bg-surface-dim/80 backdrop-blur-md">
+<div class="flex items-center justify-between px-gutter py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl tracking-tight text-primary">SubTrak</h1>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-gutter py-12 relative overflow-hidden">
+<!-- Atmospheric Ambient Glows -->
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="w-full max-w-md z-10">
+<div class="glass-panel p-8 md:p-10 rounded-xl vibrant-glow flex flex-col gap-stack-lg">
+<!-- Title Section -->
+<div class="text-center flex flex-col gap-2">
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">Crea il tuo account</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Inizia a risparmiare sui tuoi abbonamenti</p>
+</div>
+<!-- Registration Form -->
+<form class="flex flex-col gap-stack-md" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant px-1 uppercase" for="name">Nome completo</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors text-[20px]" data-icon="person">person</span>
+<input class="w-full bg-surface-container-low border border-glass-stroke rounded-lg py-3 pl-12 pr-4 font-body-sm text-body-sm text-on-surface placeholder:text-text-dim outline-none focus:border-primary transition-all auth-input" id="name" placeholder="Mario Rossi" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant px-1 uppercase" for="email">Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors text-[20px]" data-icon="mail">mail</span>
+<input class="w-full bg-surface-container-low border border-glass-stroke rounded-lg py-3 pl-12 pr-4 font-body-sm text-body-sm text-on-surface placeholder:text-text-dim outline-none focus:border-primary transition-all auth-input" id="email" placeholder="mario@esempio.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant px-1 uppercase" for="password">Password</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors text-[20px]" data-icon="lock">lock</span>
+<input class="w-full bg-surface-container-low border border-glass-stroke rounded-lg py-3 pl-12 pr-4 font-body-sm text-body-sm text-on-surface placeholder:text-text-dim outline-none focus:border-primary transition-all auth-input" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant px-1 uppercase" for="confirm_password">Conferma</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors text-[20px]" data-icon="lock_reset">lock_reset</span>
+<input class="w-full bg-surface-container-low border border-glass-stroke rounded-lg py-3 pl-12 pr-4 font-body-sm text-body-sm text-on-surface placeholder:text-text-dim outline-none focus:border-primary transition-all auth-input" id="confirm_password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 w-4 h-4 bg-surface-container-low border border-glass-stroke rounded text-primary focus:ring-primary focus:ring-offset-surface-dim" id="terms" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant" for="terms">
+                            Accetto i <a class="text-primary hover:underline transition-all" href="#">Termini di Servizio</a> e la <a class="text-primary hover:underline transition-all" href="#">Privacy Policy</a> di SubTrak.
+                        </label>
+</div>
+<button class="mt-4 w-full bg-primary text-on-primary font-headline-md text-headline-md py-4 rounded-xl hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-primary/20" type="submit">
+                        Registrati
+                    </button>
+</form>
+<!-- Divider -->
+<div class="relative flex items-center gap-4">
+<div class="flex-grow h-[1px] bg-glass-stroke"></div>
+<span class="font-label-caps text-label-caps text-text-dim uppercase">Oppure continua con</span>
+<div class="flex-grow h-[1px] bg-glass-stroke"></div>
+</div>
+<!-- Social Buttons -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 border border-glass-stroke rounded-xl font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high active:scale-95 transition-all">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHqo9gjVnfEdk8lFFKohb1a5Tocgem1n9YWWa1WFewSOuvtBUnKa88GA3RV4YU96FkszSeEa9s6wR7S-YXfVLxElGs-PdQ2-Kpit1t5jp1QVlgbBLy69GbA05sHR4YDjMmYn9gme7dCALuauIpTjMUug3TH5ZshoWmTY5S7G9yQNUv6Y_LEpMxJxYjSxFzVmu3s3_0-i0YVwNjUeItSUkevCjX0G3Qvt5dp_aIp_14u7ptMiwXxIY9j6Ll1FjmKEM7pNVScoQLjJI"/>
+<span>Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 border border-glass-stroke rounded-xl font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="apple" data-weight="fill">ios</span>
+<span>Apple</span>
+</button>
+</div>
+<!-- Footer Link -->
+<div class="text-center mt-2">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Hai già un account? 
+                        <a class="text-primary font-semibold hover:underline transition-all ml-1" href="#">Accedi</a>
+</p>
+</div>
+</div>
+<!-- Background Image Card (Atmospheric Decoration) -->
+<div class="mt-8 rounded-xl overflow-hidden glass-panel h-32 relative group">
+<img alt="Financial background" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-700" data-alt="A high-tech digital visualization showing flowing neon financial data streams against a deep navy background. The style is professional and minimalist, with sharp lines and glowing accents in indigo and emerald green. The mood is calm, organized, and technologically superior, reflecting a modern financial terminal aesthetic with soft bokeh effects in the distance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsw0yvqSq4v8lhiRi09otiMpKlOOdmG77BYKETARgyBSX8LR9u1buaeyQty8B5ZUYfLjMSWLu-PPyLxukpsQBlnIkki9ywKBdm-bVUej4eLwGNrKSSdoF6go3uhOIPAHyj5vuLliby_dv2OPTfw4wRzeeVQ-CJJDmwggAI1zSyn3vFAucYGeZiTiK35NiNhlEz61xLrZ1a4Hkv7KZXkTcDRW0wHby1QuBW323G6pV6D0JhVpKfhBqHpfDfAYAVSr6AtavptCddcsM"/>
+<div class="absolute inset-0 flex items-center justify-center p-6 text-center">
+<p class="font-mono-data text-mono-data text-secondary italic">"Prendi il controllo del tuo ecosistema finanziario digitale."</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full py-8 px-gutter text-center border-t border-glass-stroke/10">
+<p class="font-label-caps text-label-caps text-text-dim">© 2024 SubTrak Luminous Financial Intelligence. Tutti i diritti riservati.</p>
+</footer>
+<script>
+        // Micro-interactions for form inputs
+        document.querySelectorAll('.auth-input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.02]');
+                input.parentElement.parentElement.classList.add('transition-transform');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.02]');
+            });
+        });
+
+        // Simple checkmark toggle logic (simulated)
+        const termsCheckbox = document.getElementById('terms');
+        const submitBtn = document.querySelector('button[type="submit"]');
+        
+        termsCheckbox.addEventListener('change', () => {
+            if (termsCheckbox.checked) {
+                submitBtn.classList.remove('opacity-50', 'grayscale');
+            } else {
+                // Not actually disabling for visual demo, but could
+            }
+        });
+    </script>
+</body></html>

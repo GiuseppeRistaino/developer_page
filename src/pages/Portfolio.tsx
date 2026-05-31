@@ -4,6 +4,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import scantrakIcon from "../../PORTFOLIO/Scantrak/icon_scantrak.png";
 import fableHearthIcon from "../../PORTFOLIO/FableHearth/FableHearth_Icon.png";
 import plannerTimeIcon from "../../PORTFOLIO/PlannerTime/icon.png";
+import subtrakIcon from "../../PORTFOLIO/Subtrak/icon_subtrak.svg";
 
 interface Project {
   id: string;
@@ -17,6 +18,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "subtrak",
+    title: "SubTrak",
+    description: "App mobile per tracciare automaticamente gli abbonamenti ricorrenti tramite Open Banking, notifiche bancarie e parsing email, con analytics sulle uscite mensili e Vampire Alert.",
+    tags: ["Flutter", "Firebase", "Open Banking", "PSD2", "Dart"],
+    image: subtrakIcon,
+    imageAlt: "Icona SubTrak",
+    status: "In sviluppo",
+  },
   {
     id: "scantrak",
     title: "ScanTrak",

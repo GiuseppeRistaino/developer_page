@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .vampire-border {
+            border-left: 4px solid #F59E0B;
+        }
+        .sync-glow {
+            box-shadow: 0 0 15px rgba(192, 193, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-high": "#222a3d",
+                "on-tertiary-fixed-variant": "#92002a",
+                "vampire-warning": "#F59E0B",
+                "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                "on-secondary-fixed-variant": "#005236",
+                "primary": "#c0c1ff",
+                "outline": "#908fa0",
+                "on-error-container": "#ffdad6",
+                "inverse-surface": "#dae2fd",
+                "surface-tint": "#c0c1ff",
+                "on-surface-variant": "#c7c4d7",
+                "on-secondary-fixed": "#002113",
+                "tertiary-fixed": "#ffdadb",
+                "surface-bright": "#31394d",
+                "outline-variant": "#464554",
+                "secondary-fixed": "#6ffbbe",
+                "on-error": "#690005",
+                "on-primary-fixed": "#07006c",
+                "secondary": "#4edea3",
+                "primary-fixed": "#e1e0ff",
+                "tertiary": "#ffb2b7",
+                "surface-container": "#171f33",
+                "surface-container-highest": "#2d3449",
+                "error-container": "#93000a",
+                "primary-fixed-dim": "#c0c1ff",
+                "on-secondary-container": "#00311f",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "secondary-fixed-dim": "#4edea3",
+                "inverse-on-surface": "#283044",
+                "inverse-primary": "#494bd6",
+                "background": "#0b1326",
+                "on-tertiary-fixed": "#40000d",
+                "text-dim": "#94A3B8",
+                "on-tertiary": "#67001b",
+                "on-background": "#dae2fd",
+                "on-primary": "#1000a9",
+                "surface-container-lowest": "#060e20",
+                "primary-container": "#8083ff",
+                "tertiary-fixed-dim": "#ffb2b7",
+                "on-primary-container": "#0d0096",
+                "error": "#ffb4ab",
+                "surface-dim": "#0b1326",
+                "surface-container-low": "#131b2e",
+                "secondary-container": "#00a572",
+                "surface-variant": "#2d3449",
+                "tertiary-container": "#ff516a",
+                "on-secondary": "#003824",
+                "on-surface": "#dae2fd",
+                "surface": "#0b1326",
+                "surface-card": "rgba(30, 41, 59, 0.7)",
+                "on-tertiary-container": "#5b0017"
+            },
+            "spacing": {
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "container-margin": "24px",
+                "stack-md": "16px",
+                "gutter": "16px",
+                "safe-area-bottom": "80px"
+            },
+            "fontFamily": {
+                "display-lg": ["Inter"],
+                "mono-data": ["JetBrains Mono"],
+                "headline-md": ["Inter"],
+                "body-sm": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-xl": ["Inter"],
+                "label-caps": ["Inter"],
+                "headline-xl-mobile": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-safe-area-bottom">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 flex justify-between items-center px-container-margin py-stack-sm backdrop-blur-lg border-b border-glass-stroke bg-surface/80">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-glass-stroke overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional high-resolution close-up profile avatar of a tech-savvy individual with a modern haircut. The lighting is soft and cinematic, with a deep navy and indigo color palette reflecting a high-end fintech interface aesthetic. The background is a clean, minimalist digital studio setting with subtle lens flare effects." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5EqXVSSnScY00pxh_u_R6dexRQ4kqaYWf31Kxhc62Xa9Dda3wTCv8q9CKqk-BPNwpMj2bag9PeMndnuT08m57H1eMMlD4_Wa7AexVP3kr-q8nuIJYjcjbDWDcI19sdr-FNP48QYKfGh0vMLuKLNnxb-FF_MiNo3QbL9xNVPCTYpyq1pQjdL6yM8uwArTcMBQqplYYGtk0U3E0hijjqfSsMzD8FGRVRhND7UyXjiEarYfxKeCNjb6Lj-5FAGh-W_sY2-44zBnrMbA"/>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary">SubTrak</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest transition-opacity active:scale-98">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="px-container-margin py-stack-lg max-w-4xl mx-auto space-y-stack-lg">
+<!-- Page Title & Subtitle -->
+<section class="space-y-1">
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Sync Center</h2>
+<p class="font-body-lg text-body-lg text-text-dim">Gestisci i flussi di automazione e le sorgenti dati.</p>
+</section>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Open Banking Section -->
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Open Banking</h3>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg border border-glass-stroke">
+<div class="flex flex-col">
+<span class="font-body-lg text-on-surface">Conto Intesa Sanpaolo</span>
+<span class="font-mono-data text-body-sm text-secondary">Sincronizzato 10m fa</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<button class="w-full py-2 px-4 rounded-lg border border-glass-stroke text-primary font-label-caps text-label-caps hover:bg-primary/5 transition-colors">
+                        COLLEGA ALTRO CONTO
+                    </button>
+</div>
+</div>
+<!-- Email Parsing Section -->
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Email Parsing</h3>
+</div>
+<p class="font-body-sm text-text-dim">Scansiona automaticamente le ricevute digitali.</p>
+<div class="flex flex-col gap-2">
+<button class="flex items-center justify-center gap-2 w-full py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-all active:scale-95">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo5jA71hOk-oxwUvENX9tIwl5K12OVXRv3qulFlfAMfKGwyKsTOyi9H4rDyqdfVZjY-S82AxCOWIa6iYsRovcPmDvfeNm93auy1QwONhAmt7zkswleescYkxZuZzw_sHIUscf4ZNkT_qry5VPb9BwoV8xE1xblnLkQz70uFZJg65giHE3X6oEBXTkp3GZZ4F1xHkULcM8vgdl1A9S7qW1cQF5UJcnb3PDF5y4np2NkvtPo4szmLo1Hxm-gbaXBI7qAsAd6WyAWT5w"/>
+                        Sign in with Google
+                    </button>
+<button class="flex items-center justify-center gap-2 w-full py-3 bg-[#0078d4] text-white font-semibold rounded-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+                        Sign in with Outlook
+                    </button>
+</div>
+</div>
+<!-- Notification Listener -->
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-4 md:col-span-2">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="sensors">sensors</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Notification Listener</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg border border-glass-stroke">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-md bg-white p-1">
+<img alt="Revolut" class="w-full h-full object-contain" data-alt="A minimalist vector logo icon for a financial institution named Revolut, featuring clean geometric shapes in deep blue and white. The aesthetic is modern and corporate, suitable for a high-end fintech app interface on a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOZel9lNSRzxNPx-uA5FGUlLQ0v28I_Nset13Tfku5388nDyVxTVihj8nNqxDrPUD-y_ifA52UOVJ0zc0qVKwj1eiH1JnJ9mVssBk72XDetbsF8JNAnMzktUhrioIldLWhAxkLk8Y6Aug1KOiTsOJyi6CTlVV5WBXIJeH1Lx7otdKxmxVgxNksAZTEBzVi_JoFqPVn5wGkYGvNz8BrlF12GkNc2uBd2U6m16KfcDRh6P6IAUgVCqazmF6CDl5DCayp0HZPUWQb4Zg"/>
+</div>
+<span class="font-body-lg text-on-surface">Revolut</span>
+</div>
+<span class="px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded uppercase">Attivo</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container/50 rounded-lg border border-glass-stroke grayscale">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-md bg-white p-1">
+<img alt="Amazon" class="w-full h-full object-contain" data-alt="A sleek corporate logo for Amazon, rendered in a minimalist style for a banking application. The image features the iconic arrow in high contrast against a neutral background, maintaining a professional and clean fintech aesthetic for a system component." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3zDpbSZlagFoZxqLY-Gqi3K2vJyC6MjYGJEe3g_yMdFvbiqiVRicwhtvZRlquL4LyzHDETXJzPmCVdP8XutD3tLNkoE3NIf_d29aHUgmDY5tc9gTZRTRRj0bN3P-ynvrt5pMumK-xJAL2i_lae3EYVQ9UQtHN9aPy3VOiJl0ZJhk50fUlUXbdMeJKgmyfDfLytoXpShrXDuyF-YU0hEJZBfO9cU5WPD5X2wbRHIgB9asiX3Cm9hksRYwir3mLoxw9F1FwrhupuZU"/>
+</div>
+<span class="font-body-lg text-text-dim">Amazon</span>
+</div>
+<span class="px-2 py-1 bg-surface-container-highest text-text-dim text-[10px] font-bold rounded uppercase">Disabilitato</span>
+</div>
+</div>
+</div>
+<!-- Real-time Activity Feed -->
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-4 md:col-span-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Real-time Activity Feed</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="font-mono-data text-[12px] text-secondary">LIVE</span>
+</div>
+</div>
+<div class="space-y-2 bg-black/30 p-4 rounded-lg border border-glass-stroke font-mono-data text-body-sm max-h-64 overflow-y-auto">
+<div class="flex gap-3 text-text-dim border-b border-glass-stroke pb-2">
+<span class="text-secondary">[11:15]</span>
+<span class="text-on-surface">Intercepted <span class="text-primary">Revolut</span> notification -&gt; Netflix payment detected (€12.99)</span>
+</div>
+<div class="flex gap-3 text-text-dim border-b border-glass-stroke pb-2">
+<span class="text-secondary">[10:42]</span>
+<span class="text-on-surface">Email Parsing: <span class="text-primary">Amazon.it</span> order #403-112 confirmed. Item: "Ethernet Cable".</span>
+</div>
+<div class="flex gap-3 text-text-dim border-b border-glass-stroke pb-2">
+<span class="text-vampire-warning font-bold">WARNING</span>
+<span class="text-on-surface">Subscription "Spotify" price change detected via Email parsing. €9.99 -&gt; €10.99</span>
+</div>
+<div class="flex gap-3 text-text-dim border-b border-glass-stroke pb-2">
+<span class="text-secondary">[09:00]</span>
+<span class="text-on-surface">Sync Daily: <span class="text-primary">Intesa Sanpaolo</span> linked. 4 new transactions imported.</span>
+</div>
+<div class="flex gap-3 text-text-dim">
+<span class="text-secondary">[08:45]</span>
+<span class="text-on-surface opacity-60">System: Encryption keys rotated successfully.</span>
+</div>
+</div>
+</div>
+<!-- Vampire Alert Card (Themetic Example) -->
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-3 md:col-span-2 vampire-border bg-vampire-warning/5">
+<div class="flex items-center gap-2 text-vampire-warning">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<h4 class="font-bold text-label-caps uppercase tracking-wider">Vampire Subscription Alert</h4>
+</div>
+<p class="font-body-lg text-on-surface">Abbiamo rilevato un rinnovo per un servizio che non utilizzi da oltre 60 giorni: <span class="font-bold">Adobe Creative Cloud</span>.</p>
+<div class="flex gap-4 mt-2">
+<button class="bg-vampire-warning text-on-tertiary-fixed font-bold py-2 px-6 rounded-lg text-body-sm active:scale-95 transition-all">DISDICI ORA</button>
+<button class="text-on-surface-variant font-medium py-2 px-6 hover:underline text-body-sm">Ignora</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-container-margin pb-4 pt-2 bg-surface-container/80 backdrop-blur-md border-t border-glass-stroke rounded-t-xl shadow-[0px_-4px_24px_rgba(0,0,0,0.4)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="sync" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sync</span>
+<span class="font-label-caps text-label-caps">Sync</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for the activity feed scrolling
+        const feed = document.querySelector('.overflow-y-auto');
+        if(feed) {
+            feed.scrollTop = feed.scrollHeight;
+        }
+
+        // Add periodic "pings" to the log for immersion
+        setInterval(() => {
+            const container = document.querySelector('.max-h-64');
+            const newLog = document.createElement('div');
+            newLog.className = "flex gap-3 text-text-dim border-b border-glass-stroke pb-2 animate-pulse";
+            const time = new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+            newLog.innerHTML = `<span class="text-secondary">[${time}]</span> <span class="text-on-surface">Health Check: All sync services operational.</span>`;
+            container.appendChild(newLog);
+            if(container.children.length > 10) container.removeChild(container.firstChild);
+            container.scrollTop = container.scrollHeight;
+            setTimeout(() => newLog.classList.remove('animate-pulse'), 2000);
+        }, 15000);
+    </script>
+</body></html>

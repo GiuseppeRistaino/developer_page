@@ -12,6 +12,9 @@ import Portfolio from "./pages/Portfolio";
 import ProjectBlog from "./pages/ProjectBlog";
 import PlannerTime from "./pages/PlannerTime";
 import Scantrak from "./pages/Scantrak";
+import Subtrak from "./pages/Subtrak";
+import SubtrakPrivacy from "./pages/SubtrakPrivacy";
+import SubtrakTerms from "./pages/SubtrakTerms";
 import ScantrakPrivacy from "./pages/ScantrakPrivacy";
 import Documentation, { DocArticlePage } from "./pages/Documentation";
 import NotFound from "./pages/NotFound";
@@ -43,6 +46,9 @@ const App = () => (
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/portfolio/plannertime" element={<PlannerTime />} />
             <Route path="/portfolio/scantrak" element={<Scantrak />} />
+            <Route path="/portfolio/subtrak" element={<Subtrak />} />
+            <Route path="/portfolio/subtrak/privacy" element={<SubtrakPrivacy />} />
+            <Route path="/portfolio/subtrak/terms" element={<SubtrakTerms />} />
             <Route path="/portfolio/scantrak/privacy" element={<ScantrakPrivacy />} />
             <Route path="/portfolio/:projectId" element={<ProjectBlog />} />
             <Route path="/documentazione" element={<Documentation />} />

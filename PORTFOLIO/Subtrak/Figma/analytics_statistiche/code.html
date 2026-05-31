@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SubTrak Analytics | Informed Calm</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#222a3d",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "vampire-warning": "#F59E0B",
+                    "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary": "#c0c1ff",
+                    "outline": "#908fa0",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#dae2fd",
+                    "surface-tint": "#c0c1ff",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-secondary-fixed": "#002113",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-bright": "#31394d",
+                    "outline-variant": "#464554",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#07006c",
+                    "secondary": "#4edea3",
+                    "primary-fixed": "#e1e0ff",
+                    "tertiary": "#ffb2b7",
+                    "surface-container": "#171f33",
+                    "surface-container-highest": "#2d3449",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "on-secondary-container": "#00311f",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "secondary-fixed-dim": "#4edea3",
+                    "inverse-on-surface": "#283044",
+                    "inverse-primary": "#494bd6",
+                    "background": "#0b1326",
+                    "on-tertiary-fixed": "#40000d",
+                    "text-dim": "#94A3B8",
+                    "on-tertiary": "#67001b",
+                    "on-background": "#dae2fd",
+                    "on-primary": "#1000a9",
+                    "surface-container-lowest": "#060e20",
+                    "primary-container": "#8083ff",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "on-primary-container": "#0d0096",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#0b1326",
+                    "surface-container-low": "#131b2e",
+                    "secondary-container": "#00a572",
+                    "surface-variant": "#2d3449",
+                    "tertiary-container": "#ff516a",
+                    "on-secondary": "#003824",
+                    "on-surface": "#dae2fd",
+                    "surface": "#0b1326",
+                    "surface-card": "rgba(30, 41, 59, 0.7)",
+                    "on-tertiary-container": "#5b0017"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "container-margin": "24px",
+                    "stack-md": "16px",
+                    "gutter": "16px",
+                    "safe-area-bottom": "80px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "mono-data": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-xl-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .vampire-glow {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1326;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d3449;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-safe-area-bottom">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 backdrop-blur-lg border-b border-glass-stroke bg-surface/80">
+<div class="flex justify-between items-center w-full px-container-margin py-stack-sm">
+<div class="flex items-center gap-stack-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_MrYTW75mDpQbOzuMCtLFZmoH5VSUMjmDw5frVni1raJSBQ6mrYgQ2jgBsvJCYMqn9iKvKFNEvkUMXNt1OWe27LH25Wk2Ls8UMujNuNLs5lbs9NTn6jUcRqjhWvMi8utUVBivOCksTJ5if7W1Ju0Q1HsUJjSmufCuyMMlufFubITa6gM-903KF-SYY1m2FnVaMKndzLgnfYEdnIlQcfZTFe6OsWHEaOQwpTZzMv0rJmR_1jv-xY_6kkPnY83RyugNlo0pvSOIggI"/>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary">SubTrak</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:opacity-80 transition-opacity active:scale-98">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-container-margin py-stack-lg max-w-[1200px] mx-auto space-y-stack-lg">
+<!-- Header Section -->
+<section>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface mb-1">Financial Intelligence</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Insights derived from your recurring expenditure.</p>
+</section>
+<!-- Vampire Alert Card -->
+<section class="animate-pulse-subtle">
+<div class="glass-panel vampire-glow rounded-xl overflow-hidden border-l-4 border-l-vampire-warning p-stack-md flex items-start gap-stack-md">
+<div class="bg-vampire-warning/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-vampire-warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-vampire-warning mb-1">Vampire Alert</h3>
+<p class="font-body-lg text-body-lg text-on-surface">You have 3 streaming services active. Consolidating or pausing unused accounts could save you <span class="font-mono-data text-vampire-warning">12,99€</span> this month.</p>
+<button class="mt-stack-md px-4 py-2 bg-vampire-warning text-surface font-label-caps text-label-caps rounded-lg hover:opacity-90 transition-all active:scale-95">Review Redundancies</button>
+</div>
+</div>
+</section>
+<!-- Analytics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Pie Chart: Category Breakdown -->
+<div class="md:col-span-5 glass-panel rounded-xl p-stack-md flex flex-col items-center justify-center min-h-[360px]">
+<div class="w-full flex justify-between items-center mb-stack-md">
+<h3 class="font-headline-md text-headline-md">Category Breakdown</h3>
+<span class="material-symbols-outlined text-on-surface-variant">donut_small</span>
+</div>
+<!-- SVG Pie Chart Implementation -->
+<div class="relative w-48 h-48 mb-stack-md">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<circle class="text-primary/20" cx="18" cy="18" fill="transparent" r="15.915" stroke="currentColor" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#c0c1ff" stroke-dasharray="45 55" stroke-dashoffset="0" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#4edea3" stroke-dasharray="30 70" stroke-dashoffset="-45" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#ffb2b7" stroke-dasharray="25 75" stroke-dashoffset="-75" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-mono-data text-headline-md">148€</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">TOTAL</span>
+</div>
+</div>
+<div class="w-full grid grid-cols-3 gap-2">
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container-low">
+<div class="w-3 h-3 rounded-full bg-primary mb-1"></div>
+<span class="font-label-caps text-[10px]">Ent.</span>
+<span class="font-mono-data text-body-sm">45%</span>
+</div>
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container-low">
+<div class="w-3 h-3 rounded-full bg-secondary mb-1"></div>
+<span class="font-label-caps text-[10px]">Prod.</span>
+<span class="font-mono-data text-body-sm">30%</span>
+</div>
+<div class="flex flex-col items-center p-2 rounded-lg bg-surface-container-low">
+<div class="w-3 h-3 rounded-full bg-tertiary mb-1"></div>
+<span class="font-label-caps text-[10px]">Soft.</span>
+<span class="font-mono-data text-body-sm">25%</span>
+</div>
+</div>
+</div>
+<!-- Bar Chart: Annual History -->
+<div class="md:col-span-7 glass-panel rounded-xl p-stack-md flex flex-col min-h-[360px]">
+<div class="w-full flex justify-between items-center mb-stack-lg">
+<div>
+<h3 class="font-headline-md text-headline-md">Annual Spend History</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Monthly recurring outflow trend</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">equalizer</span>
+</div>
+<div class="flex-1 flex items-end justify-between gap-2 px-2 pb-2 border-b border-glass-stroke">
+<!-- Bars -->
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-sm h-[40%] group-hover:bg-primary/40 transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-on-surface-variant">J</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-sm h-[45%] group-hover:bg-primary/40 transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-on-surface-variant">F</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-sm h-[55%] group-hover:bg-primary/40 transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-on-surface-variant">M</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-sm h-[50%] group-hover:bg-primary/40 transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-on-surface-variant">A</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-sm h-[70%] group-hover:bg-primary/40 transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-on-surface-variant">M</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-sm h-[65%] group-hover:bg-primary/40 transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-on-surface-variant">J</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-primary/20 rounded-t-sm h-[80%] group-hover:bg-primary/40 transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-on-surface-variant">J</span>
+</div>
+<div class="flex flex-col items-center group w-full">
+<div class="w-full bg-secondary h-[95%] rounded-t-sm shadow-[0_0_15px_rgba(78,222,163,0.3)] transition-all"></div>
+<span class="font-label-caps text-[10px] mt-2 text-secondary font-bold">A</span>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">trending_up</span>
+<span class="font-body-sm text-body-sm">Peak Spend: August</span>
+</div>
+<span class="font-mono-data text-body-sm">Avg: 132€</span>
+</div>
+</div>
+</div>
+<!-- Sync Center Activity -->
+<section class="glass-panel rounded-xl p-stack-md">
+<h3 class="font-headline-md text-headline-md mb-stack-md">Recent Sync Activity</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-lowest border border-glass-stroke">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-mono-data text-body-sm">2023-10-24 09:15</span>
+<span class="font-body-sm">Chase Bank API Connected</span>
+</div>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-secondary/10 text-secondary rounded">SUCCESS</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-lowest border border-glass-stroke">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-mono-data text-body-sm">2023-10-23 14:02</span>
+<span class="font-body-sm">Netflix Transaction Scanned</span>
+</div>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-secondary/10 text-secondary rounded">SUCCESS</span>
+</div>
+<div class="flex justify-between items-center p-3 rounded-lg bg-surface-container-lowest border border-glass-stroke opacity-60">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-mono-data text-body-sm">2023-10-21 18:45</span>
+<span class="font-body-sm">Adobe Creative Cloud Renewal Check</span>
+</div>
+<span class="font-label-caps text-[10px] px-2 py-1 bg-tertiary/10 text-tertiary rounded">FAILED</span>
+</div>
+</div>
+</section>
+<!-- Subscription Spotlight (Visualizing Clarity) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-4 hover:shadow-[0_0_20px_rgba(192,193,255,0.1)] transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center border border-glass-stroke overflow-hidden">
+<img alt="Netflix" class="w-8 h-8 rounded" data-alt="A clean, minimalist logo of a streaming service on a red background, professional corporate style with high resolution and soft cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmh1cYmNSJwNTFT_bVpLlwGGb2xUvTZF_wVrUdaFP9nZSrF7vfXR9z-XeLVWSagentCyYQkuRuu656qcuAvmsb9rqN_OTElC-MAyrH5vfsyxbXsgURzwzE8pTuaM5nutQYQrzHj4cJXOKvDMNUUM8ZhUtAUOCb75Z1-Z7DQqtAblK-cTb5npw2G-uM5CvsgQQ3YE75U5kanrqSiVNDS8BOJjZbOGi-ZaQblljmM_9TGcnKyp4FmoY1YrlaYmyC_po4tSQPG6avHgE"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-md text-body-lg">Netflix</h4>
+<span class="font-body-sm text-on-surface-variant">Entertainment</span>
+</div>
+<div class="text-right">
+<span class="font-mono-data text-headline-md">17.99€</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant">MONTHLY</p>
+</div>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-4 hover:shadow-[0_0_20px_rgba(192,193,255,0.1)] transition-all cursor-pointer">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center border border-glass-stroke overflow-hidden">
+<img alt="Adobe" class="w-8 h-8 rounded" data-alt="A professional software brand logo in red and white, displayed in a high-end tech ecosystem aesthetic with glass-like textures and soft ambient occlusion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsMrbfv9p4uHVDfDs0oaUDIVHYUzLPfhaRYHZeYuN5Vmj05EPAfCdKiaKqV0uCLTUwQ5VLUcPLO19pqQUSYIUVBh-i0t-HtBVp2lyBblJON8wggbrHw4BeB6ovHgCsT8d5NvjlggLRZhvPQCVfAZGU_qMaIDHkHkRJhEtmmcINdnNi-Cyb5Upcm9kd7alpLkAJJZx2do95QXRGTmXyGCAW-zusIRv1ZzmTI2IPGZjXB7meH1OZv07sQWbXyyWAfDF8mH7yw3EquN0"/>
+</div>
+<div class="flex-1">
+<h4 class="font-headline-md text-body-lg">Adobe CC</h4>
+<span class="font-body-sm text-on-surface-variant">Productivity</span>
+</div>
+<div class="text-right">
+<span class="font-mono-data text-headline-md">60.99€</span>
+<p class="font-label-caps text-[10px] text-on-surface-variant">MONTHLY</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-container-margin pb-4 pt-2 bg-surface-container/80 backdrop-blur-md border-t border-glass-stroke shadow-[0px_-4px_24px_rgba(0,0,0,0.4)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 py-1" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 py-1" href="#">
+<span class="material-symbols-outlined mb-1">sync</span>
+<span class="font-label-caps text-label-caps">Sync</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 py-1" href="#">
+<span class="material-symbols-outlined mb-1">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interactions and atmospheric logic
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simulating chart hover effects
+        const bars = document.querySelectorAll('.group div');
+        bars.forEach(bar => {
+            bar.addEventListener('mouseenter', () => {
+                bar.style.filter = 'brightness(1.2) drop-shadow(0 0 8px rgba(192, 193, 255, 0.4))';
+            });
+            bar.addEventListener('mouseleave', () => {
+                bar.style.filter = 'none';
+            });
+        });
+    </script>
+</body></html>

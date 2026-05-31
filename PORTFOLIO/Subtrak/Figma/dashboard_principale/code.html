@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SubTrak | Financial Clarity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#222a3d",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "vampire-warning": "#F59E0B",
+                    "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary": "#c0c1ff",
+                    "outline": "#908fa0",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#dae2fd",
+                    "surface-tint": "#c0c1ff",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-secondary-fixed": "#002113",
+                    "tertiary-fixed": "#ffdadb",
+                    "surface-bright": "#31394d",
+                    "outline-variant": "#464554",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#07006c",
+                    "secondary": "#4edea3",
+                    "primary-fixed": "#e1e0ff",
+                    "tertiary": "#ffb2b7",
+                    "surface-container": "#171f33",
+                    "surface-container-highest": "#2d3449",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "on-secondary-container": "#00311f",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "secondary-fixed-dim": "#4edea3",
+                    "inverse-on-surface": "#283044",
+                    "inverse-primary": "#494bd6",
+                    "background": "#0b1326",
+                    "on-tertiary-fixed": "#40000d",
+                    "text-dim": "#94A3B8",
+                    "on-tertiary": "#67001b",
+                    "on-background": "#dae2fd",
+                    "on-primary": "#1000a9",
+                    "surface-container-lowest": "#060e20",
+                    "primary-container": "#8083ff",
+                    "tertiary-fixed-dim": "#ffb2b7",
+                    "on-primary-container": "#0d0096",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#0b1326",
+                    "surface-container-low": "#131b2e",
+                    "secondary-container": "#00a572",
+                    "surface-variant": "#2d3449",
+                    "tertiary-container": "#ff516a",
+                    "on-secondary": "#003824",
+                    "on-surface": "#dae2fd",
+                    "surface": "#0b1326",
+                    "surface-card": "rgba(30, 41, 59, 0.7)",
+                    "on-tertiary-container": "#5b0017"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "32px",
+                    "stack-sm": "8px",
+                    "container-margin": "24px",
+                    "stack-md": "16px",
+                    "gutter": "16px",
+                    "safe-area-bottom": "80px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "mono-data": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-xl-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0b1326; color: #dae2fd; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(30, 41, 59, 0.7); }
+        .glow-primary { box-shadow: 0 0 20px rgba(192, 193, 255, 0.15); }
+        .pulse-ring { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-safe-area-bottom">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 backdrop-blur-lg border-b border-glass-stroke bg-surface/80 flex justify-between items-center px-container-margin py-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/30">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTzlUnR3Y_7eD7fy6duqEFg2ZPZuEJ2TZ6AsyZoammMTVwy9hTVniKVeZyEUnCVRW3adRzbMe6HiU8UOXjcsFcXsRFupEM-M-EIAMcmoQakhTEDsvNrc0mvZ-FgpKs9KyHWAknfBJK0BrAdK7cL_bIKv9RMss7rwL-dodrgiY7ZaSOhNhshIeVLIDaenq1qsQTGDMebqejG7ANjno5Y5mqzEhpToSOqjiyuhXe7EksR_cQ7MAE3D5yoZS81SnYwbur4haA44x2umQ"/>
+</div>
+<span class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary">SubTrak</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:opacity-80 transition-opacity text-on-surface">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="px-container-margin pt-stack-md space-y-stack-lg max-w-2xl mx-auto">
+<!-- KPI Card -->
+<section class="glass-panel p-6 rounded-xl glow-primary">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-label-caps text-label-caps text-on-surface-variant mb-1">TOTAL MONTHLY SPEND</h2>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary">47,90 €</span>
+</div>
+</div>
+<div class="flex items-center gap-1 px-2 py-1 bg-secondary/10 text-secondary rounded-lg">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span class="font-mono-data text-mono-data">12.5%</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-glass-stroke flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-text-dim">Projected next month</span>
+<span class="font-mono-data text-mono-data text-on-surface">52,40 €</span>
+</div>
+</section>
+<!-- Bento Grid: Pulse & Alerts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Outflow Pulse -->
+<section class="glass-panel p-6 rounded-xl flex flex-col items-center justify-center text-center">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Outflow Pulse</h3>
+<div class="relative w-32 h-32 mb-4">
+<!-- Background Track -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-glass-stroke" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-width="8"></circle>
+<!-- Active Track (Gradient simulated with CSS) -->
+<circle class="transition-all duration-1000 ease-out" cx="64" cy="64" fill="transparent" r="56" stroke="url(#gradient)" stroke-dasharray="351.8" stroke-dashoffset="100" stroke-linecap="round" stroke-width="8"></circle>
+<defs>
+<lineargradient id="gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#c0c1ff"></stop>
+<stop offset="100%" stop-color="#4edea3"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-[32px] leading-none text-primary">3</span>
+<span class="font-label-caps text-[10px] text-text-dim uppercase">Days Left</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Until next billing peak</p>
+</section>
+<!-- Vampire Alert (Smart Insight) -->
+<section class="glass-panel p-6 rounded-xl border-l-4 border-l-vampire-warning bg-vampire-warning/5">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-vampire-warning">warning</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vampire Alert</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                    "Prime Video" has increased by 2.00 € without notice. Review subscription?
+                </p>
+<button class="w-full py-2 bg-vampire-warning/20 text-vampire-warning font-label-caps text-label-caps rounded-lg hover:bg-vampire-warning/30 transition-colors">
+                    INVESTIGATE
+                </button>
+</section>
+</div>
+<!-- Subscription List -->
+<section class="space-y-stack-md">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Active Subscriptions</h3>
+<span class="font-label-caps text-label-caps text-primary">SEE ALL</span>
+</div>
+<div class="space-y-stack-sm">
+<!-- Netflix Card -->
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:scale-[1.01] transition-transform active:scale-[0.99] group">
+<div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center overflow-hidden border border-glass-stroke">
+<img alt="Netflix" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT_UY-0hIjI9G4rSgrgJsNX8QO5akfXo6pwuhBb7ijVUq5hIHlKLBkfw8EErO4yoOjIHaw7cxGNSd17WSiJ859NuDynaisgXtI1VAPmbwodJ8U0afl5sUyAGwaHC-9pbpJE2fOGw-wPosGXdKdtnVWHKjjMkF6nz-Dzju6gKMk4HjrYWJ1IhF62hm-bJmCw5fM424RrB4gK2CiYfKcYXrQQLE0kTNz2ftNM-vcLpTT8lcSz-WYdbgITkSmLJe2NfxLLaBEyMRgJ5U"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-headline-md text-on-surface truncate">Netflix</h4>
+<span class="font-mono-data text-mono-data text-primary">17,99 €</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-body-sm text-body-sm text-text-dim">Premium 4K</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-error">3 days left</span>
+</div>
+</div>
+<div class="px-2 py-0.5 bg-surface-container-highest rounded text-[10px] font-label-caps text-on-surface-variant border border-glass-stroke">
+                        BANK
+                    </div>
+</div>
+<!-- Amazon Prime Card -->
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:scale-[1.01] transition-transform active:scale-[0.99]">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden border border-glass-stroke">
+<img alt="Amazon" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBFgAveaLkkgi8AwD1tKvC9dw0thWwSFMqLd73Sxq9FQbgfNiWV0Pg9NH1r-nlRk4xS0Ephfuz49ya9L8XnOxRMnxV3s1-ijxwVj_Ptv5c8RVJpidh8Okj7hI3P1DlH3SRWMf8qvkFUjriqIbPxekmOpBxAZtX6rsFp6kQKd4d7jYSgahqe4BolKic6hkVbbH424tEAE71iQrUuioYLvJP0Wgz44lb5YuxMg3YyF9MCRn4JRDmCEjRDcqXBw9abpiusFzUz6IT_3E"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-headline-md text-on-surface truncate">Amazon Prime</h4>
+<span class="font-mono-data text-mono-data text-primary">8,99 €</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-body-sm text-body-sm text-text-dim">Annual Plan</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">12 days left</span>
+</div>
+</div>
+<div class="px-2 py-0.5 bg-surface-container-highest rounded text-[10px] font-label-caps text-on-surface-variant border border-glass-stroke">
+                        EMAIL
+                    </div>
+</div>
+<!-- Spotify Card -->
+<div class="glass-panel p-4 rounded-xl flex items-center gap-4 hover:scale-[1.01] transition-transform active:scale-[0.99]">
+<div class="w-12 h-12 bg-[#1DB954] rounded-lg flex items-center justify-center overflow-hidden border border-glass-stroke">
+<img alt="Spotify" class="w-8 h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALEbIX2loMEblQSuwEOeQR1oyy3RAnAhkMol229ImW3tRfuUHCjwKk2B9xjhniIXiqURt3ovHtMGNQ5FPSjlKQ9Z6rmVWNVLh9fVqrBn3ATNmtpwiJBwC2thBfEtUjCcKKUGgwrGwYBm8QfLpt2wWPs3S5Wf8NzeGYyE1jjpnvRyRak_0JW-s7QxYRcIE2Vf4dy4VApgvIaoCLoZPxlf2VCKyb6y30rYZX0csa9M3NGmA97_2VYESHK6pWv_rd0OWAjAxcV7-ZUuw"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h4 class="font-headline-md text-headline-md text-on-surface truncate">Spotify</h4>
+<span class="font-mono-data text-mono-data text-primary">10,99 €</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-body-sm text-body-sm text-text-dim">Duo Plan</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">21 days left</span>
+</div>
+</div>
+<div class="px-2 py-0.5 bg-surface-container-highest rounded text-[10px] font-label-caps text-on-surface-variant border border-glass-stroke">
+                        BANK
+                    </div>
+</div>
+</div>
+</section>
+<!-- Sync Center (Micro list) -->
+<section class="glass-panel p-4 rounded-xl">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">SYNC CENTER</h3>
+<span class="font-mono-data text-[10px] text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary pulse-ring"></span>
+                    LIVE
+                </span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center opacity-80">
+<span class="font-mono-data text-[11px] text-text-dim">14:22:01</span>
+<span class="font-mono-data text-[11px] text-on-surface flex-1 px-4">Gmail Crawl: New Invoice "Adobe"</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<div class="flex justify-between items-center opacity-80">
+<span class="font-mono-data text-[11px] text-text-dim">12:15:45</span>
+<span class="font-mono-data text-[11px] text-on-surface flex-1 px-4">Bank API: Revolut Transaction Matched</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed right-container-margin bottom-[100px] w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-container-margin pb-4 pt-2 bg-surface-container/80 backdrop-blur-md border-t border-glass-stroke shadow-[0px_-4px_24px_rgba(0,0,0,0.4)] rounded-t-xl">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<!-- Sync -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+<span class="font-label-caps text-label-caps">Sync</span>
+</a>
+<!-- Analytics -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+<!-- Settings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200 px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+        // Subtle background interaction
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, #131b2e 0%, #0b1326 100%)`;
+        });
+    </script>
+</body></html>

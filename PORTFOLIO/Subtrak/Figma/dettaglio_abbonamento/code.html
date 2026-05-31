@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<title>SubTrak - Subscription Detail</title>
+<style>
+    body {
+      background-color: #0b1326;
+      color: #dae2fd;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .brand-gradient-overlay {
+      background: linear-gradient(180deg, rgba(229, 9, 20, 0.2) 0%, rgba(11, 19, 38, 0) 100%);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-high": "#222a3d",
+                  "on-tertiary-fixed-variant": "#92002a",
+                  "vampire-warning": "#F59E0B",
+                  "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                  "on-secondary-fixed-variant": "#005236",
+                  "primary": "#c0c1ff",
+                  "outline": "#908fa0",
+                  "on-error-container": "#ffdad6",
+                  "inverse-surface": "#dae2fd",
+                  "surface-tint": "#c0c1ff",
+                  "on-surface-variant": "#c7c4d7",
+                  "on-secondary-fixed": "#002113",
+                  "tertiary-fixed": "#ffdadb",
+                  "surface-bright": "#31394d",
+                  "outline-variant": "#464554",
+                  "secondary-fixed": "#6ffbbe",
+                  "on-error": "#690005",
+                  "on-primary-fixed": "#07006c",
+                  "secondary": "#4edea3",
+                  "primary-fixed": "#e1e0ff",
+                  "tertiary": "#ffb2b7",
+                  "surface-container": "#171f33",
+                  "surface-container-highest": "#2d3449",
+                  "error-container": "#93000a",
+                  "primary-fixed-dim": "#c0c1ff",
+                  "on-secondary-container": "#00311f",
+                  "on-primary-fixed-variant": "#2f2ebe",
+                  "secondary-fixed-dim": "#4edea3",
+                  "inverse-on-surface": "#283044",
+                  "inverse-primary": "#494bd6",
+                  "background": "#0b1326",
+                  "on-tertiary-fixed": "#40000d",
+                  "text-dim": "#94A3B8",
+                  "on-tertiary": "#67001b",
+                  "on-background": "#dae2fd",
+                  "on-primary": "#1000a9",
+                  "surface-container-lowest": "#060e20",
+                  "primary-container": "#8083ff",
+                  "tertiary-fixed-dim": "#ffb2b7",
+                  "on-primary-container": "#0d0096",
+                  "error": "#ffb4ab",
+                  "surface-dim": "#0b1326",
+                  "surface-container-low": "#131b2e",
+                  "secondary-container": "#00a572",
+                  "surface-variant": "#2d3449",
+                  "tertiary-container": "#ff516a",
+                  "on-secondary": "#003824",
+                  "on-surface": "#dae2fd",
+                  "surface": "#0b1326",
+                  "surface-card": "rgba(30, 41, 59, 0.7)",
+                  "on-tertiary-container": "#5b0017"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "stack-lg": "32px",
+                  "stack-sm": "8px",
+                  "container-margin": "24px",
+                  "stack-md": "16px",
+                  "gutter": "16px",
+                  "safe-area-bottom": "80px"
+          },
+          "fontFamily": {
+                  "display-lg": ["Inter"],
+                  "mono-data": ["JetBrains Mono"],
+                  "headline-md": ["Inter"],
+                  "body-sm": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "headline-xl": ["Inter"],
+                  "label-caps": ["Inter"],
+                  "headline-xl-mobile": ["Inter"]
+          },
+          "fontSize": {
+                  "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                  "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                  "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                  "headline-xl-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 backdrop-blur-lg border-b border-glass-stroke bg-surface/80 flex justify-between items-center px-container-margin py-stack-sm">
+<div class="flex items-center gap-4">
+<button class="active:scale-98 transition-all hover:opacity-80 flex items-center justify-center p-2 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary">SubTrak</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity p-2">
+<span class="material-symbols-outlined text-on-surface" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-glass-stroke">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a young male professional in a modern dark setting. The lighting is dramatic and moody, using soft cyan and purple rim lights that align with a corporate tech aesthetic. The background is a blurred, high-end office environment with deep blue tones, conveying a sense of informed calm and digital precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEoTciSNM0Y9KLT3puw2ucx7L-mDFFap6ySLnSMuGhCjcOlmcJA3AmpwGJ39eLg-42oyszWyDAGrER6EfvsIMCHKzY2HvQTrsESScWR3LLfTouqvP-l-LLhs3zG7A7vRYTEpIcObsyNw0f0fwyAt--rv91X2cyMXVTSn0_Ja-GrdmYeZid_YeUsX3aSTV-Mm7msHGDWseRQHz0qFBKigEc1affGFcFaR-Q-_qD8bP9Xih1JBhbGA_4gbmKVRiINmDXEejaAr2glZ0"/>
+</div>
+</div>
+</header>
+<main class="relative pb-safe-area-bottom max-w-[1200px] mx-auto">
+<!-- Dynamic Brand Header -->
+<section class="relative w-full h-[320px] overflow-hidden flex flex-col items-center justify-center pt-stack-lg">
+<div class="absolute inset-0 brand-gradient-overlay z-0"></div>
+<!-- Subscription Icon/Logo -->
+<div class="relative z-10 w-24 h-24 mb-stack-md rounded-2xl overflow-hidden shadow-2xl border border-glass-stroke">
+<img alt="Netflix Brand Logo" class="w-full h-full object-cover" data-alt="A clean, minimalist close-up of a premium entertainment brand logo, specifically focusing on the iconic red typography of Netflix against a sleek, dark background. The lighting is cinematic, emphasizing the texture of the plastic card-like surface. The overall mood is vibrant, energetic, and high-end corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByTGiAj18gZMv1_Qibnlu-SmEW4b3VNrfxAcJVBm_kUqijEdeAzM8QF9nUD8KrRJxMsP_0QKa42XQfmoIF6buVxdyVVb_4-RxLwMA3vXSeM7JdhC8mAHAIk024iNxk4eAMtuwnfDPkvTHjZOjItJJM5E19TQPLCiw-vUXZxkIY9jrhoFJbvbxE3jlDktpe3cwEZQ2L2L18BrFwQVriODCYVXwbompwNBv0zWsvRO8408_waCFLNTOq04iiG8leSznUovHRnI-f4Lw"/>
+</div>
+<div class="relative z-10 text-center px-container-margin">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-stack-sm">Netflix Premium</h2>
+<div class="flex items-baseline justify-center gap-1">
+<span class="font-display-lg text-display-lg text-white">€19.99</span>
+<span class="font-body-lg text-body-lg text-text-dim">/mo</span>
+</div>
+<div class="mt-4 flex gap-2 justify-center">
+<span class="bg-surface-container-highest/50 px-3 py-1 rounded-full font-label-caps text-label-caps border border-glass-stroke">NEXT BILLING: OCT 24</span>
+<span class="bg-secondary-container/20 text-secondary px-3 py-1 rounded-full font-label-caps text-label-caps border border-secondary-container/40">ACTIVE</span>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<div class="px-container-margin grid grid-cols-1 md:grid-cols-12 gap-gutter -mt-8 relative z-20">
+<!-- Billing Info Card (Bento Style) -->
+<div class="md:col-span-8 space-y-stack-md">
+<div class="glass-panel rounded-xl p-6 shadow-xl">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span>
+            Billing Details
+          </h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-text-dim mb-1">PAYMENT METHOD</span>
+<div class="flex items-center gap-3">
+<div class="bg-surface-container rounded-lg p-2 border border-glass-stroke">
+<span class="material-symbols-outlined text-on-surface">credit_card</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg">Visa •••• 1234</p>
+<p class="font-body-sm text-body-sm text-text-dim">Expires 08/26</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-text-dim mb-1">BILLING CYCLE</span>
+<div class="flex items-center gap-3">
+<div class="bg-surface-container rounded-lg p-2 border border-glass-stroke">
+<span class="material-symbols-outlined text-on-surface">calendar_month</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg">Monthly Plan</p>
+<p class="font-body-sm text-body-sm text-text-dim">Auto-renews on the 24th</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-glass-stroke flex justify-between items-center">
+<div>
+<p class="font-body-sm text-body-sm text-text-dim">Tracking Source</p>
+<span class="bg-primary-container/20 text-primary px-2 py-0.5 rounded text-[12px] font-mono-data border border-primary-container/40">BANK SYNCED</span>
+</div>
+<button class="text-primary font-body-lg text-body-lg flex items-center gap-1 hover:underline">
+               Edit Plan <span class="material-symbols-outlined text-[18px]">launch</span>
+</button>
+</div>
+</div>
+<!-- Payment History -->
+<div class="glass-panel rounded-xl p-6 shadow-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">receipt_long</span>
+              Payment History
+            </h3>
+<button class="font-label-caps text-label-caps text-text-dim hover:text-primary transition-colors">EXPORT ALL</button>
+</div>
+<div class="space-y-4">
+<!-- Entry 1 -->
+<div class="flex items-center justify-between py-3 border-b border-glass-stroke last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg">September Payment</p>
+<p class="font-mono-data text-mono-data text-text-dim">24 Sep 2023, 10:42</p>
+</div>
+</div>
+<p class="font-mono-data text-mono-data text-white font-bold">€19.99</p>
+</div>
+<!-- Entry 2 -->
+<div class="flex items-center justify-between py-3 border-b border-glass-stroke last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg">August Payment</p>
+<p class="font-mono-data text-mono-data text-text-dim">24 Aug 2023, 09:15</p>
+</div>
+</div>
+<p class="font-mono-data text-mono-data text-white font-bold">€19.99</p>
+</div>
+<!-- Entry 3 -->
+<div class="flex items-center justify-between py-3 border-b border-glass-stroke last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg">July Payment</p>
+<p class="font-mono-data text-mono-data text-text-dim">24 Jul 2023, 14:02</p>
+</div>
+</div>
+<p class="font-mono-data text-mono-data text-white font-bold">€19.99</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action & Vampire Warning Sidebar -->
+<div class="md:col-span-4 space-y-stack-md">
+<!-- Vampire Alert -->
+<div class="bg-surface-container-high border-l-4 border-vampire-warning rounded-xl p-5 shadow-lg">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-vampire-warning">warning</span>
+<span class="font-headline-md text-headline-md text-vampire-warning">Usage Alert</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            Our analysis shows you haven't logged into Netflix from your primary account in over 21 days. 
+            <span class="font-bold text-white">Saving €239.88/year</span> is just one click away.
+          </p>
+<div class="w-full bg-surface-container rounded-full h-2 mb-2">
+<div class="bg-vampire-warning h-2 rounded-full" style="width: 15%"></div>
+</div>
+<span class="font-label-caps text-label-caps text-text-dim">USAGE SCORE: 15/100</span>
+</div>
+<!-- Action Card -->
+<div class="glass-panel rounded-xl p-6 shadow-xl sticky top-[100px]">
+<h4 class="font-headline-md text-headline-md mb-4 text-on-surface">Manage Subscription</h4>
+<p class="font-body-sm text-body-sm text-text-dim mb-6">You can pause or cancel your subscription at any time. We'll handle the notification process for you.</p>
+<div class="space-y-stack-md">
+<button class="w-full bg-surface-container-highest text-on-surface py-3 px-4 rounded-xl font-body-lg text-body-lg border border-glass-stroke hover:bg-surface-bright transition-colors active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">pause</span>
+              Pause Billing
+            </button>
+<button class="w-full bg-on-tertiary-container text-tertiary py-4 px-4 rounded-xl font-headline-md text-headline-md shadow-lg shadow-error/20 hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">cancel</span>
+              Cancel One-Click
+            </button>
+</div>
+<div class="mt-6 text-center">
+<span class="font-label-caps text-label-caps text-text-dim uppercase tracking-widest">Guaranteed secure cancellation</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Only shown if top-level, hidden here because sub-page) -->
+<!-- Using fixed spacing to account for bottom area -->
+<div class="h-safe-area-bottom"></div>
+<!-- Interactive Logic -->
+<script>
+    // Micro-interaction: Dynamic header blur on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-xl');
+      } else {
+        header.classList.remove('shadow-xl');
+      }
+    });
+
+    // Simple interaction for cancel button
+    const cancelBtn = document.querySelector('.bg-on-tertiary-container');
+    cancelBtn.addEventListener('click', () => {
+      if(confirm('Are you sure you want SubTrak to initiate the cancellation process for Netflix Premium?')) {
+        cancelBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Processing...';
+        cancelBtn.disabled = true;
+        cancelBtn.style.opacity = '0.5';
+        setTimeout(() => {
+          alert('Cancellation request sent successfully. You will receive a confirmation email shortly.');
+          cancelBtn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Request Sent';
+        }, 2000);
+      }
+    });
+  </script>
+</body></html>

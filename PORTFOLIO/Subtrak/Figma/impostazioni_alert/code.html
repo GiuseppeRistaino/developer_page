@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-high": "#222a3d",
+                "on-tertiary-fixed-variant": "#92002a",
+                "vampire-warning": "#F59E0B",
+                "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                "on-secondary-fixed-variant": "#005236",
+                "primary": "#c0c1ff",
+                "outline": "#908fa0",
+                "on-error-container": "#ffdad6",
+                "inverse-surface": "#dae2fd",
+                "surface-tint": "#c0c1ff",
+                "on-surface-variant": "#c7c4d7",
+                "on-secondary-fixed": "#002113",
+                "tertiary-fixed": "#ffdadb",
+                "surface-bright": "#31394d",
+                "outline-variant": "#464554",
+                "secondary-fixed": "#6ffbbe",
+                "on-error": "#690005",
+                "on-primary-fixed": "#07006c",
+                "secondary": "#4edea3",
+                "primary-fixed": "#e1e0ff",
+                "tertiary": "#ffb2b7",
+                "surface-container": "#171f33",
+                "surface-container-highest": "#2d3449",
+                "error-container": "#93000a",
+                "primary-fixed-dim": "#c0c1ff",
+                "on-secondary-container": "#00311f",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "secondary-fixed-dim": "#4edea3",
+                "inverse-on-surface": "#283044",
+                "inverse-primary": "#494bd6",
+                "background": "#0b1326",
+                "on-tertiary-fixed": "#40000d",
+                "text-dim": "#94A3B8",
+                "on-tertiary": "#67001b",
+                "on-background": "#dae2fd",
+                "on-primary": "#1000a9",
+                "surface-container-lowest": "#060e20",
+                "primary-container": "#8083ff",
+                "tertiary-fixed-dim": "#ffb2b7",
+                "on-primary-container": "#0d0096",
+                "error": "#ffb4ab",
+                "surface-dim": "#0b1326",
+                "surface-container-low": "#131b2e",
+                "secondary-container": "#00a572",
+                "surface-variant": "#2d3449",
+                "tertiary-container": "#ff516a",
+                "on-secondary": "#003824",
+                "on-surface": "#dae2fd",
+                "surface": "#0b1326",
+                "surface-card": "rgba(30, 41, 59, 0.7)",
+                "on-tertiary-container": "#5b0017"
+            },
+            "spacing": {
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "container-margin": "24px",
+                "stack-md": "16px",
+                "gutter": "16px",
+                "safe-area-bottom": "80px"
+            },
+            "fontFamily": {
+                "display-lg": ["Inter"],
+                "mono-data": ["JetBrains Mono"],
+                "headline-md": ["Inter"],
+                "body-sm": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-xl": ["Inter"],
+                "label-caps": ["Inter"],
+                "headline-xl-mobile": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #2d3449;
+            border-radius: 3px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #c0c1ff;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+            box-shadow: 0 0 10px rgba(192, 193, 255, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-50 flex justify-between items-center w-full px-container-margin py-stack-sm backdrop-blur-lg border-b border-glass-stroke bg-surface/80">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-glass-stroke">
+<img alt="Profile" data-alt="A professional profile headshot of a young tech executive with a friendly expression. The lighting is soft and cinematic, with a blurred office background in deep navy and indigo tones. The aesthetic is clean, modern, and corporate, matching a high-end financial application's visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIlFjxEfLqOiVNa4YnMNbOPsZ4CUfFYZl-WFzY-I1fV1Kfj_XFa_jle_GPf0kTdBrby8LIlcB0a1V64BqmCcIhvpKKvwdranahucTHPhIi0ZF4lZq3gkHa84Zv18ESOMPV2EUwEIwPhGK7DsnCzi-n57rbI50gYgZqBE9ghLeVI2Khc2C5XgbjrmwJ4VZ9AgnX86xapE-MfxEXdFhW-tqPExCdk0Szc8TMsznWa6TYJcvn3bd4DorhdPnwMcQsxbjIPjilBGxkW7o"/>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-primary">SubTrak</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<main class="flex-1 px-container-margin pt-stack-md pb-safe-area-bottom max-w-2xl mx-auto w-full">
+<!-- Section Header -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">Settings</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Configure your subscription tracking and security preferences.</p>
+</div>
+<div class="space-y-stack-md">
+<!-- Smart Alert Configuration -->
+<section class="glass-panel rounded-xl p-stack-md">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-vampire-warning">bolt</span>
+<h3 class="font-headline-md text-headline-md">Smart Alerts</h3>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">REMINDER THRESHOLD</label>
+<span class="font-mono-data text-mono-data text-primary" id="slider-val">3 Days</span>
+</div>
+<input class="w-full" id="days-slider" max="7" min="1" oninput="document.getElementById('slider-val').innerText = this.value + (this.value == 1 ? ' Day' : ' Days')" type="range" value="3"/>
+<div class="flex justify-between mt-1">
+<span class="font-body-sm text-body-sm text-text-dim">24h</span>
+<span class="font-body-sm text-body-sm text-text-dim">7 Days</span>
+</div>
+</div>
+<div class="pt-4 border-t border-glass-stroke">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-stack-md">NOTIFICATION CHANNELS</label>
+<div class="grid grid-cols-1 gap-3">
+<!-- Push Notifications -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low border border-glass-stroke">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<span class="font-body-lg text-body-lg">Push Notifications</span>
+</div>
+<input checked="" class="w-10 h-6 rounded-full bg-surface-container-highest border-none focus:ring-0 checked:bg-secondary cursor-pointer transition-colors appearance-none relative before:content-[''] before:absolute before:w-4 before:h-4 before:bg-white before:rounded-full before:top-1 before:left-1 checked:before:translate-x-4 before:transition-transform" type="checkbox"/>
+</div>
+<!-- Email -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low border border-glass-stroke">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="font-body-lg text-body-lg">Email Summaries</span>
+</div>
+<input checked="" class="w-10 h-6 rounded-full bg-surface-container-highest border-none focus:ring-0 checked:bg-secondary cursor-pointer transition-colors appearance-none relative before:content-[''] before:absolute before:w-4 before:h-4 before:bg-white before:rounded-full before:top-1 before:left-1 checked:before:translate-x-4 before:transition-transform" type="checkbox"/>
+</div>
+<!-- Telegram -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low border border-glass-stroke">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">send</span>
+<span class="font-body-lg text-body-lg">Telegram Bot</span>
+</div>
+<input class="w-10 h-6 rounded-full bg-surface-container-highest border-none focus:ring-0 checked:bg-secondary cursor-pointer transition-colors appearance-none relative before:content-[''] before:absolute before:w-4 before:h-4 before:bg-white before:rounded-full before:top-1 before:left-1 checked:before:translate-x-4 before:transition-transform" type="checkbox"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security & Currency -->
+<section class="glass-panel rounded-xl p-stack-md">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-secondary">security</span>
+<h3 class="font-headline-md text-headline-md">Security &amp; Region</h3>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant">BASE CURRENCY</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border border-glass-stroke rounded-lg p-3 font-body-lg text-on-surface appearance-none focus:outline-none focus:border-primary">
+<option selected="" value="EUR">EUR (€) - Euro</option>
+<option value="USD">USD ($) - US Dollar</option>
+<option value="GBP">GBP (£) - British Pound</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low border border-glass-stroke mt-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">face</span>
+<div>
+<p class="font-body-lg text-body-lg">Biometric Lock</p>
+<p class="font-body-sm text-body-sm text-text-dim">Require FaceID to open</p>
+</div>
+</div>
+<input checked="" class="w-10 h-6 rounded-full bg-surface-container-highest border-none focus:ring-0 checked:bg-secondary cursor-pointer transition-colors appearance-none relative before:content-[''] before:absolute before:w-4 before:h-4 before:bg-white before:rounded-full before:top-1 before:left-1 checked:before:translate-x-4 before:transition-transform" type="checkbox"/>
+</div>
+</div>
+</section>
+<!-- Data Management -->
+<section class="glass-panel rounded-xl p-stack-md">
+<div class="flex items-center gap-3 mb-stack-md">
+<span class="material-symbols-outlined text-on-surface-variant">database</span>
+<h3 class="font-headline-md text-headline-md">Data</h3>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-glass-stroke hover:bg-surface-container-highest transition-colors">
+<span class="font-body-lg text-body-lg">Export Financial Report</span>
+<span class="material-symbols-outlined text-text-dim">download</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-lg border border-error/20 text-error hover:bg-error/10 transition-colors">
+<span class="font-body-lg text-body-lg">Reset All Tracking Data</span>
+<span class="material-symbols-outlined">delete_forever</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-container-margin pb-4 pt-2 bg-surface-container/80 backdrop-blur-md rounded-t-xl shadow-[0px_-4px_24px_rgba(0,0,0,0.4)] border-t border-glass-stroke">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">sync</span>
+<span class="font-label-caps text-label-caps">Sync</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-caps text-label-caps">Analytics</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for range slider visual feedback
+        const slider = document.getElementById('days-slider');
+        slider.addEventListener('input', function() {
+            const percent = ((this.value - this.min) / (this.max - this.min)) * 100;
+            this.style.background = `linear-gradient(to right, #c0c1ff 0%, #c0c1ff ${percent}%, #2d3449 ${percent}%, #2d3449 100%)`;
+        });
+        
+        // Initial call to set slider background
+        slider.dispatchEvent(new Event('input'));
+    </script>
+</body></html>

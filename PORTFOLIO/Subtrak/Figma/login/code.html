@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#8083ff",
+                      "tertiary-fixed-dim": "#ffb2b7",
+                      "on-surface": "#dae2fd",
+                      "on-tertiary": "#67001b",
+                      "secondary-fixed-dim": "#4edea3",
+                      "error-container": "#93000a",
+                      "on-primary-container": "#0d0096",
+                      "on-primary": "#1000a9",
+                      "on-secondary-container": "#00311f",
+                      "on-tertiary-container": "#5b0017",
+                      "on-primary-fixed": "#07006c",
+                      "surface-tint": "#c0c1ff",
+                      "text-dim": "#94A3B8",
+                      "surface-container-high": "#222a3d",
+                      "on-error": "#690005",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "surface-bright": "#31394d",
+                      "tertiary-container": "#ff516a",
+                      "tertiary": "#ffb2b7",
+                      "on-tertiary-fixed": "#40000d",
+                      "tertiary-fixed": "#ffdadb",
+                      "primary": "#c0c1ff",
+                      "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                      "surface-container-low": "#131b2e",
+                      "outline": "#908fa0",
+                      "secondary-container": "#00a572",
+                      "vampire-warning": "#F59E0B",
+                      "surface-container-highest": "#2d3449",
+                      "primary-fixed": "#e1e0ff",
+                      "inverse-primary": "#494bd6",
+                      "surface-variant": "#2d3449",
+                      "on-background": "#dae2fd",
+                      "on-secondary-fixed-variant": "#005236",
+                      "inverse-surface": "#dae2fd",
+                      "outline-variant": "#464554",
+                      "secondary": "#4edea3",
+                      "surface-dim": "#0b1326",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-secondary-fixed": "#002113",
+                      "surface-container-lowest": "#060e20",
+                      "on-tertiary-fixed-variant": "#92002a",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "background": "#0b1326",
+                      "on-secondary": "#003824",
+                      "surface": "#0b1326",
+                      "on-surface-variant": "#c7c4d7",
+                      "surface-card": "rgba(30, 41, 59, 0.7)",
+                      "inverse-on-surface": "#283044",
+                      "surface-container": "#171f33",
+                      "error": "#ffb4ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "safe-area-bottom": "80px",
+                      "gutter": "16px",
+                      "container-margin": "24px",
+                      "stack-md": "16px",
+                      "stack-lg": "32px",
+                      "stack-sm": "8px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "mono-data": ["JetBrains Mono"],
+                      "display-lg": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-xl-mobile": ["Inter"],
+                      "headline-xl": ["Inter"],
+                      "label-caps": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "mono-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-xl-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(192, 193, 255, 0.15);
+        }
+        .vignette {
+            background: radial-gradient(circle, rgba(11, 19, 38, 0) 0%, rgba(11, 19, 38, 0.8) 100%);
+        }
+        .mesh-gradient {
+            background-color: #0b1326;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(73, 75, 214, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(78, 222, 163, 0.1) 0px, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="mesh-gradient min-h-screen flex flex-col items-center justify-center p-container-margin overflow-x-hidden">
+<!-- Background Decorative Elements -->
+<div class="fixed inset-0 vignette pointer-events-none"></div>
+<div class="fixed -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="fixed -bottom-24 -right-24 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<!-- Main Login Container -->
+<main class="relative z-10 w-full max-w-[420px] flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- App Logo & Identity -->
+<header class="flex flex-col items-center mb-stack-lg text-center">
+<div class="w-16 h-16 bg-primary-container rounded-xl flex items-center justify-center mb-stack-md shadow-2xl shadow-primary/20 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-[40px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl tracking-tight text-on-surface">
+                SubTrak
+            </h1>
+<p class="font-body-lg text-body-lg text-text-dim mt-2">
+                Bentornato su SubTrak
+            </p>
+</header>
+<!-- Login Form -->
+<div class="glass-panel rounded-xl p-8 shadow-2xl">
+<form class="space-y-stack-md" onsubmit="event.preventDefault();">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant ml-1">Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full bg-surface-container-low border border-glass-stroke rounded-lg py-3 pl-12 pr-4 text-on-surface placeholder:text-outline/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all font-body-lg text-body-lg" placeholder="nome@esempio.it" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant">Password</label>
+<a class="font-label-caps text-label-caps text-primary hover:text-primary-fixed-dim transition-colors" href="#">Password dimenticata?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input class="w-full bg-surface-container-low border border-glass-stroke rounded-lg py-3 pl-12 pr-4 text-on-surface placeholder:text-outline/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all font-body-lg text-body-lg" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-primary hover:bg-primary-fixed-dim text-on-primary font-headline-md text-headline-md py-4 rounded-xl shadow-lg shadow-primary/10 transition-all active:scale-[0.98] mt-4 flex items-center justify-center gap-2" type="submit">
+                    Accedi
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-stack-lg">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-glass-stroke"></div>
+</div>
+<div class="relative flex justify-center text-label-caps">
+<span class="bg-surface-container-high px-4 py-1 rounded-full text-text-dim border border-glass-stroke">Oppure continua con</span>
+</div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-highest border border-glass-stroke hover:bg-surface-bright transition-colors glow-hover group">
+<img alt="Google Logo" class="w-5 h-5 opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A clean, high-resolution graphic of the Google multi-colored 'G' logo isolated on a dark transparent background. The lighting is soft and professional, maintaining the brand's iconic primary colors within a futuristic and minimalist digital environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5gZaf0f0OPV8pTWXDf1440-fjvZ1DAxWIuzGKcCd1p3IRqLuyUMhK5VF0_TMcCYDEVsAYT-oFpAQ49c45Zrigdd1-jo_N51feWx2j9hc-wCuk9jxM1DQtFV_uqKR3FTe-UYCXGZkk454lYk7aZgvdApCHYbaopeZq4eDARQMgCvZAwqxsdXU-kI5wXC8bqEpvJr6AKqSL64ZGd5Et6R52PjYJrSveniwO6dBh43m-gPWy-g_6bMMWZdDWpPcoQmJU-2xtxI5NDg"/>
+<span class="font-body-sm text-body-sm font-medium">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-container-highest border border-glass-stroke hover:bg-surface-bright transition-colors glow-hover group">
+<span class="material-symbols-outlined text-[20px] text-white opacity-80 group-hover:opacity-100 transition-opacity" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="font-body-sm text-body-sm font-medium">Apple</span>
+</button>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="mt-stack-lg text-center">
+<p class="font-body-sm text-body-sm text-text-dim">
+                Non hai un account? 
+                <a class="text-secondary font-semibold hover:underline decoration-secondary/30 underline-offset-4 ml-1" href="#">Registrati ora</a>
+</p>
+</footer>
+</main>
+<!-- Support Help Floating Button -->
+<div class="fixed bottom-gutter right-gutter z-20">
+<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-primary-fixed-dim hover:text-primary transition-all shadow-xl">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for input fields focus effects
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.parentElement.classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Interactive subtle mouse tracking for the mesh background (optional extra)
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            const gradient = document.querySelector('.mesh-gradient');
+            if(gradient) {
+                gradient.style.backgroundImage = `
+                    radial-gradient(at ${x * 20}% ${y * 20}%, rgba(73, 75, 214, 0.15) 0px, transparent 50%),
+                    radial-gradient(at ${100 - (x * 20)}% ${100 - (y * 20)}%, rgba(78, 222, 163, 0.1) 0px, transparent 50%)
+                `;
+            }
+        });
+    </script>
+</body></html>
