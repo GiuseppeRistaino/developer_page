@@ -5,6 +5,7 @@ import scantrakIcon from "../../PORTFOLIO/Scantrak/icon_scantrak.png";
 import fableHearthIcon from "../../PORTFOLIO/FableHearth/FableHearth_Icon.png";
 import plannerTimeIcon from "../../PORTFOLIO/PlannerTime/icon.png";
 import subtrakIcon from "../../PORTFOLIO/Subtrak/icon_subtrak.svg";
+import pianoMapsIcon from "../../PORTFOLIO/PianoMaps/icon_pianomaps.png";
 
 interface Project {
   id: string;
@@ -18,6 +19,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "pianomaps",
+    title: "PianoMap",
+    description: "App mobile per scoprire e segnalare pianoforti pubblici nelle città: mappa interattiva, geolocalizzazione, recensioni con rating a stelle, preferiti e moderazione degli inserimenti.",
+    tags: ["Flutter", "Firebase", "Firestore", "Geolocation", "Dart"],
+    image: pianoMapsIcon,
+    imageAlt: "Icona PianoMap",
+    status: "In sviluppo",
+  },
   {
     id: "subtrak",
     title: "SubTrak",

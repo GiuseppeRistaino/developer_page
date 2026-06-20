@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informativa Privacy - PianoMap</title>
+    <meta
+      name="description"
+      content="Informativa Privacy di PianoMap: quali dati vengono trattati (account, posizione, foto, recensioni), come e perché, e i diritti dell'utente."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #1a1a1a;
+        --muted: #5b5170;
+        --brand: #6200ee;
+        --brand-dark: #4800b2;
+        --bg: #f7f4ff;
+        --panel: #ffffff;
+        --line: #e7ddff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+
+      header {
+        background: #efe6ff;
+        border-bottom: 1px solid var(--line);
+        padding: 56px 20px;
+      }
+
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 36px 20px 64px;
+      }
+
+      .hero { max-width: 980px; margin: 0 auto; }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--brand);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1, h2 { margin: 0; line-height: 1.15; }
+
+      h1 {
+        color: var(--brand-dark);
+        font-size: clamp(34px, 7vw, 64px);
+      }
+
+      h2 {
+        color: var(--brand-dark);
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      p { margin: 0 0 14px; }
+
+      a { color: var(--brand-dark); font-weight: 700; }
+
+      .lead {
+        max-width: 760px;
+        margin-top: 22px;
+        color: #2e0a6b;
+        font-size: 18px;
+      }
+
+      .meta {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      section, .summary {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      ul { margin: 0; padding-left: 20px; }
+      li + li { margin-top: 8px; }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        border-radius: 8px;
+        background: var(--brand);
+        color: white;
+        padding: 11px 16px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .highlight {
+        background: #efe6ff;
+        border: 1px solid #cbbff0;
+        border-radius: 8px;
+        margin-top: 18px;
+        padding: 20px 24px;
+        font-size: 15px;
+        color: var(--brand-dark);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <p class="eyebrow">PianoMap</p>
+        <h1>Informativa Privacy</h1>
+        <p class="lead">
+          PianoMap consente di scoprire e segnalare pianoforti pubblici. Per offrire mappa, recensioni e profilo, l'app tratta alcuni dati tramite i servizi Google Firebase. Questa informativa spiega quali dati raccogliamo, perché e quali sono i tuoi diritti.
+        </p>
+        <p class="meta">Ultimo aggiornamento: 20 giugno 2026</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="summary">
+        <h2>Titolare del trattamento</h2>
+        <p><strong>Giuseppe Ristaino</strong></p>
+        <p>Paese: Italia</p>
+        <p>Contatto privacy: <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a></p>
+        <p>Termini e Condizioni: <a href="terms.html">pianomaps/terms.html</a></p>
+      </div>
+
+      <div class="highlight">
+        ✓ Account con email e password per usare le funzioni della community.<br/>
+        ✓ Posizione e fotocamera usate solo quando servono (ricerca vicina e segnalazioni).<br/>
+        ✓ I dati sono ospitati su Google Firebase, non venduti a terze parti.
+      </div>
+
+      <section>
+        <h2>Dati trattati</h2>
+        <ul>
+          <li><strong>Dati dell'account:</strong> indirizzo email e password (gestiti in modo sicuro da Firebase Authentication) e nome utente (display name) scelto in fase di registrazione.</li>
+          <li><strong>Contenuti generati dall'utente:</strong> foto dei pianoforti, descrizione, nome del luogo e coordinate geografiche della segnalazione, recensioni testuali e valutazioni a stelle. Questi contenuti sono <strong>pubblici</strong> e visibili agli altri utenti, associati al tuo nome utente.</li>
+          <li><strong>Dati di posizione:</strong> la posizione GPS del dispositivo viene usata per mostrare i pianoforti vicini e per geolocalizzare i pianoforti che segnali. La posizione è trattata al momento dell'uso e non viene registrata uno storico dei tuoi spostamenti.</li>
+          <li><strong>Preferiti:</strong> l'elenco dei pianoforti che salvi tra i preferiti, associato al tuo account.</li>
+          <li><strong>Token di notifica (FCM):</strong> per l'invio delle notifiche push (ad es. all'amministratore quando viene segnalato un nuovo pianoforte).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Finalità del trattamento</h2>
+        <ul>
+          <li>Consentire l'autenticazione e l'accesso al proprio account.</li>
+          <li>Mostrare i pianoforti pubblici su lista e mappa, anche in base alla vicinanza.</li>
+          <li>Permettere la segnalazione di nuovi pianoforti con foto e posizione.</li>
+          <li>Gestire recensioni, valutazioni e preferiti.</li>
+          <li>Moderare i contenuti (approvazione delle segnalazioni) e inviare le relative notifiche.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Permessi del dispositivo</h2>
+        <ul>
+          <li><strong>Posizione:</strong> per la funzione «Vicino a te» e per geotaggare le segnalazioni. Puoi negarla: l'app resta utilizzabile con funzionalità ridotte.</li>
+          <li><strong>Fotocamera:</strong> per scattare la foto del pianoforte da segnalare.</li>
+          <li><strong>Notifiche:</strong> per ricevere avvisi push (facoltative e disattivabili dalle impostazioni del dispositivo).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Servizi di terze parti</h2>
+        <ul>
+          <li><strong>Google Firebase</strong> (Authentication, Cloud Firestore, Storage, Cloud Functions, Cloud Messaging): ospita account, contenuti e immagini ed eroga le notifiche. Il trattamento è regolato dalla <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noreferrer">Privacy di Firebase/Google</a>.</li>
+          <li><strong>OpenStreetMap:</strong> fornisce le tile della mappa; durante la visualizzazione la mappa può richiedere le tile dai server OSM.</li>
+          <li><strong>Google Maps:</strong> aprendo un pianoforte in «Apri in Google Maps» vieni indirizzato all'app/sito di Google Maps, soggetto alle relative condizioni.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Base giuridica</h2>
+        <ul>
+          <li><strong>Esecuzione del servizio:</strong> account, contenuti, mappa e notifiche sono necessari per erogare le funzioni richieste dall'utente.</li>
+          <li><strong>Consenso:</strong> per l'accesso a posizione, fotocamera e notifiche, concesso tramite i permessi di sistema e revocabile in qualsiasi momento.</li>
+          <li><strong>Legittimo interesse:</strong> moderazione dei contenuti per mantenere la mappa affidabile.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Conservazione</h2>
+        <ul>
+          <li>I dati dell'account e i contenuti pubblicati sono conservati finché l'account resta attivo.</li>
+          <li>Le immagini dei pianoforti rimosse dalla moderazione vengono eliminate da Firebase Storage.</li>
+          <li>I preferiti e le recensioni restano collegati al tuo account fino alla loro eliminazione o alla cancellazione dell'account.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cancellazione dell'account e dei dati</h2>
+        <p>
+          Puoi richiedere in qualsiasi momento la cancellazione del tuo account e dei dati associati (contenuti, recensioni, preferiti) scrivendo a
+          <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a>. I contenuti pubblici già condivisi possono essere rimossi su richiesta.
+        </p>
+        <a class="cta" href="mailto:vrexas.developer@gmail.com?subject=PianoMap%20-%20Cancellazione%20account">Richiedi la cancellazione</a>
+      </section>
+
+      <section>
+        <h2>Minori</h2>
+        <p>
+          PianoMap non è destinata a minori di 13 anni. Gli utenti minorenni dovrebbero utilizzare l'app con il consenso di un genitore o tutore, in particolare per la pubblicazione di contenuti.
+        </p>
+      </section>
+
+      <section>
+        <h2>Diritti dell'utente</h2>
+        <ul>
+          <li>Accesso, rettifica e cancellazione dei propri dati.</li>
+          <li>Limitazione o opposizione al trattamento e portabilità dei dati.</li>
+          <li>Revoca dei permessi (posizione, fotocamera, notifiche) dalle impostazioni del dispositivo.</li>
+          <li>Reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).</li>
+        </ul>
+        <p style="margin-top: 14px;">
+          Per esercitare i tuoi diritti scrivi a <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Termini e Condizioni</h2>
+        <p>L'uso di PianoMap è regolato anche dai Termini e Condizioni del servizio.</p>
+        <a class="cta" href="terms.html">Apri Termini e Condizioni</a>
+      </section>
+    </main>
+  </body>
+</html>
