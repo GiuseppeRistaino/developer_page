@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#3a2a12"/><stop offset=".55" stop-color="#14161f"/><stop offset="1" stop-color="#090d15"/></radialGradient>
+    <radialGradient id="bulb" cx=".42" cy=".36"><stop offset="0" stop-color="#fff7d0"/><stop offset=".55" stop-color="#ffc857"/><stop offset="1" stop-color="#d97d1d"/></radialGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="46"/></filter>
+    <linearGradient id="coin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffdc85"/><stop offset="1" stop-color="#a86a16"/></linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="600" cy="300" r="150" fill="#ffb53d" opacity=".6" filter="url(#glow)"/>
+  <path d="M600 130 C510 130 450 200 450 285 C450 345 485 385 515 425 C530 445 535 465 535 485 H665 C665 465 670 445 685 425 C715 385 750 345 750 285 C750 200 690 130 600 130 Z" fill="url(#bulb)"/>
+  <path d="M555 485 V360 L600 410 L645 360 V485" fill="none" stroke="#7b4a10" stroke-width="7" stroke-linejoin="round"/>
+  <g fill="#3b3f4d"><rect x="538" y="490" width="124" height="20" rx="6"/><rect x="546" y="516" width="108" height="20" rx="6"/><path d="M566 542 h68 l-14 28 h-40 Z"/></g>
+  <g stroke="#ffcb6b" stroke-width="5" stroke-linecap="round"><path d="M600 86 V48"/><path d="M412 150 L384 122"/><path d="M788 150 L816 122"/><path d="M352 300 H312"/><path d="M848 300 H888"/></g>
+  <g transform="translate(170 620)"><ellipse rx="90" ry="26" cy="56" fill="#7c4e12"/><rect x="-90" y="22" width="180" height="34" fill="#a86a16"/><ellipse rx="90" ry="26" cy="22" fill="#8c5a14"/><rect x="-90" y="-16" width="180" height="38" fill="#b87a22"/><ellipse rx="90" ry="26" cy="-16" fill="url(#coin)"/></g>
+  <g transform="translate(1020 650)"><ellipse rx="90" ry="26" cy="30" fill="#7c4e12"/><rect x="-90" y="-14" width="180" height="44" fill="#a86a16"/><ellipse rx="90" ry="26" cy="-14" fill="url(#coin)"/></g>
+  <g transform="translate(350 690)"><ellipse rx="60" ry="18" cy="12" fill="#7c4e12"/><ellipse rx="60" ry="18" fill="url(#coin)"/></g>
+  <g transform="translate(850 720) rotate(-8)"><ellipse rx="60" ry="18" cy="12" fill="#7c4e12"/><ellipse rx="60" ry="18" fill="url(#coin)"/></g>
+</svg>

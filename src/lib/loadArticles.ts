@@ -26,7 +26,7 @@ const iconModules = import.meta.glob("../assets/icons/*.png", {
 // Import immagini
 // ==============================
 const imageModules = import.meta.glob(
-  "../assets/images/*.{png,jpg,jpeg,webp}",
+  "../assets/images/*.{png,jpg,jpeg,webp,svg}",
   {
     eager: true,
     import: "default",
@@ -48,6 +48,17 @@ export interface BlogArticle {
   tags: string[];
   content: string;
   coverImage: string;
+  featured: boolean;
+  credits: PhotoCredit[];
+}
+
+// Crediti delle foto con licenza libera, dichiarati nel frontmatter
+export interface PhotoCredit {
+  subject: string;
+  author: string;
+  source: string;
+  license: string;
+  licenseUrl: string;
 }
 
 export interface DocCategory {
@@ -106,11 +117,12 @@ export const loadBlogs = (): BlogArticle[] => {
     const coverImage = resolveImage(data.coverImage);
 
     // Sostituire eventuali immagini nel contenuto markdown
-    let contentWithResolvedImages = content.replace(
-      /!\[([^\]]*)\]\(([^)]+)\)/g,
-      (_, alt, src) => {
+    // Il titolo opzionale ![alt](file "titolo") diventa la didascalia
+    const contentWithResolvedImages = content.replace(
+      /!\[([^\]]*)\]\(([^)\s]+)((?:\s+"[^"]*")?)\)/g,
+      (_, alt, src, title) => {
         const resolved = resolveImage(src);
-        return `![${alt}](${resolved})`;
+        return `![${alt}](${resolved}${title})`;
       }
     );
 
@@ -121,13 +133,41 @@ export const loadBlogs = (): BlogArticle[] => {
       title: data.title || "",
       date: data.date || "",
       readTime: data.readTime || "",
-      excerpt: data.excerpt || "",
+      excerpt: data.excerpt || data.description || "",
       description: data.description || "",
       tags: data.tags || [],
       content: contentWithResolvedImages,
       coverImage,
+      featured: Boolean(data.featured),
+      credits: data.credits || [],
     };
   });
+};
+
+// Dal più recente al più vecchio
+export const sortByDate = (articles: BlogArticle[]): BlogArticle[] =>
+  [...articles].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+export const TRAVEL_TAG = "Viaggio";
+
+// ==============================
+// Testi delle categorie documentazione
+// ==============================
+const docCategoryInfo: Record<string, { title: string; description: string }> = {
+  flutter: {
+    title: "Flutter",
+    description: "Un corso a lezioni per imparare Flutter e Dart, un passo alla volta.",
+  },
+  "sap btp": {
+    title: "SAP BTP",
+    description: "Appunti su SAP Business Technology Platform: strategia, pilastri, modelli di servizio e di deployment.",
+  },
+  sap: {
+    title: "SAP Commerce",
+    description: "Note sulla piattaforma eCommerce con cui lavoro ogni giorno.",
+  },
 };
 
 // ==============================
@@ -158,8 +198,8 @@ export const loadDocs = (): DocCategory[] => {
 
       categoriesMap[categoryFolder] = {
         id: categoryId,
-        title: categoryFolder,
-        description: "",
+        title: docCategoryInfo[categoryId]?.title ?? categoryFolder,
+        description: docCategoryInfo[categoryId]?.description ?? "",
         icon: iconPath,
         articles: [],
       };

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1a2c"/><stop offset="1" stop-color="#08101c"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#ffc857"/></linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2dd4bf" stop-opacity=".25"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <path stroke="#1b2f47" stroke-width="1" d="M0 160 H1200 M0 320 H1200 M0 480 H1200 M0 640 H1200 M200 0 V800 M400 0 V800 M600 0 V800 M800 0 V800 M1000 0 V800"/>
+  <path d="M0 640 L110 570 L220 610 L330 480 L440 520 L550 370 L660 420 L770 300 L880 380 L990 240 L1100 280 L1200 170 V800 H0 Z" fill="url(#area)"/>
+  <g stroke-width="4">
+    <g stroke="#2dd4bf" fill="#2dd4bf"><path d="M110 520 V620"/><rect x="92" y="545" width="36" height="55"/><path d="M330 430 V540"/><rect x="312" y="455" width="36" height="65"/><path d="M550 310 V430"/><rect x="532" y="340" width="36" height="65"/><path d="M770 250 V360"/><rect x="752" y="270" width="36" height="65"/><path d="M990 190 V300"/><rect x="972" y="215" width="36" height="60"/></g>
+    <g stroke="#f4664f" fill="#f4664f"><path d="M220 560 V670"/><rect x="202" y="585" width="36" height="60"/><path d="M440 470 V580"/><rect x="422" y="495" width="36" height="55"/><path d="M660 370 V480"/><rect x="642" y="395" width="36" height="55"/><path d="M880 330 V440"/><rect x="862" y="355" width="36" height="55"/><path d="M1100 230 V340"/><rect x="1082" y="255" width="36" height="55"/></g>
+  </g>
+  <path d="M0 640 L110 570 L220 610 L330 480 L440 520 L550 370 L660 420 L770 300 L880 380 L990 240 L1100 280 L1200 170" fill="none" stroke="url(#line)" stroke-width="5" filter="url(#glow)"/>
+  <g transform="translate(600 610)">
+    <rect x="-3" y="-120" width="6" height="30" fill="#7e93ad"/><circle cy="-126" r="10" fill="#ffc857" filter="url(#glow)"/>
+    <rect x="-100" y="-90" width="200" height="130" rx="30" fill="#1b2d44" stroke="#7e93ad" stroke-width="4"/>
+    <circle cx="-42" cy="-30" r="18" fill="#2dd4bf" filter="url(#glow)"/><circle cx="42" cy="-30" r="18" fill="#2dd4bf" filter="url(#glow)"/>
+    <path d="M-40 10 h80" stroke="#7e93ad" stroke-width="6" stroke-linecap="round"/>
+    <rect x="-70" y="50" width="140" height="120" rx="20" fill="#14243a" stroke="#7e93ad" stroke-width="4"/>
+  </g>
+</svg>

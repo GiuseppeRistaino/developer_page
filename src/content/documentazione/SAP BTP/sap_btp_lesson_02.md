@@ -1,6 +1,6 @@
 ---
 slug: "SAP BTP Lezione 2"
-title: "Startegy Overview - Lezione 2"
+title: "Strategy Overview - Lezione 2"
 date: "2026-02-12"
 readTime: "10 min"
 excerpt: "Aree di Soluzione SAP e Processi Aziendali"

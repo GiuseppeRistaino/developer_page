@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowRight, ArrowLeft, ChevronDown } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import PageHeader from "@/components/PageHeader";
+import ReadingProgress from "@/components/ReadingProgress";
+import Reveal from "@/components/Reveal";
 import { loadDocs } from "../lib/loadArticles";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -19,94 +22,83 @@ const Documentation = () => {
   };
 
   return (
-    <div className="min-h-screen py-24">
-      <div className="container mx-auto px-6">
-        
-        {/* Header */}
-        <div className="mb-12 animate-fade-up">
-          <p className="text-sm font-medium uppercase tracking-widest text-primary mb-2">
-            Knowledge Base
-          </p>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-            Documentazione
-          </h1>
-          <p className="text-muted-foreground max-w-2xl">
-            Articoli tecnici, guide e best practice sulle tecnologie con cui lavoro quotidianamente.
-          </p>
-        </div>
+    <div className="min-h-screen py-20 md:py-28">
+      <div className="container mx-auto max-w-5xl px-6">
+        <PageHeader eyebrow="Knowledge base" title="Documentazione">
+          Articoli tecnici, guide e best practice sulle tecnologie con cui lavoro quotidianamente.
+        </PageHeader>
 
-        <div className="flex flex-col gap-8">
-          {docCategories.map((cat) => {
+        <div className="border-t border-border">
+          {docCategories.map((cat, i) => {
             const isOpen = openCategoryId === cat.id;
             return (
-              <div
-                key={cat.id}
-                onClick={() => toggleCategory(cat.id)}
-                className={`
-                  cursor-pointer rounded-xl border bg-card p-6 transition-all duration-300
-                  ${isOpen ? "border-orange-500 shadow-gold" : "border-border"}
-                  hover:border-primary/30
-                `}
-              >
-                {/* Header categoria */}
-                <div className="flex items-center justify-between w-full mb-4">
-                  <div className="flex items-center gap-3">
-                    <h2 className="font-heading text-xl font-bold">{cat.title}</h2>
-                    {/* Icona piccola accanto al titolo */}
-                    {cat.icon && (
-                      <img
-                        src={cat.icon}
-                        alt={cat.title}
-                        className="w-6 h-6 object-contain"
-                      />
-                    )}
-                  </div>
-                  <span
-                    className={`transition-all duration-300 ${
-                      isOpen
-                        ? "rotate-90 text-orange-500"
-                        : "rotate-0 text-muted-foreground"
-                    }`}
-                  >
-                    ▶
+              <Reveal key={cat.id} delay={i * 70} className="border-b border-border">
+                <button
+                  onClick={() => toggleCategory(cat.id)}
+                  aria-expanded={isOpen}
+                  className="group flex w-full items-center gap-5 py-8 text-left md:gap-8"
+                >
+                  <span className="hidden w-10 font-mono text-xs text-muted-foreground sm:block">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                </div>
-
-                <p className="text-sm text-muted-foreground mb-4">{cat.description}</p>
+                  <span className="flex-1">
+                    <span className="flex items-center gap-3">
+                      <span
+                        className={`font-display text-3xl font-light tracking-tight transition-colors md:text-5xl ${
+                          isOpen ? "text-primary" : "group-hover:text-primary"
+                        }`}
+                      >
+                        {cat.title}
+                      </span>
+                      {cat.icon && <img src={cat.icon} alt="" className="h-7 w-7 object-contain" />}
+                    </span>
+                    <span className="mt-2 block max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                      {cat.description}
+                    </span>
+                  </span>
+                  <span className="hidden whitespace-nowrap font-mono text-xs text-muted-foreground md:block">
+                    {cat.articles.length} {cat.articles.length === 1 ? "articolo" : "articoli"}
+                  </span>
+                  <ChevronDown
+                    size={22}
+                    className={`flex-shrink-0 transition-transform duration-500 ${
+                      isOpen ? "rotate-180 text-primary" : "text-muted-foreground"
+                    }`}
+                  />
+                </button>
 
                 {/* Lista articoli */}
-                {isOpen && (
-                  <div className="space-y-3 max-h-64 overflow-y-auto custom-scrollbar">
-                    {cat.articles.map((article) => (
-                      <Link
-                        key={article.slug}
-                        to={`/documentazione/${cat.id}/${article.slug}`}
-                        onClick={(e) => e.stopPropagation()}
-                        className="group flex flex-col border border-border rounded-lg
-                                  bg-secondary/50 px-4 py-3 transition-all
-                                  hover:bg-secondary hover:border-primary/30 hover:shadow-gold"
-                      >
-                        <div className="flex items-center justify-between">
-                          <h3 className="text-sm font-medium group-hover:text-primary transition-colors">
-                            {article.title}
-                          </h3>
-                          <ArrowRight
-                            size={16}
-                            className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1"
-                          />
-                        </div>
-                        <p className="text-xs text-muted-foreground mt-1">{article.readTime}</p>
-                        {/* Aggiunta dell'excerpt */}
-                        {article.excerpt && (
-                          <p className="text-xs text-muted-foreground mt-1 line-clamp-3">
-                            {article.excerpt}
-                          </p>
-                        )}
-                      </Link>
-                    ))}
+                <div className="collapse-grid" data-open={isOpen}>
+                  <div>
+                    <div className="grid gap-3 pb-10 sm:pl-[4.5rem] md:grid-cols-2 md:pl-[4.75rem]">
+                      {cat.articles.map((article) => (
+                        <Link
+                          key={article.slug}
+                          to={`/documentazione/${cat.id}/${article.slug}`}
+                          tabIndex={isOpen ? 0 : -1}
+                          className="spotlight lift group flex flex-col rounded-xl border border-border bg-card px-5 py-4"
+                        >
+                          <span className="flex items-start justify-between gap-3">
+                            <span className="font-medium leading-snug transition-colors group-hover:text-primary">
+                              {article.title}
+                            </span>
+                            <ArrowRight
+                              size={16}
+                              className="mt-1 flex-shrink-0 text-muted-foreground transition-all duration-500 group-hover:translate-x-1 group-hover:text-primary"
+                            />
+                          </span>
+                          {article.excerpt && (
+                            <span className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">
+                              {article.excerpt}
+                            </span>
+                          )}
+                          <span className="mt-2 font-mono text-xs text-muted-foreground">{article.readTime}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                )}
-              </div>
+                </div>
+              </Reveal>
             );
           })}
         </div>
@@ -126,15 +118,14 @@ export const DocArticlePage = () => {
 
   const docCategories = loadDocs();
   const category = docCategories.find((c) => c.id === categoryId);
-  const article = category?.articles.find((a) => a.slug === articleSlug);
+  const index = category?.articles.findIndex((a) => a.slug === articleSlug) ?? -1;
+  const article = category?.articles[index];
 
   if (!category || !article) {
     return (
       <div className="min-h-screen py-24">
         <div className="container mx-auto px-6 text-center">
-          <h1 className="font-heading text-2xl font-bold mb-4">
-            Articolo non trovato
-          </h1>
+          <h1 className="mb-4 font-display text-3xl font-light">Articolo non trovato</h1>
           <Link to="/documentazione" className="text-primary hover:underline">
             Torna alla Documentazione
           </Link>
@@ -143,53 +134,100 @@ export const DocArticlePage = () => {
     );
   }
 
+  const previous = category.articles[index - 1];
+  const next = category.articles[index + 1];
+
   return (
-    <div className="min-h-screen py-24">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <Link
-          to="/documentazione"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
-        >
-          <ArrowLeft size={16} />
-          Torna alla Documentazione
-        </Link>
+    <div className="min-h-screen py-16 md:py-24">
+      <ReadingProgress />
 
-        <article>
-          <div className="flex items-center gap-2 text-xs text-primary font-medium mb-4">
-            <span>{category.title}</span>
-          </div>
+      <div className="container mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-[15rem_minmax(0,1fr)]">
+        {/* Indice della categoria */}
+        <aside className="hidden lg:block">
+          <nav aria-label={`Articoli di ${category.title}`} className="custom-scrollbar sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-3">
+            <p className="eyebrow mb-4">{category.title}</p>
+            <ul className="space-y-1 border-l border-border">
+              {category.articles.map((item) => {
+                const current = item.slug === article.slug;
+                return (
+                  <li key={item.slug}>
+                    <Link
+                      to={`/documentazione/${category.id}/${item.slug}`}
+                      aria-current={current ? "page" : undefined}
+                      className={`-ml-px block border-l py-1.5 pl-3 text-sm leading-snug transition-colors ${
+                        current
+                          ? "border-primary text-primary"
+                          : "border-transparent text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </aside>
 
-          <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-            {article.title}
-          </h1>
+        <div className="min-w-0 max-w-3xl">
+          <Link
+            to="/documentazione"
+            className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+          >
+            <ArrowLeft size={16} />
+            Torna alla Documentazione
+          </Link>
 
-          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-10">
-            <span className="flex items-center gap-1.5">
-              <Calendar size={14} />
+          <article>
+            <p className="eyebrow">{category.title}</p>
+
+            <h1 className="soft-optical mt-4 font-display text-4xl font-light leading-tight tracking-tight md:text-5xl">
+              {article.title}
+            </h1>
+
+            <p className="mb-10 mt-5 font-mono text-xs text-muted-foreground">
               {article.date}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock size={14} />
+              <span className="mx-1.5 text-primary">✦</span>
               {article.readTime}
-            </span>
-          </div>
+            </p>
 
-          <div className="
-            prose prose-invert max-w-none
-            prose-headings:mt-8
-            prose-p:mb-6
-            prose-ul:list-disc
-            prose-ul:pl-6
-            prose-li:mb-2
-          ">
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeHighlight]}
-            >
-              {article.content}
-            </ReactMarkdown>
-          </div>
-        </article>
+            <div className="prose prose-docs max-w-none prose-headings:mt-8 prose-p:mb-6 prose-ul:list-disc prose-ul:pl-6 prose-li:mb-2">
+              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+                {article.content}
+              </ReactMarkdown>
+            </div>
+          </article>
+
+          {/* Lezione precedente e successiva */}
+          {(previous || next) && (
+            <div className="mt-16 grid gap-4 border-t border-border pt-8 sm:grid-cols-2">
+              {previous ? (
+                <Link
+                  to={`/documentazione/${category.id}/${previous.slug}`}
+                  className="spotlight lift group rounded-xl border border-border bg-card p-5"
+                >
+                  <span className="font-mono text-xs text-muted-foreground">← Precedente</span>
+                  <span className="mt-2 block font-medium leading-snug transition-colors group-hover:text-primary">
+                    {previous.title}
+                  </span>
+                </Link>
+              ) : (
+                <span />
+              )}
+              {next && (
+                <Link
+                  to={`/documentazione/${category.id}/${next.slug}`}
+                  className="spotlight lift group rounded-xl border border-border bg-card p-5 text-right"
+                >
+                  <span className="font-mono text-xs text-muted-foreground">Successiva →</span>
+                  <span className="mt-2 block font-medium leading-snug transition-colors group-hover:text-primary">
+                    {next.title}
+                  </span>
+                </Link>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

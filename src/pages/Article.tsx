@@ -1,69 +1,140 @@
 import { useParams, Link } from "react-router-dom";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
-import { loadBlogs } from "../lib/loadArticles";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import ReadingProgress from "@/components/ReadingProgress";
+import { loadBlogs, sortByDate } from "../lib/loadArticles";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { useEffect } from "react";
 
 export const ArticlePage = () => {
   const { slug } = useParams();
-  const articles = loadBlogs();
-  const article = articles.find((a) => a.slug === slug);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
+  const articles = sortByDate(loadBlogs());
+  const index = articles.findIndex((a) => a.slug === slug);
+  const article = articles[index];
 
   if (!article) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <h2 className="text-2xl">Articolo non trovato</h2>
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center">
+        <h2 className="font-display text-3xl font-light">Articolo non trovato</h2>
+        <Link to="/blog" className="text-primary hover:underline">
+          Torna al Blog
+        </Link>
       </div>
     );
   }
 
+  const next = articles[index + 1] ?? articles[0];
+
   return (
-    <div className="min-h-screen py-24">
-      <div className="container mx-auto px-6 max-w-3xl">
+    <div className="-mt-16 min-h-screen">
+      <ReadingProgress />
 
-        <Link
-          to="/blog"
-          className="inline-flex items-center gap-2 text-sm mb-10 hover:text-primary transition-colors"
-        >
-          <ArrowLeft size={16} />
-          Torna al Blog
-        </Link>
-
+      {/* Copertina */}
+      <header className="relative flex min-h-[78svh] items-end overflow-hidden">
         {article.coverImage && (
           <img
             src={article.coverImage}
-            alt={article.title}
-            className="w-full h-96 object-cover rounded-2xl mb-12"
+            alt=""
+            className="ken-burns absolute inset-0 h-full w-full object-cover"
           />
         )}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/65 to-background/20" />
 
-        <h1 className="text-4xl font-bold mb-6">
-          {article.title}
-        </h1>
+        <div className="container relative mx-auto max-w-4xl px-6 pb-12 pt-28">
+          <Link
+            to="/blog"
+            className="animate-fade-up mb-8 inline-flex items-center gap-2 text-sm text-foreground/80 transition-colors hover:text-primary"
+          >
+            <ArrowLeft size={16} />
+            Torna al Blog
+          </Link>
 
-        <div className="flex gap-6 text-sm text-muted-foreground mb-14">
-          <span className="flex items-center gap-2">
-            <Calendar size={16} />
-            {new Date(article.date).toLocaleDateString("it-IT")}
-          </span>
-          <span className="flex items-center gap-2">
-            <Clock size={16} />
+          <h1 className="soft-optical font-display text-5xl font-light leading-[1.03] tracking-tight md:text-7xl">
+            <span className="title-line">
+              <span>{article.title}</span>
+            </span>
+          </h1>
+
+          {article.description && (
+            <p
+              className="animate-fade-up mt-6 max-w-2xl text-lg leading-relaxed text-foreground/85"
+              style={{ animationDelay: "250ms" }}
+            >
+              {article.description}
+            </p>
+          )}
+
+          <p
+            className="animate-fade-up mt-6 font-mono text-xs text-foreground/70"
+            style={{ animationDelay: "350ms" }}
+          >
+            {new Date(article.date).toLocaleDateString("it-IT", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            })}
+            <span className="mx-1.5 text-primary">✦</span>
             {article.readTime}
-          </span>
+          </p>
         </div>
+      </header>
 
-        {/* 🔥 Markdown con stile serio */}
-        <article className="prose prose-lg prose-neutral dark:prose-invert max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+      <div className="container mx-auto max-w-[44rem] px-6 pb-24 pt-14">
+        <article className="prose-log">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              // span e non figure: react-markdown mette le immagini dentro un <p>
+              img: ({ src, alt, title }) => (
+                <span className="log-figure">
+                  <img src={src} alt={alt ?? ""} loading="lazy" />
+                  {title && <span className="log-caption">{title}</span>}
+                </span>
+              ),
+            }}
+          >
             {article.content}
           </ReactMarkdown>
         </article>
 
+        {article.credits.length > 0 && (
+          <footer className="mt-16 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
+            <p className="font-mono uppercase tracking-[0.14em]">Crediti fotografici</p>
+            <p className="mt-2">Immagini da Wikimedia Commons, ridimensionate per il sito.</p>
+            <ul className="mt-3 space-y-1.5">
+              {article.credits.map((credit) => (
+                <li key={credit.source}>
+                  <a href={credit.source} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-primary">
+                    {credit.subject}
+                  </a>
+                  {" — "}
+                  {credit.author},{" "}
+                  <a href={credit.licenseUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-primary">
+                    {credit.license}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </footer>
+        )}
+
+        {/* Prossima lettura */}
+        {next && next.slug !== article.slug && (
+          <Link
+            to={`/blog/${next.slug}`}
+            className="spotlight lift group mt-20 block rounded-2xl border border-border bg-card p-7"
+          >
+            <p className="eyebrow">Prossima lettura</p>
+            <div className="mt-3 flex items-center justify-between gap-4">
+              <h2 className="font-display text-2xl font-normal leading-tight transition-colors group-hover:text-primary md:text-3xl">
+                {next.title}
+              </h2>
+              <ArrowRight
+                size={22}
+                className="flex-shrink-0 text-primary transition-transform duration-500 group-hover:translate-x-2"
+              />
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );

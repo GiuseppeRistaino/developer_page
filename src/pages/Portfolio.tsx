@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
 import scantrakIcon from "../../PORTFOLIO/Scantrak/icon_scantrak.png";
 import fableHearthIcon from "../../PORTFOLIO/FableHearth/FableHearth_Icon.png";
 import plannerTimeIcon from "../../PORTFOLIO/PlannerTime/icon.png";
@@ -14,6 +16,8 @@ interface Project {
   tags: string[];
   image?: string;
   imageAlt?: string;
+  // Per le icone con molto margine trasparente attorno al disegno
+  imageZoom?: number;
   status?: string;
   externalUrl?: string;
 }
@@ -26,6 +30,7 @@ const projects: Project[] = [
     tags: ["Flutter", "Firebase", "Firestore", "Geolocation", "Dart"],
     image: pianoMapsIcon,
     imageAlt: "Icona PianoMap",
+    imageZoom: 1.55,
     status: "In sviluppo",
   },
   {
@@ -93,41 +98,31 @@ const Portfolio = () => {
     ? projects.filter((p) => p.tags.includes(activeTag))
     : projects;
 
+  const chipClass = (active: boolean) =>
+    `whitespace-nowrap rounded-full border px-4 py-2 text-xs font-medium transition-all duration-300 ${
+      active
+        ? "border-primary bg-primary text-primary-foreground"
+        : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
+    }`;
+
   return (
-    <div className="min-h-screen py-24">
+    <div className="min-h-screen py-20 md:py-28">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="mb-12 animate-fade-up">
-          <p className="text-sm font-medium uppercase tracking-widest text-primary mb-2">
-            I Miei Lavori
-          </p>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">Portfolio</h1>
-          <p className="text-muted-foreground max-w-2xl">
-            Una selezione dei progetti più significativi su cui ho lavorato e delle applicazioni che sto costruendo. Clicca su un progetto per leggere i dettagli.
-          </p>
-        </div>
+        <PageHeader eyebrow="I miei lavori" title="Portfolio">
+          Una selezione dei progetti più significativi su cui ho lavorato e delle applicazioni che sto costruendo. Clicca su un progetto per leggere i dettagli.
+        </PageHeader>
 
         {/* Tag filter */}
-        <div className="flex flex-wrap gap-2 mb-10">
-          <button
-            onClick={() => setActiveTag(null)}
-            className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
-              !activeTag
-                ? "bg-primary text-primary-foreground"
-                : "bg-secondary text-secondary-foreground hover:bg-primary/20"
-            }`}
-          >
+        <div className="mb-14 flex flex-wrap gap-2.5">
+          <button onClick={() => setActiveTag(null)} aria-pressed={!activeTag} className={chipClass(!activeTag)}>
             Tutti
           </button>
           {allTags.map((tag) => (
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
-                activeTag === tag
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-primary/20"
-              }`}
+              aria-pressed={activeTag === tag}
+              className={chipClass(activeTag === tag)}
             >
               {tag}
             </button>
@@ -135,68 +130,71 @@ const Portfolio = () => {
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((project) => {
+        <div key={activeTag ?? "tutti"} className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((project, i) => {
+            const Arrow = project.externalUrl ? ExternalLink : ArrowRight;
+
             const content = (
               <>
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    {project.image && (
+                <div className="flex items-start justify-between">
+                  {project.image ? (
+                    // Piastrina chiara: le icone scure o trasparenti restano leggibili sulla card
+                    <span className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-[hsl(40_35%_94%)] p-1.5 shadow-[0_14px_30px_-16px_hsl(var(--primary)/0.7)] transition-transform duration-700 ease-out group-hover:-rotate-3 group-hover:scale-110">
                       <img
                         src={project.image}
                         alt={project.imageAlt ?? project.title}
-                        className="h-12 w-12 rounded-xl object-cover shadow-gold"
+                        style={project.imageZoom ? { transform: `scale(${project.imageZoom})` } : undefined}
+                        className="h-full w-full rounded-xl object-contain"
                       />
-                    )}
-                    <div>
-                      <h3 className="font-heading text-lg font-semibold group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      {project.status && (
-                        <span className="mt-1 inline-flex rounded-md bg-emerald-500/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-300">
-                          {project.status}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  {project.externalUrl ? (
-                    <ExternalLink
-                      size={18}
-                      className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1 flex-shrink-0 mt-1"
-                    />
+                    </span>
                   ) : (
-                    <ArrowRight
-                      size={18}
-                      className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1 flex-shrink-0 mt-1"
-                    />
+                    <span
+                      aria-hidden="true"
+                      className="flex h-20 w-20 items-center justify-center rounded-2xl border border-border bg-secondary font-display text-3xl font-light text-primary"
+                    >
+                      {project.title.charAt(0)}
+                    </span>
                   )}
+                  <Arrow
+                    size={20}
+                    className="mt-1 flex-shrink-0 text-muted-foreground transition-all duration-500 group-hover:translate-x-1 group-hover:text-primary"
+                  />
                 </div>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+
+                <h2 className="mt-7 font-display text-3xl font-normal leading-tight tracking-tight transition-colors group-hover:text-primary">
+                  {project.title}
+                </h2>
+                {project.status && (
+                  <p className="mt-2 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-tide">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-tide" />
+                    {project.status}
+                  </p>
+                )}
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="mt-6 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-foreground/60">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
+                    <span key={tag}>{tag}</span>
                   ))}
                 </div>
               </>
             );
 
-            const className = "group rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-gold";
+            const className = "spotlight lift group flex h-full flex-col rounded-2xl border border-border bg-card p-7";
 
-            return project.externalUrl ? (
-              <a key={project.id} href={project.externalUrl} target="_blank" rel="noreferrer" className={className}>
-                {content}
-              </a>
-            ) : (
-              <Link key={project.id} to={`/portfolio/${project.id}`} className={className}>
-                {content}
-              </Link>
+            return (
+              <Reveal key={project.id} delay={(i % 3) * 90}>
+                {project.externalUrl ? (
+                  <a href={project.externalUrl} target="_blank" rel="noreferrer" className={className}>
+                    {content}
+                  </a>
+                ) : (
+                  <Link to={`/portfolio/${project.id}`} className={className}>
+                    {content}
+                  </Link>
+                )}
+              </Reveal>
             );
           })}
         </div>

@@ -1,6 +1,6 @@
 ---
 slug: "SAP BTP Lezione 4"
-title: "Startegy Overview - Lezione 4"
+title: "Strategy Overview - Lezione 4"
 date: "2026-02-12"
 readTime: "15 min"
 excerpt: "Scoprire la Terminologia Cloud"

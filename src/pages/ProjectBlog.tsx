@@ -77,7 +77,7 @@ const ProjectBlog = () => {
         </Link>
 
         <article className="animate-fade-up">
-          <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+          <h1 className="soft-optical font-display text-4xl md:text-6xl font-light leading-tight tracking-tight mb-5">{post.title}</h1>
           <div className="flex items-center gap-4 text-sm text-muted-foreground mb-10">
             <span className="flex items-center gap-1.5">
               <Calendar size={14} />
@@ -91,7 +91,7 @@ const ProjectBlog = () => {
 
           <div className="space-y-6">
             {post.content.map((paragraph, i) => (
-              <p key={i} className="text-muted-foreground leading-relaxed">
+              <p key={i} className="text-lg text-muted-foreground leading-relaxed">
                 {paragraph}
               </p>
             ))}

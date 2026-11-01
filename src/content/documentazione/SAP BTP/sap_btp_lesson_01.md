@@ -1,6 +1,6 @@
 ---
 slug: "SAP BTP Lezione 1"
-title: "Startegy Overview - Lezione 1"
+title: "Strategy Overview - Lezione 1"
 date: "2026-02-12"
 readTime: "9 min"
 excerpt: "Introduzione a SAP BTP"

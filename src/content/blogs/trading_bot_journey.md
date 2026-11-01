@@ -5,6 +5,7 @@ date: "2026-06-11"
 readTime: "9 min"
 description: "Ho costruito il trading bot di cui avevo parlato. Ecco cosa fa, e la verità onesta sui numeri."
 tags: ["Trading", "Crypto", "Python", "Bot"]
+coverImage: "cover_trading_bot.svg"
 ---
 
 Qualche tempo fa ho scritto un articolo intitolato *L'idea di far soldi*, in cui promettevo una cosa precisa: avrei costruito un bot di trading per criptovalute, in parallelo a questo blog, raccontando ogni passo. Errori compresi.

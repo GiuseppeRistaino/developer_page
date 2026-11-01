@@ -2,52 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
 :root {
-  --background: 220 20% 7%;
-  --foreground: 40 10% 92%;
-  --card: 220 18% 10%;
-  --card-foreground: 40 10% 92%;
-  --popover: 220 18% 10%;
-  --popover-foreground: 40 10% 92%;
-  --primary: 38 90% 55%;
-  --primary-foreground: 220 20% 7%;
-  --secondary: 220 15% 15%;
-  --secondary-foreground: 40 10% 85%;
-  --muted: 220 15% 13%;
-  --muted-foreground: 220 10% 55%;
-  --accent: 38 90% 55%;
-  --accent-foreground: 220 20% 7%;
+  --background: 222 40% 6%;
+  --foreground: 40 32% 90%;
+  --card: 221 32% 9.5%;
+  --card-foreground: 40 32% 90%;
+  --popover: 221 32% 9.5%;
+  --popover-foreground: 40 32% 90%;
+  --primary: 37 90% 60%;
+  --primary-foreground: 222 40% 6%;
+  --secondary: 220 24% 14%;
+  --secondary-foreground: 40 22% 84%;
+  --muted: 220 24% 12%;
+  --muted-foreground: 220 13% 66%;
+  --accent: 37 90% 60%;
+  --accent-foreground: 222 40% 6%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
-  --border: 220 15% 18%;
-  --input: 220 15% 18%;
-  --ring: 38 90% 55%;
-  --radius: 0.5rem;
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --gradient-gold: linear-gradient(135deg, hsl(38 90% 55%), hsl(28 85% 45%));
-  --gradient-card: linear-gradient(145deg, hsl(220 18% 12%), hsl(220 18% 8%));
-  --shadow-gold: 0 0 30px -10px hsl(38 90% 55% / 0.3);
+  --border: 220 22% 17%;
+  --input: 220 22% 17%;
+  --ring: 37 90% 60%;
+  --radius: 0.75rem;
+  --ember: 14 82% 58%;
+  --tide: 190 48% 46%;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --gradient-gold: linear-gradient(135deg, hsl(37 90% 60%), hsl(14 82% 58%));
+  --gradient-card: linear-gradient(160deg, hsl(221 32% 10%), hsl(222 40% 7%));
+  --shadow-gold: 0 0 40px -14px hsl(37 90% 60% / 0.45);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: hsl(var(--border)) hsl(var(--background));
 }
 
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
 }
 
 * {
   border-color: hsl(var(--border));
 }
 
-.prose p {
-  margin-bottom: 1.5em;
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 @layer utilities {
@@ -70,20 +86,34 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-gold);
   }
 
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
-    opacity: 0;
+    animation: fadeUp 0.8s var(--ease-out) both;
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
-    opacity: 0;
+    animation: fadeIn 0.9s ease-out both;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--primary));
+  }
+
+  .soft-optical {
+    font-variation-settings: "SOFT" 60, "WONK" 1;
   }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
 }
 
 @keyframes fadeIn {
@@ -91,23 +121,509 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; }
 }
 
-@layer utilities {
-  .border-border {
-    border-color: hsl(var(--border));
-  }
-  .shadow-gold {
-    box-shadow: var(--shadow-gold);
-  }
+/* ── Transizione tra le pagine ── solo opacità: un transform romperebbe i fixed interni */
+.page-enter {
+  animation: fadeIn 0.45s ease-out both;
 }
 
+/* ── Comparsa allo scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Navigazione ── */
+.nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: hsl(var(--primary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-out);
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ── Scena del mare ── */
+.sea-sky {
+  background:
+    radial-gradient(90% 50% at 74% 68%, hsl(26 70% 42% / 0.3), transparent 70%),
+    linear-gradient(180deg, hsl(224 50% 4%) 0%, hsl(222 46% 8%) 52%, hsl(218 42% 15%) 72%, hsl(222 40% 6%) 100%);
+}
+
+.black-moon {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px hsl(37 90% 66% / 0.55),
+    0 0 26px 3px hsl(37 90% 60% / 0.55),
+    0 0 90px 18px hsl(22 86% 54% / 0.28),
+    0 0 220px 70px hsl(22 86% 54% / 0.12);
+  animation: moonBreath 9s ease-in-out infinite;
+}
+
+.black-moon::before {
+  content: "";
+  position: absolute;
+  inset: -2.5%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    hsl(37 95% 70% / 0.9),
+    transparent 22%,
+    hsl(14 90% 60% / 0.65) 46%,
+    transparent 66%,
+    hsl(37 95% 70% / 0.9)
+  );
+  filter: blur(7px);
+  animation: moonSpin 26s linear infinite;
+}
+
+/* Il disco nero sta sopra la corona che ruota */
+.black-moon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 40%, hsl(224 34% 9%), hsl(224 50% 3%) 72%);
+}
+
+@keyframes moonBreath {
+  50% { filter: brightness(1.18); }
+}
+
+@keyframes moonSpin {
+  to { transform: rotate(360deg); }
+}
+
+.moon-reflection {
+  position: absolute;
+  background: repeating-linear-gradient(
+    180deg,
+    hsl(37 92% 62% / 0.6) 0 2px,
+    transparent 2px 11px
+  );
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 100%), radial-gradient(50% 100% at 50% 0, #000, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: radial-gradient(50% 100% at 50% 0, #000 10%, transparent 100%);
+  animation: shimmer 3.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.55; transform: scaleX(1); }
+  50% { opacity: 0.9; transform: scaleX(1.25); }
+}
+
+.wave {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  animation: waveDrift var(--wave-speed, 22s) linear infinite;
+  will-change: transform;
+}
+
+@keyframes waveDrift {
+  to { transform: translateX(-50%); }
+}
+
+.ship-bob {
+  transform-origin: 50% 90%;
+  filter: drop-shadow(0 0 1px hsl(37 90% 66% / 0.85)) drop-shadow(0 -1px 6px hsl(37 90% 60% / 0.3));
+  animation: shipBob 6.5s ease-in-out infinite;
+}
+
+@keyframes shipBob {
+  0%, 100% { transform: translateY(0) rotate(-1.6deg); }
+  50% { transform: translateY(5px) rotate(1.8deg); }
+}
+
+.scroll-cue {
+  animation: cue 2.2s var(--ease-out) infinite;
+}
+
+@keyframes cue {
+  0% { transform: translateY(-5px); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translateY(7px); opacity: 0; }
+}
+
+/* ── Righe del titolo in entrata ── */
+.title-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.title-line > span {
+  display: block;
+  animation: titleRise 1.15s var(--ease-out) both;
+  animation-delay: var(--line-delay, 0ms);
+}
+
+@keyframes titleRise {
+  from { transform: translateY(112%); }
+  to { transform: none; }
+}
+
+/* ── Spotlight: segue il puntatore (vedi Layout) ── */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 0%),
+    hsl(37 90% 60% / 0.13),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+.lift {
+  transition:
+    transform 0.6s var(--ease-out),
+    border-color 0.3s ease,
+    box-shadow 0.6s var(--ease-out);
+}
+
+.lift:hover {
+  transform: translateY(-5px);
+  border-color: hsl(var(--primary) / 0.45);
+  box-shadow: 0 24px 50px -30px hsl(37 90% 60% / 0.5);
+}
+
+/* ── Marquee ── */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  justify-content: space-around;
+  animation: marquee var(--marquee-speed, 45s) linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-100%); }
+}
+
+/* ── Copertine e immagini ── */
+.zoom-frame {
+  overflow: hidden;
+}
+
+.zoom-frame img {
+  transition: transform 1.3s var(--ease-out);
+}
+
+.group:hover .zoom-frame img {
+  transform: scale(1.05);
+}
+
+.ken-burns {
+  animation: kenBurns 26s ease-out both;
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+.candle-glow {
+  background: radial-gradient(55% 60% at 30% 40%, hsl(37 95% 60% / 0.18), transparent 70%);
+  animation: flicker 4.5s linear infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.7; }
+  12% { opacity: 1; }
+  20% { opacity: 0.62; }
+  34% { opacity: 0.95; }
+  48% { opacity: 0.74; }
+  63% { opacity: 1; }
+  79% { opacity: 0.66; }
+}
+
+/* ── Terminale Commodore ── */
+.caret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── Accordion documentazione ── */
+.collapse-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s var(--ease-out);
+}
+
+.collapse-grid[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.collapse-grid > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Testi del blog: diario di bordo ── */
+.prose-log {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1rem + 0.35vw, 1.26rem);
+  font-weight: 350;
+  font-optical-sizing: auto;
+  line-height: 1.78;
+  color: hsl(40 26% 84%);
+}
+
+.prose-log > * + * {
+  margin-top: 1.35em;
+}
+
+.prose-log > p:first-child::first-letter {
+  float: left;
+  font-size: 4.4em;
+  line-height: 0.82;
+  padding: 0.07em 0.1em 0 0;
+  font-weight: 500;
+  color: hsl(var(--primary));
+}
+
+.prose-log h2 {
+  margin-top: 2.6em;
+  font-size: 1.75em;
+  line-height: 1.18;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.012em;
+}
+
+.prose-log h3 {
+  margin-top: 2em;
+  font-size: 1.25em;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+.prose-log strong {
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.prose-log em {
+  color: hsl(40 34% 90%);
+}
+
+.prose-log a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-log hr {
+  border: 0;
+  margin: 3em 0;
+  text-align: center;
+  height: auto;
+}
+
+.prose-log hr::after {
+  content: "✦   ✦   ✦";
+  white-space: pre;
+  color: hsl(var(--primary) / 0.7);
+  font-size: 0.8em;
+}
+
+.prose-log blockquote {
+  margin: 2.2em 0;
+  padding-left: 1.2em;
+  border-left: 2px solid hsl(var(--primary));
+  font-style: italic;
+  font-size: 1.14em;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+}
+
+.prose-log ul,
+.prose-log ol {
+  padding-left: 1.4em;
+}
+
+.prose-log ul { list-style: disc; }
+.prose-log ol { list-style: decimal; }
+
+.prose-log li + li {
+  margin-top: 0.5em;
+}
+
+.prose-log li::marker {
+  color: hsl(var(--primary));
+}
+
+.prose-log img {
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.log-figure {
+  display: block;
+  margin: 2.4em 0;
+}
+
+.log-caption {
+  display: block;
+  margin-top: 0.8em;
+  font-family: var(--font-mono);
+  font-size: 0.68em;
+  line-height: 1.5;
+  color: hsl(var(--muted-foreground));
+}
+
+.prose-log code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  padding: 0.12em 0.36em;
+  border-radius: 4px;
+  background: hsl(var(--secondary));
+}
+
+.prose-log pre {
+  overflow-x: auto;
+  padding: 1.1em 1.25em;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  font-size: 0.78em;
+  line-height: 1.6;
+}
+
+.prose-log pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.prose-log table {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.82em;
+  line-height: 1.5;
+  border-collapse: collapse;
+}
+
+.prose-log th,
+.prose-log td {
+  padding: 0.6em 0.8em;
+  border-bottom: 1px solid hsl(var(--border));
+  text-align: left;
+}
+
+.prose-log th {
+  color: hsl(var(--foreground));
+}
+
+/* ── Testi della documentazione ── */
+.prose-docs {
+  --tw-prose-body: hsl(40 18% 82%);
+  --tw-prose-headings: hsl(var(--foreground));
+  --tw-prose-links: hsl(var(--primary));
+  --tw-prose-bold: hsl(var(--foreground));
+  --tw-prose-bullets: hsl(var(--primary));
+  --tw-prose-counters: hsl(var(--primary));
+  --tw-prose-hr: hsl(var(--border));
+  --tw-prose-th-borders: hsl(var(--border));
+  --tw-prose-td-borders: hsl(var(--border));
+  --tw-prose-quote-borders: hsl(var(--primary));
+  --tw-prose-quotes: hsl(var(--foreground));
+  --tw-prose-code: hsl(37 90% 72%);
+  --tw-prose-pre-bg: hsl(var(--card));
+}
+
+.prose-docs h1,
+.prose-docs h2,
+.prose-docs h3 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.prose-docs pre {
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem;
+}
+
+.prose-docs pre code.hljs {
+  background: transparent;
+  padding: 0;
+}
+
+.prose-docs code {
+  font-family: var(--font-mono);
+}
+
+.prose-docs img {
+  border-radius: 0.75rem;
+}
 
 /* Scrollbar personalizzata solo per le liste documentazione */
 .custom-scrollbar {
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #f97316 transparent; /* thumb arancione, track trasparente */
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) transparent;
 }
 
-/* Chrome, Edge, Safari */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -117,10 +633,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #f97316; /* arancione */
+  background-color: hsl(var(--primary));
   border-radius: 999px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #ea580c; /* arancione più scuro hover */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

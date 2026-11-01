@@ -1,6 +1,6 @@
 ---
 slug: "SAP BTP Lezione 3"
-title: "Startegy Overview - Lezione 3"
+title: "Strategy Overview - Lezione 3"
 date: "2026-02-12"
 readTime: "15 min"
 excerpt: "Suite Qualities e Casi d'Uso di SAP BTP"

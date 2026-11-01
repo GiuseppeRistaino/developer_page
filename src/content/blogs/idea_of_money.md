@@ -5,6 +5,7 @@ date: "2026-02-14"
 readTime: "7 min"
 description: "Come cercare l'idea giusta per fare i big money (e perché ho deciso di costruirci un bot)"
 tags: ["Idea", "Soldi", "Trading", "Crypto"]
+coverImage: "cover_idea_soldi.svg"
 ---
 
 Diciamocelo senza ipocrisie: a tutti, almeno una volta nella vita, è venuta in mente la stessa identica cosa. *E se trovassi il modo di far soldi senza spaccarmi la schiena?*
