@@ -137,7 +137,7 @@
         <p class="lead">
           ScanTrak è progettata con un approccio locale: scontrini, immagini e statistiche sono salvati prima di tutto sul dispositivo. Questa pagina descrive quali dati possono essere trattati e come l'utente mantiene il controllo.
         </p>
-        <p class="meta">Ultimo aggiornamento: 29 maggio 2026</p>
+        <p class="meta">Ultimo aggiornamento: 1 novembre 2026</p>
       </div>
     </header>
 
@@ -154,7 +154,7 @@
         <ul>
           <li><strong>Account:</strong> email, nome visualizzato, identificativo utente Firebase, piano attuale e stato Premium.</li>
           <li><strong>Scontrini:</strong> negozio, data, totale, metodo di pagamento, articoli, categorie e immagini dello scontrino.</li>
-          <li><strong>Uso AI:</strong> conteggio giornaliero delle scansioni e immagini inviate temporaneamente per l'analisi.</li>
+          <li><strong>Uso AI:</strong> conteggio giornaliero delle scansioni e immagini inviate a Google Gemini API per l'analisi.</li>
           <li><strong>Backup cloud:</strong> dati e immagini caricati su Firebase solo se l'utente Premium attiva la funzione.</li>
           <li><strong>Pubblicità:</strong> per gli utenti Free possono essere usati Google AdMob e Google UMP per annunci rewarded e consenso pubblicitario.</li>
         </ul>
@@ -176,10 +176,13 @@
       <section>
         <h2>Cloud, AI e fornitori</h2>
         <p>
-          Quando usi la scansione AI, le immagini selezionate vengono inviate alle Cloud Functions di ScanTrak per l'analisi e l'estrazione dei dati. Il risultato viene restituito all'app e salvato principalmente sul dispositivo.
+          Quando usi la scansione AI, le immagini dello scontrino vengono inviate tramite le Cloud Functions di ScanTrak a <strong>Google Gemini API</strong>, il servizio di intelligenza artificiale di Google, per estrarne i dati. Il risultato torna all'app e viene salvato principalmente sul dispositivo. ScanTrak non conserva queste immagini sui propri server, salvo che tu attivi il backup cloud.
         </p>
         <p>
-          ScanTrak può usare servizi Google Firebase, Google Gemini AI, Google AdMob e Google UMP. Il backup cloud è separato dalla scansione AI: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
+          Google tratta questi dati secondo le <a href="https://ai.google.dev/gemini-api/terms">condizioni della Gemini API</a>: può conservarli per un periodo limitato per prevenire abusi e può elaborarli anche fuori dall'Unione Europea. Gli scontrini possono contenere dati personali: evita di fotografare quelli che riportano informazioni che non vuoi condividere.
+        </p>
+        <p>
+          ScanTrak usa anche servizi Google Firebase, Google AdMob e Google UMP. Il backup cloud è separato dalla scansione AI: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
         </p>
       </section>
 

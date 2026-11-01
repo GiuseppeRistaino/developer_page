@@ -17,6 +17,7 @@ import Subtrak from "./pages/Subtrak";
 import SubtrakPrivacy from "./pages/SubtrakPrivacy";
 import SubtrakTerms from "./pages/SubtrakTerms";
 import ScantrakPrivacy from "./pages/ScantrakPrivacy";
+import ScantrakTerms from "./pages/ScantrakTerms";
 import Documentation, { DocArticlePage } from "./pages/Documentation";
 import NotFound from "./pages/NotFound";
 
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/portfolio/subtrak/privacy" element={<SubtrakPrivacy />} />
             <Route path="/portfolio/subtrak/terms" element={<SubtrakTerms />} />
             <Route path="/portfolio/scantrak/privacy" element={<ScantrakPrivacy />} />
+            <Route path="/portfolio/scantrak/terms" element={<ScantrakTerms />} />
             <Route path="/portfolio/:projectId" element={<ProjectBlog />} />
             <Route path="/documentazione" element={<Documentation />} />
             <Route path="/documentazione/:categoryId/:articleSlug" element={<DocArticlePage />} />

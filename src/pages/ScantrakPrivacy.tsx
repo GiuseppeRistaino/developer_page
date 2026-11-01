@@ -16,7 +16,7 @@ const sections = [
     items: [
       "Dati account: email, nome visualizzato, identificativo utente Firebase, piano attuale e stato Premium.",
       "Dati degli scontrini: negozio, data, totale, metodo di pagamento, articoli, categorie e immagini dello scontrino.",
-      "Uso AI: conteggio giornaliero delle scansioni e immagini inviate per l'analisi dello scontrino.",
+      "Uso AI: conteggio giornaliero delle scansioni e immagini inviate a Google Gemini API per l'analisi dello scontrino.",
       "Backup cloud: dati e immagini caricati su Firebase solo se l'utente Premium attiva volontariamente la funzione.",
       "Pubblicita: per gli utenti Free possono essere usati Google AdMob e Google UMP per annunci rewarded e consenso pubblicitario.",
     ],
@@ -33,10 +33,13 @@ const sections = [
     ],
   },
   {
-    title: "Cloud, AI e backup",
+    title: "Cloud, AI e fornitori",
     items: [
-      "Quando usi la scansione AI, le immagini selezionate vengono inviate alle Cloud Functions di ScanTrak per l'analisi e l'estrazione dati.",
-      "Il risultato viene restituito all'app e salvato principalmente sul dispositivo dell'utente.",
+      "Quando usi la scansione AI, le immagini dello scontrino vengono inviate tramite le Cloud Functions di ScanTrak a Google Gemini API, il servizio di intelligenza artificiale di Google, per estrarne i dati.",
+      "Il risultato torna all'app e viene salvato principalmente sul dispositivo dell'utente. ScanTrak non conserva queste immagini sui propri server, salvo che tu attivi il backup cloud.",
+      "Google tratta questi dati secondo le condizioni della Gemini API (https://ai.google.dev/gemini-api/terms): può conservarli per un periodo limitato per prevenire abusi e può elaborarli anche fuori dall'Unione Europea.",
+      "Gli scontrini possono contenere dati personali: evita di fotografare quelli che riportano informazioni che non vuoi condividere.",
+      "ScanTrak usa anche servizi Google Firebase, Google AdMob e Google UMP.",
       "Il backup cloud e separato dalla scansione AI: se attivato dagli utenti Premium, salva su Firebase scontrini, articoli, totali, categorie e immagini associate.",
       "La chiave API del servizio AI non viene distribuita nell'app, ma gestita lato server tramite Firebase.",
     ],
@@ -86,7 +89,7 @@ const ScantrakPrivacy = () => {
                 <img src={scantrakIcon} alt="Icona ScanTrak" className="h-14 w-14 rounded-2xl" />
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-widest text-[#10b981]">ScanTrak</p>
-                  <p className="text-sm font-medium text-[#52645f]">Ultimo aggiornamento: 28 maggio 2026</p>
+                  <p className="text-sm font-medium text-[#52645f]">Ultimo aggiornamento: 1 novembre 2026</p>
                 </div>
               </div>
               <h1 className="font-heading text-4xl font-bold leading-tight text-[#003826] md:text-6xl">
@@ -123,7 +126,7 @@ const ScantrakPrivacy = () => {
               <h2 className="font-heading text-xl font-bold text-[#003826]">Sintesi</h2>
               <div className="mt-5 space-y-3 text-sm leading-6 text-[#52645f]">
                 <p>ScanTrak salva gli scontrini principalmente sul dispositivo.</p>
-                <p>La scansione AI invia temporaneamente immagini e dati ai servizi cloud di ScanTrak per l'analisi.</p>
+                <p>La scansione AI invia le immagini dello scontrino a Google Gemini API, tramite i servizi cloud di ScanTrak, per l'analisi.</p>
                 <p>Il backup cloud e opzionale, disponibile solo per utenti Premium e basato su Firebase.</p>
                 <p>Gli utenti Free devono completare una pubblicita rewarded prima della scansione AI.</p>
               </div>
@@ -169,6 +172,12 @@ const ScantrakPrivacy = () => {
                   <Mail size={16} />
                   Scrivi una email
                 </a>
+                <Link
+                  to="/portfolio/scantrak/terms"
+                  className="ml-3 mt-5 inline-flex items-center gap-2 rounded-lg border border-[#b7ded0] px-4 py-2.5 text-sm font-bold text-[#00543c] transition-colors hover:border-[#10b981]"
+                >
+                  Termini di utilizzo
+                </Link>
               </section>
             </div>
           </div>

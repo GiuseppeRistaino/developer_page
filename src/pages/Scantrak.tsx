@@ -350,7 +350,7 @@ const Scantrak = () => {
               <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Privacy</p>
               <h2 className="font-heading text-2xl font-bold">Pagina pronta da collegare nella scheda Play Store.</h2>
               <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Include titolare, dati trattati, uso AI, backup cloud opzionale, annunci rewarded, conservazione, cancellazione account e contatti privacy.
+                Include titolare, dati trattati, invio delle immagini a Google Gemini API, backup cloud opzionale, annunci rewarded, conservazione, cancellazione account e contatti privacy.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -368,6 +368,12 @@ const Scantrak = () => {
                 <UserX size={18} />
                 Eliminazione account
               </a>
+              <Link
+                to="/portfolio/scantrak/terms"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                Termini di utilizzo
+              </Link>
             </div>
           </div>
         </div>

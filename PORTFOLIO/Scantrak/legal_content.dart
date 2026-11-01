@@ -10,18 +10,18 @@ class LegalContent {
   static const privacySummary = [
     'ScanTrak salva gli scontrini principalmente sul dispositivo.',
     'Il backup cloud è disponibile solo per utenti Premium e salva scontrini e immagini su Firebase quando viene attivato.',
-    'La scansione invia le immagini a firebase per estrarre i dati dello scontrino, senza salvare nessuna informazione.',
+    'La scansione AI invia le immagini dello scontrino a Google Gemini API, tramite le Cloud Functions di ScanTrak, per estrarne i dati.',
     'Gli utenti Free devono completare una pubblicita rewarded prima della scansione.',
   ];
 
   static const requiredConsentText =
-      'Accettando confermi di aver letto Termini e Informativa Privacy e di aver compreso che la scansione AI invia temporaneamente immagini e dati dello scontrino ai servizi cloud di ScanTrak per l\'analisi.';
+      'Accettando confermi di aver letto Termini e Informativa Privacy e di aver compreso che la scansione AI invia le immagini dello scontrino a Google Gemini API, tramite i servizi cloud di ScanTrak, per l\'analisi.';
 
   static const privacyPolicy =
       '''
 Versione: $kPrivacyPolicyVersion
 
-ScanTrak è progettata con un approccio locale: gli scontrini, le immagini e le statistiche sono salvati prima di tutto sul dispositivo.
+ScanTrak e progettata con un approccio locale: gli scontrini, le immagini e le statistiche sono salvati prima di tutto sul dispositivo.
 
 Titolare del trattamento
 Il titolare del trattamento dei dati e $dataControllerName.
@@ -45,7 +45,11 @@ Finalita
 - Gestire la richiesta di eliminazione account e cancellare i dati associati.
 
 Cloud e AI
-Quando usi la scansione AI, le immagini selezionate vengono inviate alle Cloud Functions di ScanTrak per l'analisi. Il risultato viene restituito all'app e salvato localmente. Il backup cloud e separato dalla scansione: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
+Quando usi la scansione AI, le immagini dello scontrino vengono inviate tramite le Cloud Functions di ScanTrak a Google Gemini API, il servizio di intelligenza artificiale di Google, per estrarne i dati. Il risultato torna all'app e viene salvato localmente. ScanTrak non conserva queste immagini sui propri server, salvo che tu attivi il backup cloud.
+
+Google tratta questi dati secondo le condizioni della Gemini API (https://ai.google.dev/gemini-api/terms): può conservarli per un periodo limitato per prevenire abusi e può elaborarli anche fuori dall'Unione Europea. Gli scontrini possono contenere dati personali: evita di fotografare quelli che riportano informazioni che non vuoi condividere.
+
+Il backup cloud e separato dalla scansione: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
 
 Pubblicita
 Gli utenti Free devono completare un annuncio rewarded per usare la scansione AI. Il consenso pubblicitario viene gestito tramite Google UMP quando richiesto dalla normativa applicabile.
@@ -68,6 +72,7 @@ ScanTrak aiuta a digitalizzare scontrini, leggere dati tramite AI e consultare s
 
 Uso dell'app
 - L'utente e responsabile della correttezza dei dati salvati e puo modificarli prima del salvataggio.
+- La scansione AI invia le immagini degli scontrini a Google Gemini API, come descritto nell'Informativa Privacy.
 - L'analisi AI puo commettere errori: i risultati vanno verificati prima dell'uso.
 - Gli utenti Free hanno limiti giornalieri e devono completare un annuncio rewarded prima della scansione AI.
 - Gli utenti Premium hanno funzionalita aggiuntive come assenza pubblicita, export e backup cloud opzionale.
@@ -76,7 +81,7 @@ Backup cloud
 Il backup cloud e facoltativo e riservato al piano Premium. Quando viene attivato, salva su Firebase gli scontrini e le immagini associate. Disattivarlo blocca nuovi upload; per rimuovere dati gia caricati serve usare la pulizia cloud.
 
 Disponibilita
-Alcune funzioni dipendono da Firebase, Google Sign-In, AdMob, connessione internet e servizi AI. In caso di indisponibilita temporanea, l'app puo limitare alcune operazioni.
+Alcune funzioni dipendono da Firebase, Google Sign-In, AdMob, connessione internet e Google Gemini API. In caso di indisponibilita temporanea, l'app puo limitare alcune operazioni.
 
 Eliminazione account
 L'utente puo eliminare l'account dalla pagina Config. La cancellazione rimuove account, profilo e dati Firebase associati, oltre ai dati locali sul dispositivo. L'operazione e definitiva e puo richiedere una nuova autenticazione.
