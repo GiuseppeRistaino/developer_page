@@ -8,6 +8,7 @@ import fableHearthIcon from "../../PORTFOLIO/FableHearth/FableHearth_Icon.png";
 import plannerTimeIcon from "../../PORTFOLIO/PlannerTime/icon.png";
 import subtrakIcon from "../../PORTFOLIO/Subtrak/icon_subtrak.svg";
 import pianoMapsIcon from "../../PORTFOLIO/PianoMaps/icon_pianomaps.png";
+import eatsNeedIcon from "../../PORTFOLIO/EatsNeed/icon_eatsneed.png";
 
 interface Project {
   id: string;
@@ -23,6 +24,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "eatsneed",
+    title: "EatsNeed",
+    description: "App mobile per gestire la dispensa senza sprechi: scadenze, lista della spesa e ricette personali, con scansione degli scontrini e idee di ricette tramite Gemini AI.",
+    tags: ["Flutter", "SQLite", "Firebase", "Gemini AI", "AdMob"],
+    image: eatsNeedIcon,
+    imageAlt: "Icona EatsNeed",
+    status: "Online",
+  },
   {
     id: "pianomaps",
     title: "PianoMap",

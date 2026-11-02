@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Informativa Privacy - EatsNeed</title>
+    <meta
+      name="description"
+      content="Informativa Privacy di EatsNeed: dati salvati sul dispositivo, Open Food Facts, abbonamento Premium, funzioni IA con Google Gemini e pubblicità."
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #12352a;
+        --muted: #54675c;
+        --brand: #1fa62b;
+        --brand-dark: #14741e;
+        --honey: #ffc93c;
+        --bg: #f3f7ec;
+        --panel: #ffffff;
+        --line: #dde6d4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+
+      header {
+        background: #e7f3dd;
+        border-bottom: 1px solid var(--line);
+        padding: 56px 20px;
+      }
+
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 36px 20px 64px;
+      }
+
+      .hero {
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--brand-dark);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        line-height: 1.15;
+      }
+
+      h1 {
+        color: var(--ink);
+        font-size: clamp(34px, 7vw, 64px);
+        letter-spacing: 0;
+      }
+
+      h2 {
+        color: var(--ink);
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        margin: 0 0 14px;
+      }
+
+      a {
+        color: var(--brand-dark);
+        font-weight: 700;
+      }
+
+      .lead {
+        max-width: 760px;
+        margin-top: 22px;
+        color: #30443e;
+        font-size: 18px;
+      }
+
+      .meta {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      section,
+      .summary {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      .summary {
+        border-left: 6px solid var(--honey);
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <p class="eyebrow">EatsNeed</p>
+        <h1>Informativa Privacy</h1>
+        <p class="lead">
+          EatsNeed non richiede la creazione di un account: dispensa, lista della spesa e ricette sono salvate sul tuo dispositivo. Questa pagina spiega quali dati lasciano il telefono, quando e perché.
+        </p>
+        <p class="meta">Ultimo aggiornamento: 2 novembre 2026</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="summary">
+        <h2>Titolare del trattamento</h2>
+        <p><strong>Giuseppe Ristaino</strong></p>
+        <p>Paese: Italia</p>
+        <p>Contatto privacy: <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a></p>
+      </div>
+
+      <section>
+        <h2>Dati salvati solo sul dispositivo</h2>
+        <ul>
+          <li>Prodotti della dispensa: nome, codice a barre, data di scadenza, foto scattate da te, valori nutrizionali e pareri dell'IA.</li>
+          <li>Lista della spesa, ricette personali con le relative foto e gli abbinamenti tra ingredienti e prodotti.</li>
+          <li>Preferenze dell'app, come lingua e giorni di preavviso per le notifiche.</li>
+          <li>Le notifiche di scadenza sono programmate localmente e non passano da nostri server.</li>
+          <li>La lettura delle date di scadenza dalla fotocamera avviene sul dispositivo tramite Google ML Kit.</li>
+        </ul>
+        <p>Questi dati non vengono caricati su server del titolare. Restano sul telefono finché non li elimini dall'app o non disinstalli EatsNeed.</p>
+      </section>
+
+      <section>
+        <h2>Ricerca dei prodotti con il codice a barre</h2>
+        <p>
+          Quando scansioni un codice a barre, l'app invia il codice al database pubblico <a href="https://world.openfoodfacts.org/">Open Food Facts</a> per ottenere nome, immagine e valori nutrizionali del prodotto. Open Food Facts riceve il codice e l'indirizzo IP della richiesta, secondo la propria <a href="https://world.openfoodfacts.org/privacy">informativa</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Abbonamento Premium</h2>
+        <ul>
+          <li>Il pagamento è gestito interamente da Google Play: il titolare non riceve i dati della tua carta o del tuo account Google.</li>
+          <li>Per verificare che l'abbonamento sia attivo, l'app invia il token d'acquisto di Google Play alle Cloud Functions di EatsNeed (Google Firebase, regione europe-west1, Belgio), che lo controllano con le API di Google Play.</li>
+          <li>Per applicare il limite di 3 richieste IA al giorno viene salvata in Firestore (europe-west1) solo un'impronta crittografica (hash SHA-256) del token, con la data dell'ultimo utilizzo e il numero di richieste del giorno. L'impronta non contiene nome, email o identificativi del tuo account.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Funzioni con l'intelligenza artificiale (Premium)</h2>
+        <ul>
+          <li><strong>Idee con l'IA:</strong> l'app invia i nomi dei prodotti in dispensa, i giorni che mancano alla scadenza e la lingua dell'app, per ricevere proposte di ricette.</li>
+          <li><strong>Scontrino con l'IA:</strong> l'app invia le foto dello scontrino (fino a 3 pagine, ridimensionate) per riconoscere i prodotti acquistati, stimarne qualità e scadenza e scrivere un breve parere.</li>
+        </ul>
+        <p>
+          I dati passano dalle Cloud Functions di EatsNeed a <strong>Google Gemini API</strong>, il servizio di intelligenza artificiale di Google. Il titolare non conserva le foto, i nomi dei prodotti né le risposte: il risultato torna all'app e viene salvato solo sul dispositivo.
+        </p>
+        <p>
+          Google tratta questi dati secondo le <a href="https://ai.google.dev/gemini-api/terms">condizioni della Gemini API</a>: può conservarli per un periodo limitato per prevenire abusi e può elaborarli anche fuori dall'Unione Europea. Gli scontrini possono contenere dati personali, come il nome del negozio o le ultime cifre di una carta: evita di fotografare parti che non vuoi condividere.
+        </p>
+        <p>Le risposte dell'IA sono stime e possono contenere errori: controlla sempre le scadenze riportate sulle confezioni.</p>
+      </section>
+
+      <section>
+        <h2>Pubblicità</h2>
+        <p>
+          La versione gratuita mostra banner pubblicitari di <strong>Google AdMob</strong>. Al primo avvio, nei paesi in cui è richiesto, l'app chiede il consenso tramite Google User Messaging Platform; puoi modificarlo in qualsiasi momento da Impostazioni &gt; Privacy e consenso annunci. AdMob può raccogliere l'identificativo pubblicitario del dispositivo, l'indirizzo IP e dati sull'interazione con gli annunci, secondo le <a href="https://policies.google.com/technologies/partner-sites">norme di Google</a>. Con Premium la pubblicità viene disattivata.
+        </p>
+      </section>
+
+      <section>
+        <h2>Permessi</h2>
+        <ul>
+          <li><strong>Fotocamera:</strong> per scansionare codici a barre, date di scadenza e scontrini e per fotografare prodotti e ricette.</li>
+          <li><strong>Notifiche:</strong> per avvisarti dei prodotti in scadenza.</li>
+          <li><strong>Internet:</strong> per Open Food Facts, abbonamento, funzioni IA e pubblicità.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Basi giuridiche e conservazione</h2>
+        <ul>
+          <li>Funzioni dell'app, verifica dell'abbonamento e funzioni IA: esecuzione del servizio richiesto (art. 6.1.b GDPR).</li>
+          <li>Limite giornaliero delle richieste e prevenzione degli abusi: legittimo interesse del titolare (art. 6.1.f GDPR).</li>
+          <li>Pubblicità personalizzata: consenso (art. 6.1.a GDPR), revocabile in qualsiasi momento.</li>
+          <li>L'impronta del token resta in Firestore finché il servizio è attivo e viene aggiornata a ogni utilizzo; puoi chiederne la cancellazione scrivendo al titolare.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Minori</h2>
+        <p>EatsNeed non è destinata a minori di 14 anni e non raccoglie consapevolmente i loro dati.</p>
+      </section>
+
+      <section>
+        <h2>Diritti dell'utente</h2>
+        <p>
+          Puoi chiedere accesso, rettifica, cancellazione, limitazione od opposizione al trattamento scrivendo a <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a>. Puoi eliminare in ogni momento i dati locali dall'app o disinstallandola, e puoi proporre reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it/">garanteprivacy.it</a>).
+        </p>
+      </section>
+
+      <section>
+        <h2>Modifiche</h2>
+        <p>Questa informativa può essere aggiornata quando l'app cambia. La data in alto indica l'ultima versione.</p>
+      </section>
+    </main>
+  </body>
+</html>
