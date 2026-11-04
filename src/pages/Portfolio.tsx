@@ -9,6 +9,7 @@ import plannerTimeIcon from "../../PORTFOLIO/PlannerTime/icon.png";
 import subtrakIcon from "../../PORTFOLIO/Subtrak/icon_subtrak.svg";
 import pianoMapsIcon from "../../PORTFOLIO/PianoMaps/icon_pianomaps.png";
 import eatsNeedIcon from "../../PORTFOLIO/EatsNeed/icon_eatsneed.png";
+import roamieIcon from "../../PORTFOLIO/Roamie/icon_roamie.png";
 
 interface Project {
   id: string;
@@ -24,6 +25,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "roamie",
+    title: "Roamie",
+    description: "App mobile per i viaggi di gruppo: itinerario giorno per giorno sulla mappa, spese divise, chat del viaggio e, con Premium, tappe suggerite da Gemini AI e luoghi scelti dalla mappa.",
+    tags: ["Flutter", "Firebase", "Google Maps", "Gemini AI", "AdMob"],
+    image: roamieIcon,
+    imageAlt: "Icona Roamie",
+    status: "BETA",
+  },
   {
     id: "eatsneed",
     title: "EatsNeed",
