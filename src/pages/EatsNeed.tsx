@@ -34,6 +34,7 @@ interface FeatureCard {
 
 const playStoreUrl = "https://play.google.com/store/apps/details?id=com.miscorex.eatsneed";
 const privacyUrl = `${import.meta.env.BASE_URL}eatsneed/privacy.html`;
+const termsUrl = `${import.meta.env.BASE_URL}eatsneed/terms.html`;
 
 const screenshots = [
   {
@@ -365,13 +366,13 @@ const EatsNeed = () => {
                 Apri informativa
                 <ArrowRight size={18} />
               </a>
-              <Link
-                to="/portfolio/eatsneed/terms"
+              <a
+                href={termsUrl}
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary hover:text-primary"
               >
                 <FileText size={18} />
                 Termini di utilizzo
-              </Link>
+              </a>
             </div>
           </div>
         </div>
