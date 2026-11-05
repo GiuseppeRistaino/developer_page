@@ -10,6 +10,7 @@ import subtrakIcon from "../../PORTFOLIO/Subtrak/icon_subtrak.svg";
 import pianoMapsIcon from "../../PORTFOLIO/PianoMaps/icon_pianomaps.png";
 import eatsNeedIcon from "../../PORTFOLIO/EatsNeed/icon_eatsneed.png";
 import roamieIcon from "../../PORTFOLIO/Roamie/icon_roamie.png";
+import theJourneyIcon from "../../PORTFOLIO/TheJourney/icon_thejourney.webp";
 
 interface Project {
   id: string;
@@ -25,6 +26,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "thejourney",
+    title: "Jack Hollow – Il viaggio",
+    description: "Avventura grafica punta-e-clicca comica a episodi per Android: quindici stanze dipinte, ruota dei verbi, inventario in valigia, enigmi assurdi ma giusti e animazioni fotogramma per fotogramma.",
+    tags: ["Godot", "GDScript", "Popochiu", "Android", "Game Design"],
+    image: theJourneyIcon,
+    imageAlt: "Icona di Jack Hollow – Il viaggio",
+    status: "In sviluppo",
+  },
   {
     id: "roamie",
     title: "Roamie",
