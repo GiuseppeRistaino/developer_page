@@ -18,7 +18,8 @@ const sections = [
       "Dati degli scontrini: negozio, data, totale, metodo di pagamento, articoli, categorie e immagini dello scontrino.",
       "Uso AI: conteggio giornaliero delle scansioni e immagini inviate a Google Gemini API per l'analisi dello scontrino.",
       "Backup cloud: dati e immagini caricati su Firebase solo se l'utente Premium attiva volontariamente la funzione.",
-      "Pubblicita: per gli utenti Free possono essere usati Google AdMob e Google UMP per annunci rewarded e consenso pubblicitario.",
+      "Acquisti Premium: identificativo del prodotto acquistato, token di acquisto di Google Play, data di scadenza e stato dell'abbonamento. I dati di pagamento (carta, conto) sono gestiti solo da Google Play e non arrivano a ScanTrak.",
+      "Pubblicità: per gli utenti Free, Google AdMob raccoglie l'ID pubblicità del dispositivo, l'ID set di app, l'indirizzo IP (da cui può stimare la posizione approssimativa), le interazioni con gli annunci e con l'app e dati diagnostici sulle prestazioni. Google UMP registra le tue scelte sul consenso pubblicitario.",
     ],
   },
   {
@@ -39,18 +40,46 @@ const sections = [
       "Il risultato torna all'app e viene salvato principalmente sul dispositivo dell'utente. ScanTrak non conserva queste immagini sui propri server, salvo che tu attivi il backup cloud.",
       "Google tratta questi dati secondo le condizioni della Gemini API (https://ai.google.dev/gemini-api/terms): può conservarli per un periodo limitato per prevenire abusi e può elaborarli anche fuori dall'Unione Europea.",
       "Gli scontrini possono contenere dati personali: evita di fotografare quelli che riportano informazioni che non vuoi condividere.",
-      "ScanTrak usa anche servizi Google Firebase, Google AdMob e Google UMP.",
+      "ScanTrak usa anche servizi Google Firebase (autenticazione, database, archiviazione e Cloud Functions), Google Sign-In, Google Play Billing, Google AdMob e Google UMP.",
       "Il backup cloud e separato dalla scansione AI: se attivato dagli utenti Premium, salva su Firebase scontrini, articoli, totali, categorie e immagini associate.",
       "La chiave API del servizio AI non viene distribuita nell'app, ma gestita lato server tramite Firebase.",
     ],
   },
   {
+    title: "Pubblicità",
+    items: [
+      "Gli utenti Free guardano un annuncio rewarded prima di ogni scansione AI. Gli annunci sono forniti da Google AdMob, che raccoglie i dati indicati sopra e li condivide con Google per mostrare e misurare gli annunci, per analisi e per prevenire frodi.",
+      "Gli annunci personalizzati vengono mostrati solo se acconsenti tramite il modulo di consenso Google UMP; altrimenti gli annunci non sono personalizzati.",
+      "Puoi modificare le tue scelte sul consenso dalla sezione Dati e Privacy dell'app, e reimpostare o eliminare l'ID pubblicità dalle impostazioni di Android.",
+      "Google tratta questi dati secondo la propria informativa sull'uso dei dati dei partner (https://policies.google.com/technologies/partner-sites?hl=it). Gli utenti Premium non vedono annunci.",
+    ],
+  },
+  {
+    title: "Basi giuridiche",
+    items: [
+      "Esecuzione del contratto (art. 6.1.b GDPR): account, scansione AI, archivio, statistiche, backup cloud, abbonamento Premium ed eliminazione dell'account.",
+      "Consenso (art. 6.1.a GDPR): annunci personalizzati. Puoi revocarlo in qualsiasi momento, senza effetti sui trattamenti già effettuati.",
+      "Legittimo interesse (art. 6.1.f GDPR): limiti giornalieri di scansione, verifica degli annunci rewarded, sicurezza e prevenzione degli abusi.",
+      "Obbligo di legge (art. 6.1.c GDPR): conservazione dei dati sugli acquisti richiesta dalla normativa fiscale.",
+    ],
+  },
+  {
+    title: "Trasferimenti fuori dall'Unione Europea",
+    items: [
+      "Google Gemini API, Firebase e AdMob sono servizi di Google che possono trattare i dati anche fuori dall'Unione Europea, in particolare negli Stati Uniti.",
+      "Questi trasferimenti avvengono con le garanzie previste dal GDPR: le clausole contrattuali standard approvate dalla Commissione Europea e, per Google LLC, l'EU-US Data Privacy Framework.",
+    ],
+  },
+  {
     title: "Conservazione e controllo",
     items: [
-      "I dati locali restano sul dispositivo finche l'utente non li elimina dall'app.",
-      "I dati presenti nel backup cloud possono essere rimossi tramite le funzioni di pulizia cloud disponibili nell'app.",
+      "I dati locali restano sul dispositivo finché l'utente non li elimina dall'app o non disinstalla l'app.",
+      "I dati dell'account (email, nome, piano) sono conservati finché l'account esiste e vengono cancellati con l'eliminazione dell'account.",
+      "I dati presenti nel backup cloud restano finché l'utente non li rimuove con le funzioni di pulizia cloud o non elimina l'account.",
+      "Il contatore giornaliero delle scansioni AI serve ad applicare le quote del piano ed è collegato all'account: viene cancellato con l'account.",
+      "I dati sugli acquisti sono conservati per la durata dell'abbonamento e, dopo, per il tempo richiesto dagli obblighi fiscali.",
+      "Le immagini inviate a Google Gemini API possono essere conservate da Google per un periodo limitato, come descritto sopra.",
       "Gli utenti Premium possono esportare i dati locali in CSV, JSON o ZIP con immagini.",
-      "Il contatore giornaliero delle scansioni AI viene usato per applicare le quote previste dal piano utente.",
     ],
   },
   {
@@ -64,8 +93,10 @@ const sections = [
   {
     title: "Diritti dell'utente",
     items: [
+      "In base agli articoli 15–22 del GDPR hai diritto di accedere ai tuoi dati e riceverne una copia, chiederne la rettifica o la cancellazione, chiedere la limitazione del trattamento, ricevere i dati in un formato strutturato (portabilità), opporti ai trattamenti basati sul legittimo interesse e revocare in qualsiasi momento il consenso agli annunci personalizzati.",
       "Puoi gestire consensi, backup cloud, esportazione, cancellazione dati ed eliminazione account dalle sezioni Dati e Privacy e Config dell'app.",
-      `Per richieste privacy puoi scrivere a ${controller.email}.`,
+      `Per esercitare gli altri diritti scrivi a ${controller.email}: rispondiamo entro 30 giorni.`,
+      "Se ritieni che il trattamento violi il GDPR, puoi presentare reclamo al Garante per la protezione dei dati personali (https://www.garanteprivacy.it).",
     ],
   },
 ];
@@ -89,7 +120,7 @@ const ScantrakPrivacy = () => {
                 <img src={scantrakIcon} alt="Icona ScanTrak" className="h-14 w-14 rounded-2xl" />
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-widest text-[#10b981]">ScanTrak</p>
-                  <p className="text-sm font-medium text-[#52645f]">Ultimo aggiornamento: 1 novembre 2026</p>
+                  <p className="text-sm font-medium text-[#52645f]">Ultimo aggiornamento: 6 novembre 2026</p>
                 </div>
               </div>
               <h1 className="font-heading text-4xl font-bold leading-tight text-[#003826] md:text-6xl">

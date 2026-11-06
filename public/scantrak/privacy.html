@@ -137,7 +137,7 @@
         <p class="lead">
           ScanTrak è progettata con un approccio locale: scontrini, immagini e statistiche sono salvati prima di tutto sul dispositivo. Questa pagina descrive quali dati possono essere trattati e come l'utente mantiene il controllo.
         </p>
-        <p class="meta">Ultimo aggiornamento: 1 novembre 2026</p>
+        <p class="meta">Ultimo aggiornamento: 6 novembre 2026</p>
       </div>
     </header>
 
@@ -156,7 +156,8 @@
           <li><strong>Scontrini:</strong> negozio, data, totale, metodo di pagamento, articoli, categorie e immagini dello scontrino.</li>
           <li><strong>Uso AI:</strong> conteggio giornaliero delle scansioni e immagini inviate a Google Gemini API per l'analisi.</li>
           <li><strong>Backup cloud:</strong> dati e immagini caricati su Firebase solo se l'utente Premium attiva la funzione.</li>
-          <li><strong>Pubblicità:</strong> per gli utenti Free possono essere usati Google AdMob e Google UMP per annunci rewarded e consenso pubblicitario.</li>
+          <li><strong>Acquisti Premium:</strong> identificativo del prodotto acquistato, token di acquisto di Google Play, data di scadenza e stato dell'abbonamento. I dati di pagamento (carta, conto) sono gestiti solo da Google Play e non arrivano a ScanTrak.</li>
+          <li><strong>Pubblicità:</strong> per gli utenti Free, Google AdMob raccoglie l'ID pubblicità del dispositivo, l'ID set di app, l'indirizzo IP (da cui può stimare la posizione approssimativa), le interazioni con gli annunci e con l'app e dati diagnostici sulle prestazioni. Google UMP registra le tue scelte sul consenso pubblicitario.</li>
         </ul>
       </section>
 
@@ -182,17 +183,47 @@
           Google tratta questi dati secondo le <a href="https://ai.google.dev/gemini-api/terms">condizioni della Gemini API</a>: può conservarli per un periodo limitato per prevenire abusi e può elaborarli anche fuori dall'Unione Europea. Gli scontrini possono contenere dati personali: evita di fotografare quelli che riportano informazioni che non vuoi condividere.
         </p>
         <p>
-          ScanTrak usa anche servizi Google Firebase, Google AdMob e Google UMP. Il backup cloud è separato dalla scansione AI: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
+          ScanTrak usa anche servizi Google Firebase (autenticazione, database, archiviazione e Cloud Functions), Google Sign-In, Google Play Billing, Google AdMob e Google UMP. Il backup cloud è separato dalla scansione AI: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
+        </p>
+      </section>
+
+      <section>
+        <h2>Pubblicità</h2>
+        <p>
+          Gli utenti Free guardano un annuncio rewarded prima di ogni scansione AI. Gli annunci sono forniti da Google AdMob, che raccoglie i dati indicati sopra e li <strong>condivide con Google</strong> per mostrare e misurare gli annunci, per analisi e per prevenire frodi. Gli annunci personalizzati vengono mostrati solo se acconsenti tramite il modulo di consenso Google UMP; altrimenti gli annunci non sono personalizzati.
+        </p>
+        <p>
+          Puoi modificare le tue scelte sul consenso dalla sezione Dati e Privacy dell'app, e reimpostare o eliminare l'ID pubblicità dalle impostazioni di Android. Google tratta questi dati secondo la propria <a href="https://policies.google.com/technologies/partner-sites?hl=it">informativa sull'uso dei dati dei partner</a>. Gli utenti Premium non vedono annunci.
+        </p>
+      </section>
+
+      <section>
+        <h2>Basi giuridiche</h2>
+        <ul>
+          <li><strong>Esecuzione del contratto</strong> (art. 6.1.b GDPR): account, scansione AI, archivio, statistiche, backup cloud, abbonamento Premium ed eliminazione dell'account.</li>
+          <li><strong>Consenso</strong> (art. 6.1.a GDPR): annunci personalizzati. Puoi revocarlo in qualsiasi momento, senza effetti sui trattamenti già effettuati.</li>
+          <li><strong>Legittimo interesse</strong> (art. 6.1.f GDPR): limiti giornalieri di scansione, verifica degli annunci rewarded, sicurezza e prevenzione degli abusi.</li>
+          <li><strong>Obbligo di legge</strong> (art. 6.1.c GDPR): conservazione dei dati sugli acquisti richiesta dalla normativa fiscale.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Trasferimenti fuori dall'Unione Europea</h2>
+        <p>
+          Google Gemini API, Firebase e AdMob sono servizi di Google che possono trattare i dati anche fuori dall'Unione Europea, in particolare negli Stati Uniti. Questi trasferimenti avvengono con le garanzie previste dal GDPR: le clausole contrattuali standard approvate dalla Commissione Europea e, per Google LLC, l'EU-US Data Privacy Framework.
         </p>
       </section>
 
       <section>
         <h2>Conservazione e controllo</h2>
         <ul>
-          <li>I dati locali restano sul dispositivo finché l'utente non li elimina.</li>
-          <li>I dati presenti nel backup cloud possono essere rimossi usando le funzioni di pulizia cloud disponibili nell'app.</li>
+          <li>I dati locali restano sul dispositivo finché l'utente non li elimina dall'app o non disinstalla l'app.</li>
+          <li>I dati dell'account (email, nome, piano) sono conservati finché l'account esiste e vengono cancellati con l'eliminazione dell'account.</li>
+          <li>I dati presenti nel backup cloud restano finché l'utente non li rimuove con le funzioni di pulizia cloud o non elimina l'account.</li>
+          <li>Il contatore giornaliero delle scansioni AI serve ad applicare le quote del piano ed è collegato all'account: viene cancellato con l'account.</li>
+          <li>I dati sugli acquisti sono conservati per la durata dell'abbonamento e, dopo, per il tempo richiesto dagli obblighi fiscali.</li>
+          <li>Le immagini inviate a Google Gemini API possono essere conservate da Google per un periodo limitato, come descritto sopra.</li>
           <li>Gli utenti Premium possono esportare i dati locali in CSV, JSON o ZIP con immagini.</li>
-          <li>Il contatore giornaliero delle scansioni AI viene usato per applicare le quote previste dal piano utente.</li>
         </ul>
       </section>
 
@@ -206,8 +237,20 @@
 
       <section>
         <h2>Diritti dell'utente</h2>
+        <p>In base agli articoli 15–22 del GDPR hai diritto di:</p>
+        <ul>
+          <li>accedere ai tuoi dati e riceverne una copia;</li>
+          <li>chiederne la rettifica o la cancellazione;</li>
+          <li>chiedere la limitazione del trattamento;</li>
+          <li>ricevere i dati in un formato strutturato e trasferirli ad altri (portabilità);</li>
+          <li>opporti ai trattamenti basati sul legittimo interesse;</li>
+          <li>revocare in qualsiasi momento il consenso agli annunci personalizzati.</li>
+        </ul>
+        <p style="margin-top: 14px">
+          Puoi gestire consensi, backup cloud, esportazione, cancellazione dati ed eliminazione account dalla sezione Dati e Privacy e dalla pagina Config dell'app. Per esercitare gli altri diritti scrivi a <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a>: rispondiamo entro 30 giorni.
+        </p>
         <p>
-          Puoi gestire consensi, backup cloud, esportazione, cancellazione dati ed eliminazione account dalla sezione Dati e Privacy e dalla pagina Config dell'app. Per richieste privacy puoi scrivere a <a href="mailto:vrexas.developer@gmail.com">vrexas.developer@gmail.com</a>.
+          Se ritieni che il trattamento violi il GDPR, puoi presentare reclamo al <a href="https://www.garanteprivacy.it">Garante per la protezione dei dati personali</a>.
         </p>
       </section>
     </main>
