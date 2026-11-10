@@ -11,6 +11,7 @@ import pianoMapsIcon from "../../PORTFOLIO/PianoMaps/icon_pianomaps.png";
 import eatsNeedIcon from "../../PORTFOLIO/EatsNeed/icon_eatsneed.png";
 import roamieIcon from "../../PORTFOLIO/Roamie/icon_roamie.png";
 import theJourneyIcon from "../../PORTFOLIO/TheJourney/icon_thejourney.webp";
+import zlotIcon from "../../PORTFOLIO/Zlot/icon_zlot.png";
 
 interface Project {
   id: string;
@@ -26,6 +27,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "zlot",
+    title: "ZLOT",
+    description: "Agenda per barbieri, centri estetici e studi con più persone, cabine e attrezzature: orari liberi inviati su WhatsApp, prenotazione dal link e notifiche al team, senza doppie prenotazioni.",
+    tags: ["Flutter", "Supabase", "PostgreSQL", "Riverpod", "FCM"],
+    image: zlotIcon,
+    imageAlt: "Icona ZLOT",
+    status: "In test",
+  },
   {
     id: "thejourney",
     title: "Jack Hollow – Il viaggio",

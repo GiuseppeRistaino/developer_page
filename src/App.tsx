@@ -25,6 +25,7 @@ import Roamie from "./pages/Roamie";
 import RoamiePrivacy from "./pages/RoamiePrivacy";
 import RoamieTerms from "./pages/RoamieTerms";
 import TheJourney from "./pages/TheJourney";
+import Zlot from "./pages/Zlot";
 import Documentation, { DocArticlePage } from "./pages/Documentation";
 import NotFound from "./pages/NotFound";
 
@@ -68,6 +69,7 @@ const App = () => (
             <Route path="/portfolio/roamie/privacy" element={<RoamiePrivacy />} />
             <Route path="/portfolio/roamie/terms" element={<RoamieTerms />} />
             <Route path="/portfolio/thejourney" element={<TheJourney />} />
+            <Route path="/portfolio/zlot" element={<Zlot />} />
             <Route path="/portfolio/:projectId" element={<ProjectBlog />} />
             <Route path="/documentazione" element={<Documentation />} />
             <Route path="/documentazione/:categoryId/:articleSlug" element={<DocArticlePage />} />
