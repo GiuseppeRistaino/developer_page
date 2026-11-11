@@ -12,6 +12,7 @@ import eatsNeedIcon from "../../PORTFOLIO/EatsNeed/icon_eatsneed.png";
 import roamieIcon from "../../PORTFOLIO/Roamie/icon_roamie.png";
 import theJourneyIcon from "../../PORTFOLIO/TheJourney/icon_thejourney.webp";
 import zlotIcon from "../../PORTFOLIO/Zlot/icon_zlot.png";
+import deckOfDorksIcon from "../../PORTFOLIO/DeckOfDorks/icon_deckofdorks.png";
 
 interface Project {
   id: string;
@@ -24,9 +25,21 @@ interface Project {
   imageZoom?: number;
   status?: string;
   externalUrl?: string;
+  // Sito statico pubblicato insieme al portfolio (public/), aperto nella stessa scheda
+  siteUrl?: string;
 }
 
 const projects: Project[] = [
+  {
+    id: "deckofdorks",
+    title: "Deck of Dorks",
+    description: "Gioco di carte tattico a turni con 210 carte disegnate a mano: collezione, evoluzioni e duelli 1 vs 1 online. Sito animato con la wiki di tutte le carte generata dai dati del gioco.",
+    tags: ["Unity", "C#", "Nakama", "TypeScript", "PostgreSQL"],
+    image: deckOfDorksIcon,
+    imageAlt: "Icona Deck of Dorks",
+    status: "In sviluppo",
+    siteUrl: `${import.meta.env.BASE_URL}deckofdorks/index.html`,
+  },
   {
     id: "zlot",
     title: "ZLOT",
@@ -227,6 +240,10 @@ const Portfolio = () => {
               <Reveal key={project.id} delay={(i % 3) * 90}>
                 {project.externalUrl ? (
                   <a href={project.externalUrl} target="_blank" rel="noreferrer" className={className}>
+                    {content}
+                  </a>
+                ) : project.siteUrl ? (
+                  <a href={project.siteUrl} className={className}>
                     {content}
                   </a>
                 ) : (

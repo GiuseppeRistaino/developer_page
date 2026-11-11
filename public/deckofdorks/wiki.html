@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wiki delle carte — Deck of Dorks</title>
+  <meta name="description" content="Tutte le carte di Deck of Dorks: statistiche, abilità, evoluzioni e rinascite di ogni Dork e Force of Nature.">
+  <meta name="theme-color" content="#120f1c">
+  <link rel="icon" href="assets/dod-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/dod-180.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/wiki.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true"></div>
+  <canvas id="fireflies" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html"><span class="brand__mark">D</span>Deck of Dorks</a>
+      <button class="nav__toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/portfolio">← Portfolio</a></li>
+        <li><a href="index.html#gioco">Il gioco</a></li>
+        <li><a href="index.html#fazioni">Fazioni</a></li>
+        <li><a href="index.html#modalita">Modalità</a></li>
+        <li><a href="wiki.html" aria-current="page">Wiki carte</a></li>
+        <li><a class="btn nav__cta" href="index.html#scarica">Gioca</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="wiki-hero">
+      <div class="container">
+        <p class="eyebrow" data-reveal="up">Il grimorio del borgo</p>
+        <h1 class="display split">Wiki delle carte</h1>
+        <p class="lead" data-reveal="up" style="--d:.2s">Ogni Dork e ogni Force of Nature, con statistiche, abilità, evoluzioni e rinascite. <span id="catalog-info"></span></p>
+        <label class="search" data-reveal="up" style="--d:.3s">
+          <span class="sr-only">Cerca</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg>
+          <input id="q" type="search" placeholder="Cerca un nome, un'abilità, una fazione…" autocomplete="off">
+        </label>
+        <div class="tabs" role="tablist" data-reveal="up" style="--d:.4s">
+          <button class="tab" role="tab" id="tab-cards" aria-selected="true" aria-controls="view-cards">Carte</button>
+          <button class="tab" role="tab" id="tab-abilities" aria-selected="false" aria-controls="view-abilities">Abilità</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="toolbar" id="toolbar">
+      <div class="container toolbar__row">
+        <button class="fbtn toolbar__toggle" id="filters-toggle" aria-expanded="false">Filtri ▾</button>
+        <div class="toolbar__filters">
+          <div class="fgroup" role="group" aria-label="Fazione"><span>Fazione</span>
+            <button class="fbtn" data-f="race" data-v="Dork" aria-pressed="false">Dork</button>
+            <button class="fbtn" data-f="race" data-v="Force of Nature" aria-pressed="false">Force of Nature</button>
+          </div>
+          <div class="fgroup" role="group" aria-label="Rarità"><span>Rarità</span>
+            <button class="fbtn" data-f="rarity" data-v="0" data-r="0" aria-pressed="false">Comune</button>
+            <button class="fbtn" data-f="rarity" data-v="1" data-r="1" aria-pressed="false">Raro</button>
+            <button class="fbtn" data-f="rarity" data-v="2" data-r="2" aria-pressed="false">Epico</button>
+            <button class="fbtn" data-f="rarity" data-v="3" data-r="3" aria-pressed="false">Leggendario</button>
+          </div>
+          <div class="fgroup" role="group" aria-label="Tipo"><span>Tipo</span>
+            <button class="fbtn" data-f="kind" data-v="Mischia" aria-pressed="false">Mischia</button>
+            <button class="fbtn" data-f="kind" data-v="Distanza" aria-pressed="false">Distanza</button>
+          </div>
+          <div class="fgroup"><span>Forma</span>
+            <select class="select" id="stage" aria-label="Forma">
+              <option value="all">Tutte le forme</option>
+              <option value="0">Solo forma base</option>
+              <option value="1">Evoluzione I</option>
+              <option value="2">Evoluzione II</option>
+              <option value="family">Raggruppa per famiglia</option>
+            </select>
+          </div>
+          <div class="fgroup"><span>Ordina</span>
+            <select class="select" id="sort" aria-label="Ordina">
+              <option value="default">Rarità</option>
+              <option value="name">Nome</option>
+              <option value="attack">Attacco</option>
+              <option value="health">Salute</option>
+            </select>
+          </div>
+        </div>
+        <span class="toolbar__count" id="count" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="grid" id="view-cards" role="tabpanel" aria-labelledby="tab-cards"></div>
+      <div class="abilities" id="view-abilities" role="tabpanel" aria-labelledby="tab-abilities" hidden></div>
+    </div>
+  </main>
+
+  <dialog class="sheet panel" id="sheet" aria-labelledby="sheet-title">
+    <button class="sheet__close" id="sheet-close" aria-label="Chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button class="sheet__nav sheet__nav--prev" id="sheet-prev" aria-label="Carta precedente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="sheet__nav sheet__nav--next" id="sheet-next" aria-label="Carta successiva"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    <div class="sheet__inner" id="sheet-body"></div>
+  </dialog>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="index.html"><span class="brand__mark">D</span>Deck of Dorks</a>
+          <p class="hand" style="color: var(--muted); font-size: 1.15rem; max-width: 34ch">Dati generati dal catalogo ufficiale del gioco: i valori possono cambiare con gli aggiornamenti di bilanciamento.</p>
+        </div>
+        <div><h4>Gioco</h4><ul><li><a href="index.html#gioco">Come si gioca</a></li><li><a href="index.html#fazioni">Fazioni</a></li><li><a href="index.html#evoluzioni">Evoluzioni</a></li></ul></div>
+        <div><h4>Wiki</h4><ul><li><a href="wiki.html">Tutte le carte</a></li><li><a href="wiki.html?rarity=3">Leggendari</a></li><li><a href="wiki.html#abilita">Abilità</a></li></ul></div>
+        <div><h4>Legale</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Termini e condizioni</a></li></ul></div>
+      </div>
+      <div class="footer__bottom"><span>© <span data-year>2026</span> Deck of Dorks. Tutti i diritti riservati. Un progetto di <a href="/portfolio">Giuseppe Ristaino</a>.</span><span class="hand">Che la tua roccia resti intera.</span></div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/wiki.js"></script>
+</body>
+</html>

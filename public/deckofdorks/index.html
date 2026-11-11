@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deck of Dorks — Il gioco di carte tattico del borgo</title>
+  <meta name="description" content="Deck of Dorks: colleziona 210 carte illustrate a mano, evolvi i tuoi Dork e le Force of Nature e sfida gli amici in battaglie tattiche a turni.">
+  <meta name="theme-color" content="#120f1c">
+  <meta property="og:title" content="Deck of Dorks">
+  <meta property="og:description" content="Colleziona, evolvi e combatti nel borgo più strambo del reame.">
+  <meta property="og:image" content="assets/img/village-night.webp">
+  <link rel="icon" href="assets/dod-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/dod-180.png">
+  <link rel="preload" href="assets/img/village-night.webp" as="image">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="is-loading">
+  <div class="sky" aria-hidden="true"></div>
+  <canvas id="fireflies" aria-hidden="true"></canvas>
+
+  <!-- Apertura: mazzo che mescola e sipario d'inchiostro -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader__half preloader__half--top"></div>
+    <div class="preloader__half preloader__half--bottom"></div>
+    <div class="preloader__stage">
+      <div class="preloader__deck"><div class="cardback">D</div><div class="cardback">D</div><div class="cardback">D</div></div>
+      <p class="preloader__title"><span class="ch" style="--i:0">D</span><span class="ch" style="--i:1">e</span><span class="ch" style="--i:2">c</span><span class="ch" style="--i:3">k</span>&nbsp;<span class="ch" style="--i:4">o</span><span class="ch" style="--i:5">f</span>&nbsp;<span class="ch" style="--i:6">D</span><span class="ch" style="--i:7">o</span><span class="ch" style="--i:8">r</span><span class="ch" style="--i:9">k</span><span class="ch" style="--i:10">s</span></p>
+      <div class="preloader__fuse"><span></span></div>
+      <p class="preloader__hint">Si accendono le lanterne del borgo…</p>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="index.html"><span class="brand__mark">D</span>Deck of Dorks</a>
+      <button class="nav__toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/portfolio">← Portfolio</a></li>
+        <li><a href="#gioco">Il gioco</a></li>
+        <li><a href="#fazioni">Fazioni</a></li>
+        <li><a href="#evoluzioni">Evoluzioni</a></li>
+        <li><a href="#modalita">Modalità</a></li>
+        <li><a href="wiki.html">Wiki carte</a></li>
+        <li><a class="btn nav__cta" href="#scarica">Gioca</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__bg" data-parallax="0.35"><img src="assets/img/village-night.webp" alt="" fetchpriority="high"></div>
+      <div class="container hero__grid">
+        <div>
+          <p class="eyebrow" data-hero style="--d:0">Gioco di carte tattico · 1 vs 1</p>
+          <h1 class="display hero__title" data-hero-title><small>Deck of</small>Dorks</h1>
+          <p class="lead" data-hero style="--d:.9">Nel borgo si accendono le lanterne: è ora di radunare la tua banda di Dork e creature della foresta, schierarli sul campo e frantumare la roccia magica dell'avversario. Colleziona, evolvi, combatti.</p>
+          <div class="hero__ctas" data-hero style="--d:1.1">
+            <a class="btn" href="#scarica">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>
+              Inizia l'avventura
+            </a>
+            <a class="btn btn--ghost" href="wiki.html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="12" height="17" rx="2"/><path d="M8 7h4M8 11h4M19 7v13"/></svg>
+              Esplora le carte
+            </a>
+          </div>
+          <div class="hero__badges" data-hero style="--d:1.3">
+            <span class="chip">✦ <b data-total-cards>210</b>&nbsp;carte</span>
+            <span class="chip">⚔ Battaglie a turni</span>
+            <span class="chip">☾ Disegnato a mano</span>
+          </div>
+        </div>
+        <div class="hand" id="hero-hand" aria-label="Carte leggendarie"><div class="hand__glow"></div></div>
+      </div>
+      <a class="scroll-cue" href="#gioco"><span></span>Scorri</a>
+    </section>
+
+    <!-- PARATA DI CARTE -->
+    <div class="parade" aria-hidden="true">
+      <div class="parade__row" id="parade-a"></div>
+      <div class="parade__row parade__row--rev" id="parade-b"></div>
+    </div>
+
+    <!-- NUMERI -->
+    <section class="section" style="padding-bottom: 40px">
+      <div class="container">
+        <div class="stats">
+          <div class="stat-box panel" data-reveal="up" style="--d:0s"><b data-count="210" id="stat-cards">0</b><span>carte illustrate</span></div>
+          <div class="stat-box panel" data-reveal="up" style="--d:.08s"><b data-count="70" id="stat-families">0</b><span>famiglie di eroi</span></div>
+          <div class="stat-box panel" data-reveal="up" style="--d:.16s"><b data-count="3">0</b><span>forme evolutive</span></div>
+          <div class="stat-box panel" data-reveal="up" style="--d:.24s"><b data-count="4">0</b><span>rarità da scoprire</span></div>
+          <div class="stat-box panel" data-reveal="up" style="--d:.32s"><b data-count="67" id="stat-abilities">0</b><span>abilità uniche</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COME SI GIOCA -->
+    <section class="howto" id="gioco" data-step="0">
+      <div class="howto__sticky">
+        <div class="container">
+          <div class="howto__grid">
+            <div class="board" id="board">
+              <img src="assets/img/battlefield.webp" alt="Il campo di battaglia notturno del borgo" loading="lazy">
+              <div class="board__grid" id="board-grid"></div>
+              <span class="rock rock--a" title="La tua roccia magica"></span>
+              <span class="rock rock--b" title="La roccia avversaria"></span>
+              <span class="board__boom"></span>
+            </div>
+            <div>
+              <p class="eyebrow">Come si gioca</p>
+              <h2 class="h-section split">Quattro corsie, una roccia da frantumare</h2>
+              <ol class="steps" id="steps">
+                <li class="is-active"><h3>Costruisci il mazzo</h3><p>Scegli fino a 8 carte dalla tua collezione. Ne peschi 4 all'inizio e ricarichi la mano a ogni turno.</p></li>
+                <li><h3>Schiera con astuzia</h3><p>Il campo ha 4 corsie e 6 colonne: tre sono tue. I combattenti in Mischia vanno al fronte, quelli a Distanza nelle retrovie.</p></li>
+                <li><h3>Scatena le abilità</h3><p>Veleno, scudi magici, trappole, evocazioni, colpi critici: ogni carta ha poteri che cambiano la battaglia.</p></li>
+                <li><h3>Frantuma la roccia</h3><p>Sfonda le linee nemiche e distruggi la roccia magica del condottiero avversario per vincere la partita.</p></li>
+              </ol>
+              <div class="howto__progress"><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAZIONI -->
+    <section class="factions" id="fazioni" data-reveal-class>
+      <article class="faction faction--dork">
+        <div class="faction__troop" id="troop-dork"></div>
+        <p class="eyebrow">Fazione</p>
+        <h3>Dork</h3>
+        <p>Goblin con le padelle per elmo, maghi distratti, cavalieri spettrali e strateghi alati. Testardi, rumorosi e incredibilmente coraggiosi: sono il cuore pulsante del borgo.</p>
+        <div class="faction__tags"><span class="chip" id="count-dork">35 famiglie</span><span class="chip">Lanterne e acciaio</span></div>
+      </article>
+      <img class="versus" src="assets/img/versus.webp" alt="contro" loading="lazy">
+      <article class="faction faction--nature">
+        <div class="faction__troop" id="troop-nature"></div>
+        <p class="eyebrow">Fazione</p>
+        <h3>Force of Nature</h3>
+        <p>Volpi delle nevi, conigli guerrieri, falene incantatrici e radici antiche quanto il mondo. La foresta si è svegliata e non ha nessuna intenzione di lasciarsi calpestare.</p>
+        <div class="faction__tags"><span class="chip">Muschio e magia</span><span class="chip" id="count-nature">35 famiglie</span></div>
+      </article>
+    </section>
+
+    <!-- EVOLUZIONI -->
+    <section class="evo" id="evoluzioni">
+      <div class="evo__sticky">
+        <div class="container evo__grid">
+          <div class="evo__stage">
+            <div class="evo__aura" id="evo-aura"></div>
+            <div class="evo__cards" id="evo-cards"></div>
+          </div>
+          <div>
+            <p class="eyebrow">Evoluzioni</p>
+            <h2 class="h-section split">Ogni eroe cresce. Alcuni diventano leggenda.</h2>
+            <p class="lead">Sali di livello, guadagna stelle con le rinascite e sblocca due evoluzioni: nuovo aspetto, statistiche più alte e un'abilità tutta nuova.</p>
+            <div class="evo__rail" id="evo-rail"></div>
+            <div class="evo__info" id="evo-info"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RARITÀ -->
+    <section class="section" id="rarita">
+      <div class="container">
+        <div class="section__head center">
+          <p class="eyebrow">Collezione</p>
+          <h2 class="h-section split">Dal comune al leggendario</h2>
+          <p class="lead" data-reveal="up">Apri gli scrigni, trova i duplicati e potenzia le carte. Le cornici cambiano colore con la rarità: la caccia alla dorata non finisce mai.</p>
+        </div>
+        <div class="rarities" id="rarities"></div>
+      </div>
+    </section>
+
+    <!-- LEGGENDARI -->
+    <section class="legends" id="leggendari">
+      <div class="legends__sticky">
+        <div class="legends__track" id="legends-track">
+          <div class="legends__intro">
+            <p class="eyebrow">I leggendari</p>
+            <h2 class="h-section">Dieci nomi che il borgo sussurra</h2>
+            <p class="lead">Ogni leggendario ha abilità esclusive, illustrate e animate apposta. Passa sopra una carta per evocarne la pedina.</p>
+          </div>
+        </div>
+        <div class="legends__bar"><span></span></div>
+      </div>
+    </section>
+
+    <!-- MODALITÀ -->
+    <section class="section" id="modalita">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Modalità di gioco</p>
+          <h2 class="h-section split">Il borgo non dorme mai</h2>
+        </div>
+        <div class="modes">
+          <article class="mode mode--wide" data-reveal="up">
+            <img class="mode__bg" src="assets/img/story-world.webp" alt="" loading="lazy">
+            <span class="chip mode__tag">Storia</span>
+            <h3>Il viaggio</h3>
+            <p>Parti dalla piazza del borgo e attraversa ponti, cascate e boschi incantati. Sconfiggi i nemici controllati dall'IA, sblocca nuovi luoghi e guadagna monete a ogni vittoria.</p>
+          </article>
+          <article class="mode" data-reveal="up" style="--d:.05s">
+            <img class="mode__bg" src="assets/img/arena.webp" alt="" loading="lazy">
+            <span class="chip mode__tag">Online</span>
+            <div class="tiers" id="tiers">
+              <img src="assets/img/tier-bronze.webp" alt="Bronzo" title="Bronzo" loading="lazy">
+              <img src="assets/img/tier-silver.webp" alt="Argento" title="Argento" loading="lazy">
+              <img src="assets/img/tier-gold.webp" alt="Oro" title="Oro" loading="lazy">
+              <img src="assets/img/tier-platinum.webp" alt="Platino" title="Platino" loading="lazy">
+              <img src="assets/img/tier-diamond.webp" alt="Diamante" title="Diamante" loading="lazy">
+              <img src="assets/img/tier-challenger.webp" alt="Sfidante" title="Sfidante" loading="lazy">
+            </div>
+            <h3>Arena e Lega</h3>
+            <p>Affronta giocatori reali in duelli 1 vs 1 e scala le fasce, dal Bronzo fino agli Sfidanti.</p>
+          </article>
+          <article class="mode" data-reveal="up" style="--d:.1s">
+            <img class="mode__bg" src="assets/img/battlefield.webp" alt="" loading="lazy">
+            <span class="chip mode__tag">Con gli amici</span>
+            <h3>Duelli privati</h3>
+            <p>Crea una stanza, condividi il codice e sfida un amico. Le regole girano sul server: niente trucchi, solo strategia.</p>
+          </article>
+          <article class="mode mode--third" data-reveal="up">
+            <img class="mode__bg" src="assets/img/village-night-sm.webp" alt="" loading="lazy" style="object-position: 15% 60%">
+            <div class="chests"><img src="assets/img/chest-wood.webp" alt="Scrigno di legno" loading="lazy"><img src="assets/img/chest-gold.webp" alt="Scrigno dorato" loading="lazy"></div>
+            <span class="chip mode__tag">Mercato</span>
+            <h3>Scrigni</h3>
+            <p>Scrigni di legno e dorati, quattro carte per apertura e rarità garantite.</p>
+          </article>
+          <article class="mode mode--third" data-reveal="up" style="--d:.05s">
+            <img class="mode__bg" src="assets/img/village-night-sm.webp" alt="" loading="lazy" style="object-position: 60% 70%">
+            <span class="chip mode__tag">Bacheca</span>
+            <h3>Missioni</h3>
+            <p>Obiettivi giornalieri e mensili sulla bacheca del borgo, con monete e gemme in palio.</p>
+          </article>
+          <article class="mode mode--third" data-reveal="up" style="--d:.1s">
+            <img class="mode__bg" src="assets/img/village-night-sm.webp" alt="" loading="lazy" style="object-position: 85% 55%">
+            <span class="chip mode__tag">Collezione</span>
+            <h3>Il tuo mazzo</h3>
+            <p>Livelli, stelle, rinascite ed evoluzioni: ogni carta racconta i tuoi progressi.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="scarica">
+      <div class="cta__bg" data-parallax="0.2"></div>
+      <div class="container">
+        <p class="eyebrow">Presto disponibile</p>
+        <h2 class="display split">Il borgo ti aspetta</h2>
+        <p class="lead" data-reveal="up">Deck of Dorks arriva su Android e iOS. Nel frattempo, studia ogni carta nella wiki e prepara il mazzo perfetto.</p>
+        <div class="cta__btns" data-reveal="up" style="--d:.15s">
+          <span class="store" aria-label="Google Play, presto disponibile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+            <span><small>Presto su</small><b>Google Play</b></span>
+          </span>
+          <span class="store" aria-label="App Store, presto disponibile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+            <span><small>Presto su</small><b>App Store</b></span>
+          </span>
+          <a class="btn" href="wiki.html">Apri la wiki delle carte</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="index.html"><span class="brand__mark">D</span>Deck of Dorks</a>
+          <p class="hand" style="color: var(--muted); font-size: 1.15rem; max-width: 34ch">Un gioco di carte tattico nato tra le lanterne di un borgo che non va mai a dormire.</p>
+        </div>
+        <div><h4>Gioco</h4><ul><li><a href="#gioco">Come si gioca</a></li><li><a href="#fazioni">Fazioni</a></li><li><a href="#evoluzioni">Evoluzioni</a></li><li><a href="#modalita">Modalità</a></li></ul></div>
+        <div><h4>Wiki</h4><ul><li><a href="wiki.html">Tutte le carte</a></li><li><a href="wiki.html?rarity=3">Leggendari</a></li><li><a href="wiki.html#abilita">Abilità</a></li></ul></div>
+        <div><h4>Legale</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Termini e condizioni</a></li><li><a href="privacy.html#cookie">Cookie</a></li></ul></div>
+      </div>
+      <div class="footer__bottom"><span>© <span data-year>2026</span> Deck of Dorks. Tutti i diritti riservati. Un progetto di <a href="/portfolio">Giuseppe Ristaino</a>.</span><span class="hand">Fatto con inchiostro, lanterne e un pizzico di follia.</span></div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>
