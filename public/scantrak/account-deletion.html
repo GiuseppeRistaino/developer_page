@@ -128,11 +128,32 @@
         padding: 11px 16px;
         text-decoration: none;
       }
+    
+      .lang {
+        margin: 0 0 18px;
+        font-size: 14px;
+      }
+
+      .lang a {
+        color: var(--brand-dark);
+      }
     </style>
+      <link rel="alternate" hreflang="en" href="en/account-deletion.html" />
+    <script>
+      // Browser non in italiano: mostra la versione inglese. ?lang=it la disattiva.
+      (function () {
+        try {
+          if (/[?&]lang=it\b/.test(location.search)) return;
+          var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || 'it').toLowerCase();
+          if (lang.indexOf('it') !== 0) location.replace('en/account-deletion.html' + location.hash);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <header>
       <div class="hero">
+        <p class="lang"><a href="en/account-deletion.html" hreflang="en" lang="en">English</a></p>
         <p class="eyebrow">ScanTrak</p>
         <h1>Eliminazione account e dati</h1>
         <p class="lead">

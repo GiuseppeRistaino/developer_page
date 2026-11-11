@@ -127,17 +127,38 @@
         padding: 11px 16px;
         text-decoration: none;
       }
+    
+      .lang {
+        margin: 0 0 18px;
+        font-size: 14px;
+      }
+
+      .lang a {
+        color: var(--brand-dark);
+      }
     </style>
+      <link rel="alternate" hreflang="en" href="en/privacy.html" />
+    <script>
+      // Browser non in italiano: mostra la versione inglese. ?lang=it la disattiva.
+      (function () {
+        try {
+          if (/[?&]lang=it\b/.test(location.search)) return;
+          var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || 'it').toLowerCase();
+          if (lang.indexOf('it') !== 0) location.replace('en/privacy.html' + location.hash);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <header>
       <div class="hero">
+        <p class="lang"><a href="en/privacy.html" hreflang="en" lang="en">English</a></p>
         <p class="eyebrow">ScanTrak</p>
         <h1>Informativa Privacy</h1>
         <p class="lead">
           ScanTrak è progettata con un approccio locale: scontrini, immagini e statistiche sono salvati prima di tutto sul dispositivo. Questa pagina descrive quali dati possono essere trattati e come l'utente mantiene il controllo.
         </p>
-        <p class="meta">Ultimo aggiornamento: 6 novembre 2026</p>
+        <p class="meta">Ultimo aggiornamento: 11 novembre 2026</p>
       </div>
     </header>
 
@@ -153,7 +174,7 @@
         <h2>Dati trattati</h2>
         <ul>
           <li><strong>Account:</strong> email, nome visualizzato, identificativo utente Firebase, piano attuale e stato Premium.</li>
-          <li><strong>Scontrini:</strong> negozio, data, totale, metodo di pagamento, articoli, categorie e immagini dello scontrino.</li>
+          <li><strong>Scontrini:</strong> negozio, data, totale, valuta, metodo di pagamento, articoli, categorie e immagini dello scontrino.</li>
           <li><strong>Uso AI:</strong> conteggio giornaliero delle scansioni e immagini inviate a Google Gemini API per l'analisi.</li>
           <li><strong>Backup cloud:</strong> dati e immagini caricati su Firebase solo se l'utente Premium attiva la funzione.</li>
           <li><strong>Acquisti Premium:</strong> identificativo del prodotto acquistato, token di acquisto di Google Play, data di scadenza e stato dell'abbonamento. I dati di pagamento (carta, conto) sono gestiti solo da Google Play e non arrivano a ScanTrak.</li>
@@ -184,6 +205,9 @@
         </p>
         <p>
           ScanTrak usa anche servizi Google Firebase (autenticazione, database, archiviazione e Cloud Functions), Google Sign-In, Google Play Billing, Google AdMob e Google UMP. Il backup cloud è separato dalla scansione AI: se l'utente Premium lo attiva, ScanTrak salva su Firebase scontrini, articoli, totali, categorie e immagini associate.
+        </p>
+        <p>
+          I dati locali (database degli scontrini, categorie e preferenze, non le foto degli scontrini) possono essere inclusi nel backup Android del dispositivo sul tuo account Google. Quel backup è cifrato end-to-end con il blocco schermo ed è gestito da Android, non da ScanTrak.
         </p>
       </section>
 
