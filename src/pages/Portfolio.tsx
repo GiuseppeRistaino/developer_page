@@ -10,6 +10,7 @@ import subtrakIcon from "../../PORTFOLIO/Subtrak/icon_subtrak.svg";
 import pianoMapsIcon from "../../PORTFOLIO/PianoMaps/icon_pianomaps.png";
 import eatsNeedIcon from "../../PORTFOLIO/EatsNeed/icon_eatsneed.png";
 import roamieIcon from "../../PORTFOLIO/Roamie/icon_roamie.png";
+import wayfarersTaleIcon from "../../PORTFOLIO/WayfarersTale/icon_wayfarerstale.png";
 import theJourneyIcon from "../../PORTFOLIO/TheJourney/icon_thejourney.webp";
 import zlotIcon from "../../PORTFOLIO/Zlot/icon_zlot.png";
 import deckOfDorksIcon from "../../PORTFOLIO/DeckOfDorks/icon_deckofdorks.png";
@@ -30,6 +31,15 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "wayfarerstale",
+    title: "Wayfarer's Tale",
+    description: "App per viaggiatori: un tasto per partire, promemoria a sorpresa per fotografare i momenti e, alla fine, un libro animato con le giornate in mazzetti di polaroid. Tutto resta sul telefono.",
+    tags: ["Flutter", "Notifiche locali", "Animazioni", "Geolocation", "Dart"],
+    image: wayfarersTaleIcon,
+    imageAlt: "Icona Wayfarer's Tale",
+    status: "In arrivo",
+  },
   {
     id: "deckofdorks",
     title: "Deck of Dorks",

@@ -24,6 +24,9 @@ import EatsNeedTerms from "./pages/EatsNeedTerms";
 import Roamie from "./pages/Roamie";
 import RoamiePrivacy from "./pages/RoamiePrivacy";
 import RoamieTerms from "./pages/RoamieTerms";
+import WayfarersTale from "./pages/WayfarersTale";
+import WayfarersTalePrivacy from "./pages/WayfarersTalePrivacy";
+import WayfarersTaleTerms from "./pages/WayfarersTaleTerms";
 import TheJourney from "./pages/TheJourney";
 import Zlot from "./pages/Zlot";
 import DeckOfDorks from "./pages/DeckOfDorks";
@@ -69,6 +72,9 @@ const App = () => (
             <Route path="/portfolio/roamie" element={<Roamie />} />
             <Route path="/portfolio/roamie/privacy" element={<RoamiePrivacy />} />
             <Route path="/portfolio/roamie/terms" element={<RoamieTerms />} />
+            <Route path="/portfolio/wayfarerstale" element={<WayfarersTale />} />
+            <Route path="/portfolio/wayfarerstale/privacy" element={<WayfarersTalePrivacy />} />
+            <Route path="/portfolio/wayfarerstale/terms" element={<WayfarersTaleTerms />} />
             <Route path="/portfolio/thejourney" element={<TheJourney />} />
             <Route path="/portfolio/zlot" element={<Zlot />} />
             <Route path="/portfolio/deckofdorks" element={<DeckOfDorks />} />
